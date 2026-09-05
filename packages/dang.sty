@@ -1,0 +1,19 @@
+%======== README ========%
+% This package implements the environment "dang" using the tcolorbox package. The environment creates a box contour around whatever is written inside it.
+% The code was taken from from https://tex.stackexchange.com/questions/369430/theorems-and-definitions-boxes-numbering-should-be-chapter-wise
+%=======================%
+
+\usepackage[most]{tcolorbox}
+\tcbset{%
+  dang/.style={
+    enhanced,
+    sharp corners,
+    enlarge top by=0.2cm,
+    enlarge bottom by=0.2cm,
+    before skip=2mm, after skip=2mm,
+    colback=lightgray, colframe=black,
+    boxrule=0.1mm
+    }
+}
+
+\newtcolorbox{dang}[1][]{dang,#1}

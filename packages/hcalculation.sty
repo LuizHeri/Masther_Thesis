@@ -1,0 +1,21 @@
+\usepackage{amsmath}
+\usepackage{environ}
+
+% See https://tex.stackexchange.com/questions/51682/is-it-possible-to-pagebreak-aligned-equations
+% for using \allowdisplaybreaks to break page on amsmath environments..
+
+\NewEnviron{hcalculation}[2][\iff]{%
+  \newcommand{\hstep}[3][#1]{%
+    \\ ##1  %
+    & \quad ##2 %
+    & \scalebox{0.9}{$\left( \text{##3} \right)$}}
+  % 3 columns with content in math mode (c l r)
+  % The last one is aligned to the right margin.
+  {
+  \allowdisplaybreaks
+  \begin{flalign*}
+    & \quad #2 &
+    \BODY
+  \end{flalign*}
+  }
+}

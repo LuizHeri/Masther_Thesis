@@ -1,0 +1,914 @@
+\chapter{\texorpdfstring{Conjugacy classes of $GL_n(\mathbb{F}_q)$ and its space of characters}{Conjugacy classes of \text{GLn(Fq)} and its space of characters}}
+
+\section{Finite fields}
+\subsection{Basic definitions and theorems}
+\begin{dang}
+    \begin{definition}\cite{lidl1994introduction}
+        Let $R$ be a ring. So $(R,+)$ is an abelian group, and hence a $\bb{Z}-$module. If there exists $n\in\bb{Z}$ such that $nx=0$ for all $x\in R$ we say that $R$ is of \textit{positive characteristic}. In this case, the smallest positive integer $n$ such that $nx=0$ for all $x\in R$ is called the \textit{characteristic} of $R$.
+    \end{definition}
+\end{dang}
+We make an observation that $nx=0$ for all $x\in R$ if and only if $n1=0$.
+\begin{dang}
+    \begin{theorem}\cite{lidl1994introduction}
+        A ring $R$ of positive characteristic having no zero divisors must have prime characteristic. 
+    \end{theorem}
+\end{dang}
+Proof: By hypothesis there exists a smallest $n\geq1$ such that $nx=0$ for all $x\in R$. If $n$ is not prime, then $n=md$ for some $m,d>1$. In this case we have $(m1)(d1)=md1=n1=0$. Since $R$ has no zero divisors, we have $m1=0$ or $d1=0$. In any case we have a contradiction with the minimality of $n$.
+
+\begin{dang}
+    \begin{theorem}
+    For every prime $q>1$, there is an unique field (up to isomorphism) $\fq$ of cardinality $q$.
+    \end{theorem}
+\end{dang}
+Proof: For every prime $q>1$, $(q)$ is a prime ideal and $\bb{Z}/(q)$ is a finite integral domain with $q$ elements. By theorem~(\ref{a finite integral domain is a field}) $\bb{Z}/(q)$ is a field. For uniqueness, let $\bb{F}$ be a field of prime cardinality $q$. Now, the homomorphism $f:\bb{Z}\rightarrow \bb{F}:m\mapsto m1$ has kernel $(q)$, by the definition of the characteristic of $\bb{F}$. Therefore, we have an injective homomorphism $\bb{Z}/(q)\hookrightarrow F$. Since $|\bb{F}|=q$, this homomorphism is also a surjection, so it is in fact an isomorphism. Therefore $\bb{F}\cong \bb{Z}/(q)$.
+\begin{dang}
+    \begin{notation}
+        For each prime $q$ we will write $\fq\bydef \bb{Z}/(q)$ to be the unique field (up to isomorphism) of cardinality $q$.
+    \end{notation}
+\end{dang}
+\begin{dang}
+    \begin{theorem}\cite{lidl1994introduction}\label{If F has characteristic q, then Fq is contained in F}
+        Let $F$ be a finite field. So it's of prime characteristic $q>1$ and there is an injection $\fq\hookrightarrow F$. In this case $|F|=q^{[F:\fq]}$.
+    \end{theorem}
+\end{dang}
+Proof: Let $f:\bb{Z}\rightarrow F: m\mapsto m1$, then clearly $\text{Ker}(f)=(q)$. So we have an injection $\fq=\bb{Z}/(q)\hookrightarrow F$. For this reason, we can think of $\fq\subset F$. So $F$ is a vector space over $\fq$ of dimension $\text{dim}_{\fq}(F)=[F:\fq]\Rightarrow F\cong \fq^{[F:\fq]}$. Therefore $|F|=q^{[F:\fq]}$.
+
+\begin{dang}
+    \begin{theorem}
+        Let $F$ be a field and $f\in F[x]$ a polynomial of degree $n$. Then there exists a unique field $E$ (up to isomorphism), such that $f(x)=\prod_{i=1}^{n}(x-r_i)$ in $E$ while $E=F(r_1,\dots,r_n)$. In this case, we write $E=\text{Split}_F(f)$ and call it the \textit{splitting} field of $f$ over $F$.
+    \end{theorem}
+\end{dang}
+Proof: See~(\cite{jacobson2012basic}, Chapter IV).
+
+\begin{dang}
+    \begin{theorem}\cite{lidl1994introduction}
+    For every prime $q$ and integer $n>0$ there is a unique (up to isomorphism) field $\bb{F}$ of cardinality $q^n$.
+    \end{theorem}
+\end{dang}
+Proof: (Existence) Let $f=x^{q^n}-x\in\fq[x]$ and $E=\text{Split}_{\fq}(f)$ be the splitting field of $f$ over $\fq$. Since $f^\prime=-1\Rightarrow \text{gcd}(f,f^\prime)=1$. Therefore, all the roots of $f$ in $E$ are distinct. So $F\bydef\{\alpha\in E\;|\;\alpha^{q^n}=\alpha\}$ is a subfield of $E$ with $q^n$ elements (it is clear that $F$ is closed under multiplication, but is also closed under sum because $(a+b)^q=a^q+b^q$. Clearly, $F$ if obtained from $\fq$ by adjoining all the roots of $x^{q^n}-x\in\fq[x]$. So $F\cong E\Rightarrow F=E$, by the uniqueness (up to isomorphisms) of splitting fields. So, the field that we are looking is exactly the splitting field of the polynomial $x^{q^n}-x$ over $\fq$.\par
+(Uniqueness) Let $F$ be a field of cardinality $q^n$, so it is of prime characteristic, say $p$. By the theorem~(\ref{If F has characteristic q, then Fq is contained in F}), we have $\bb{F}_p\subset F$ and $p^d=q^n$ where $d=[F:\bb{F}_p]$. Since both $q$ and $p$ are prime, we have $q=p$ and $n=[F:\bb{F}_q]$. Now, the polynomial $x^{q^n}-x\in \fq[x]$ factors in $F$, because $\alpha^{q^n}=\alpha$ for all $\alpha\in F$. Therefore, we have the decomposition
+\begin{equation}
+    x^{q^n}-x =\prod_{\alpha\in F}(x-\alpha).
+\end{equation}
+Clearly $F$ is obtained from $\fq$ by adjoining all the roots of $x^{q^n}-x\in\fq[x]$. So $F$ is a splitting field of $x^{q^n}-x$ over $\fq$.
+\begin{dang}
+    \begin{notation}
+        Let $q$ be a prime number and $n\geq1$ a positive integer. Then we saw that $\fq\bydef\bb{Z}/(q)$ and $\text{Split}_{\fq}(x^{q^n}-x)$ is the unique (up to isomorphisms) field extension of $\fq$ of cardinality $q^n$ (or equivalently, the unique field extension of degree $n$ of $\fq$). So we write $\bb{F}_{q^n}=\text{Split}_{\fq}(x^{q^n}-x)$.
+    \end{notation}
+\end{dang}
+
+
+\subsection{Orbits for the Frobenius map}
+In this subsection we will set the stage to understand how to parametrize conjugacy classes on $GL_n(\bb{F}_q)$.
+\begin{dang}
+    \begin{definition}\cite{lidl1994introduction}
+    For any prime $q$ and positive integer $n\geq1$, denote the multiplicative group of $\bb{F}_{q^n}$ by $M_n$. We define the \textit{Frobenius automorphism} of $\bb{F}_{q^m}$ to be the map $F: M_n\rightarrow M_n: x\mapsto x^{q}$.
+\end{definition}
+\end{dang}
+
+\begin{dang}
+    \begin{theorem}\cite{lidl1994introduction}\label{Fqn is the unique extension of Fqm of degree n/m}
+     Let $n,m\geq1$ be positive integers such that $m|n$ and $q>1$ a prime number. Then $\bb{F}_{q^n}$ is the unique field extension of $\bb{F}_{q^m}$ of degree $d=n/m$.
+    \end{theorem}
+\end{dang}
+Proof: Since $m|n$, we have that $(q^m-1)|(q^n-1)$ and $(x^{q^m-1}-1)|(x^{q^n-1}-1)\iff (x^{q^m}-x)|(x^{q^n}-x)$. Therefore $\fq\subset\text{Split}_{\fq}(x^{q^m}-x)\subset\text{Split}_{\fq}(x^{q^n}-x)$, i.e. $\bb{F}_{q^m}\subset \bb{F}_{q^n}$. Moreover $[\bb{F}_{q^n}:\bb{F}_{q^m}]=[\bb{F}_{q^n}:\fq]/[\bb{F}_{q^m}:\fq]=d$. Now, if $F|\bb{F}_{q^m}$ is a field extension of degree $d=n/m$, then by lemma~(\ref{If F has characteristic q, then Fq is contained in F}), $|F|=(q^m)^d=q^n\Rightarrow F=\bb{F}_{q^n}$.\par
+It's important to note in the previous proof that $\bb{F}_{q^m}$ is the \textit{unique} subfield of $\bb{F}_{q^n}$ with $q^m$ elements. Otherwise $x^{q^m}-x$ would have more than $q^m$ roots in $\bb{F}_{q^n}$, which is a contradiction. Therefore, the subfield $\bb{F}_{q^m}\subset \bb{F}_{q^n}$ is characterized as being the set of fixed point of $F^m:x\mapsto x^{q^m}$ in $\bb{F}_{q^m}$. So we get the following corollary.
+\begin{dang}
+    \begin{corollary}\label{characterization of M_m inside M_n}
+        Let $q$ be a prime and $n$ a positive integer. Then, for any positive integer $m$ that divides $n$, the subfield $\bb{F}_{q^m}\subset \bb{F}_{q^n}$ is characterized as the set of fixed points of $F^m$, where $F$ is the Frobenius automorphism of $\bb{F}_{q^n}$ over $\fq$.
+    \end{corollary}
+\end{dang}
+\begin{dang}
+    \begin{notation}
+        We saw that a finite field necessarily have a power of a prime as its number of elements. So, from now on, $q$ will denote a power of a prime.
+    \end{notation}
+\end{dang}
+
+\begin{dang}
+    \begin{lemma}\label{f irreducible divides xqn-x iff d(f) divides n}
+        Let $f\in\fq[x]$ be an irreducible polynomial over $\fq$ of degree $m$. Then $f$ divides $x^{q^n}-x\in\fq[x]$ if and only if $m$ divides $n$.
+    \end{lemma}
+\end{dang}
+Proof: Suppose that $f$ divides $x^{q^n}-x$. Then $\text{Split}_{\fq}(f)\subset\text{Split}_{\fq}(x^{q^n}-x)=\bb{F}_{q^n}$. But, for any root $\alpha$ of $f$ in its splitting field over $\fq$ we have $\fq(\alpha)\subset \bb{F}_{q^n}$. Since $f$ is irreducible of degree $m$, $\fq(\alpha)|\fq$ is a field extension of degree $m$ and $\fq(\alpha)=\bb{F}_{q^m}$ by lemma~(\ref{If F has characteristic q, then Fq is contained in F}). Hence $\bb{F}\subset \bb{F}_{q^m}\subset \bb{F}_{q^n}\Rightarrow n=[\bb{F}_{q^n}:\fq]=[\bb{F}_{q^n}:\bb{F}_{q^m}][\bb{F}_{q^m}:\fq]=[\bb{F}_{q^n}:\bb{F}_{q^m}]m$, which implies that $m$ divides $n$.\par
+Conversely, suppose that $m$ divides $n$. Then, if $\alpha\in\text{Split}_{\fq}(f)$ is a root of $f$, then $\fq(\alpha)=\bb{F}_{q^m}$. But, by theorem~(\ref{Fqn is the unique extension of Fqm of degree n/m}) $\bb{F}_{q^m}\subset\bb{F}_{q^n}\Rightarrow \alpha\in\bb{F}_{q^n}$ and $\alpha$ must be a root of $x^{q^n}-x\in\fq[x]$. Since $f$ is irreducible over $\fq$, $f$ must divide $x^{q^n}-x$ in $\fq[x]$.\par
+Now we will show that if $f\in\fq[x]$ is irreducible of degree $m$, then the splitting field of $f$ is exactly $\bb{F}_{q^m}$.
+\begin{dang}
+    \begin{theorem}\label{each irredcubible polynomial f gives an orbit of the Frobenius automorphism}
+        Let $f\in\fq[x]$ be an irreducible polynomial over $\fq$ of degree $m$. Then, if $\alpha$ is a root in the splitting field of $f$ over $\fq$, we get that  
+        \begin{equation}
+            f=\prod_{i=0}^{m-1}(x-\alpha^{q^i})
+        \end{equation}
+        in its splitting field. Moreover, all the roots $\{\alpha,\dots,\alpha^{q^m-1}\}$ are distinct (with $\alpha^{q^m}=\alpha$), and the splitting field of $f$ over $\fq$ is $\bb{F}_{q^m}$.
+    \end{theorem}
+\end{dang}
+Proof: Let $\alpha$ be a root of $f$ in the splitting field of $f$ over $\fq$. Then $\fq(\alpha)=\bb{F}_{q^m}\subset \text{Split}_{\fq}(f)$. But we have that $f(\beta^q)=f(\beta)^q$ for any $\beta\in \text{Split}_{\fq}(f)$.\par
+Therefore $\{\alpha,\alpha^q,\dots,\alpha^{q^{m-1}}\}$ are all roots of $f$. We claim that these roots are distinct. Suppose that $\alpha^{q^i}=\alpha^{q^j}$ for some $i$ and $j$ such that $1\leq i<j<m$, then $\alpha^{q^{m+i-j}}=(\alpha^{q^i})^{q^{m-j}}=(\alpha^{q^j})^{q^{m-j}}=\alpha^{q^m}=\alpha$ because $\alpha\in\bb{F}_{q^m}$. But, since $f$ is irreducible, $f$ must divide $x^{q^{m+i-j}}-x$. By lemma~(\ref{f irreducible divides xqn-x iff d(f) divides n}), this happens only if $m|(m+i-j)$, which is impossible because $m+i-j<m$. Therefore, since $\fq(\alpha)=\fq(\alpha,\dots,\alpha^{q^{n-1}})$, we see that $\bb{F}_{q^m}=\fq(\alpha)=\text{Split}_{\fq}(f)$.\par
+Lets summarize what we have done so far. We know that for each prime $q$ and positive integer $n\geq1$, there is a field $\bb{F}_{q^n}$ of cardinality $q^n$. These fields are uniquely defined (up to isomorphism). Moreover, for each $m|n$ we have an inclusion $\bb{F}_{q^m}\subset \bb{F}_{q^n}$. In particular, this shows that 
+\begin{equation}
+    F\bydef \bigcup_{n\geq1}\bb{F}_{q^{n!}}=\bigcup_{n\geq1}\bb{F}_{q^{n}}
+\end{equation}
+is a field. Moreover, by the theorem~(\ref{each irredcubible polynomial f gives an orbit of the Frobenius automorphism}), for each irreducible polynomial $f\in\fq[x]$ of degree $m$, the splitting field of $f$ is exactly $\bb{F}_{q^m}$. This shows that each polynomial over $\fq$ has a root in $F$ and $F=\overline{\bb{F}}_q$ must be the algebraic closure of $\fq$.
+\begin{dang}
+    \begin{notation}
+        The multiplicative group of $\overline{\bb{F}}_q$ will be denoted by $M$.
+    \end{notation}
+\end{dang}
+It follows from the theorem~(\ref{each irredcubible polynomial f gives an orbit of the Frobenius automorphism}) that each irreducible polynomial over $\fq$ gives an orbit of the action of the Frobenius automorphism on $M$. Conversely, let $\{\alpha,\dots,\alpha^{q^{n-1}}\}$ (where $n$ is the smallest positive integer such that $\alpha^{q^n}=\alpha$) be an orbit of the Frobenius automorphism on $M$. We claim that the polynomial 
+\begin{equation}
+    f\bydef\prod_{i=0}^{n-1}(x-\alpha^{q^i})\in\bb{F}_{q^n}[x]
+\end{equation}
+has coefficients in $\fq$. In fact, extend the Frobenius automorphism $F$ over $\bb{F}_{q^n}$ to $\bb{F}_{q^n}[x]$ in the natural way, i.e.
+\begin{equation}
+    F\left(\sum_{i=0}^na_ix^i\right)\bydef \sum_{i=0}^nF(a_i)x^i.
+\end{equation}
+Then
+\begin{equation}
+\begin{split}
+     F(f)&=\prod_{i=0}^{n-1}(x-F(\alpha^{q^i}))\\
+     &=\prod_{i=0}^{n-1}(x-\alpha^{q^{i+1}})\\
+     &=\prod_{i=0}^{n-1}(x-\alpha^{q^{i}})\;\;\text{ because }\alpha^{q^n}=\alpha.
+\end{split}
+\end{equation}
+So, all the coefficients of $f$ are fixed by $F$. By corollary~(\ref{characterization of M_m inside M_n}), we see that all the coefficients of $f$ must belong to $\fq$ and $f\in\fq[x]$. Now, suppose that $f_1\in\fq[x]$ is an irreducible component of $f$ with $\alpha$ as one of its roots. Then, by theorem~(\ref{each irredcubible polynomial f gives an orbit of the Frobenius automorphism}), $f_1$ has $d(f_1)$ distinct roots $\{\alpha,\dots,\alpha^{q^{d(f_1)-1}}\}\subset \bb{F}_{q^n}$ where $\alpha^{q^{d(f_1)}}=\alpha$. So $d(f_1)$ is the smallest positive integer such that $\alpha^{q^{d(f_1)}}=\alpha\Rightarrow d(f_1)=n$ and $f=f_1$. Therefore, $f$ is irreducible and we deduce the next theorem.
+\begin{dang}
+    \begin{theorem}
+        Let $\Phi$ denote the set of $F-$orbits in $M$. Then, there is a one to one correspondence between irreducible polynomials over $\fq$ and elements of $\Phi$. Moreover, for each irreducible polynomial $f$ of degree $m$, the corresponding orbit induced by $f$ has $m$ elements. For this reason, we will identify $\Phi$ with the set of irreducible polynomials over $\fq$.
+    \end{theorem}
+\end{dang}
+\begin{dang}
+    \begin{corollary}\cite{macdonald1998symmetric}
+        Let $\Phi_n$ be the set of $F-$orbits in $M_n$, then $\Phi_n=\{f\in\Phi\;|\;d(f)|n\}$.
+    \end{corollary}
+\end{dang}
+Proof: This follows directly from the fact that $\bb{F}_{q^{d(f)}}$ is the splitting field of $f$ (by theorem~(\ref{each irredcubible polynomial f gives an orbit of the Frobenius automorphism})) and $\bb{F}_{q^{d(f)}}\subset\bb{F}_{q^n}$ if and only if $d(f)|n$ (by the theorem~(\ref{Fqn is the unique extension of Fqm of degree n/m})).
+
+\begin{dang}
+    \begin{theorem}\label{multiplicative group of a finite field is cyclic}
+        Let $\bb{F}$ be a finite field. Then its multiplicative group is cyclic.
+    \end{theorem}
+\end{dang}
+Proof: Since $G\bydef\bb{F}^\times$ is a finite abelian group, it is a finite $\bb{Z}-$module. By corollary~(\ref{refinement_of_structure_theorem}) we have
+\begin{equation}
+    G\cong \frac{\bb{Z}}{(p_1^{m_1})}\oplus\cdots\oplus\frac{\bb{Z}}{(p_k^{m_k})}
+\end{equation}
+for (not necessarily distinct) primes $p_i,\;i=1,\dots,k$. We claim that all $p_i$'s are distinct. Let $L\bydef \text{lcm}(p_1^{m_1},\dots ,p_k^{m_k})$, then $a^L=1$ for all $a\in G\Rightarrow G\subset\{\text{roots of }x^L-1\in\bb{F}[x]\}$. But $x^L-1$ is of degree $L$. So $|G|\leq L\leq p_1^{m_1}\cdots p_k^{m_k}=|G|$. This shows that $L=p_1^{m_1}\cdots p_k^{m_k}$ and thus all $p_i$'s must be distinct. By lemma~(\ref{Za x Zb is isomorphic to Zab}), we get that $G\cong \bb{Z}/(L)$ where $L=|G|=|\bb{F}|-1$.
+
+\begin{dang}
+\begin{lemma}\cite{macdonald1998symmetric}
+  Let $n,m$ be positive integers such that $m|n$. Then the norm map $N_{n,m}: M_n\rightarrow M_m$ is defined by $x\mapsto \prod_{i=0}^{d-1}F^{mi}x$, where $d=n/m$. The norm map is a surjective homomorphism.
+\end{lemma}
+\end{dang}
+Proof: By theorem~(\ref{multiplicative group of a finite field is cyclic}), we have $M_n=\langle \alpha\rangle$ for some $\alpha\in\bb{F}_{q^n}$. Let $\beta=\alpha^{(q^n-1)/(q^m-1)}$, then $\beta$ has order $q^m-1$ which is equivalent to $F^m(\beta)=\beta$. So $\beta\in M_m$ by corollary~(\ref{characterization of M_m inside M_n}) and $M_m=\langle \beta\rangle$. But
+\begin{equation}
+    N_{n,m}(\alpha)=\prod_{i=0}^{d-1}F^{mi}(\alpha)=\alpha\alpha^{q^m}\cdots \alpha^{q^{m(d-1)}}=\alpha^{1+q^m+\cdots+q^{(d-1)m}}=\beta,
+\end{equation}
+which shows that $N_{n,m}$ maps a generator of $M_n$ to a generator of $M_m$, so its must be surjective.\par
+Let $M_n^*\bydef\text{Hom}(M_n,\bb{C})$. By the previous lemma we have an embedding $N_{n,m}^*:M_m^*\hookrightarrow M_n^*$ whenever $m|n$. So the family $\{M_n^*\}_{n\geq1}$ together with the monomorphisms $N_{n,m}^*$ for $m|n$, forms a direct system. So we have the direct limit $L\bydef \varinjlim M_n^*$, with canonical embeddings $\varphi_n: M_n^*\hookrightarrow L:\xi\mapsto[\xi]$. Remember
+\begin{equation}
+    L\bydef\left(\bigcup_{n\geq1}M_n^*\right)\Bigg/\sim ,
+\end{equation}
+where if $\eta\in M_i^*$ and $ \xi\in M_j^*$, then $\eta\sim\xi\iff N_{ki}^*(\eta)=N_{kj}^*(\xi)$ for some $k$ such that $\text{lcm}(i,j)|k$. Also, the Frobenius map acts on $M_n^*$ by $F\xi\bydef \xi\circ F\iff F\xi=\xi^q$. Therefore, we see that $\eta\sim\xi\Rightarrow F(\eta)\sim F(\xi)$, so the action $F[\xi]\bydef[F(\xi)]$ is well defined. We claim that $M_n^*$ can be identified with $L_n$, the $F^n-$invariant space in $L$, through the embedding $\varphi_n$. Let $[\xi]\in M^*$ be such that $F^n[\xi]=[\xi]\Rightarrow [\xi^{q^n}]=[\xi]$. Let $i=o(\xi)$, the order of 
+$\xi$, then $\langle\xi\rangle=M_i^*$. By definition there exists $j\geq1$ such that $N_{j,i}^*(\xi^{q^n})=N_{j,i}^*(\xi)\Rightarrow\xi^{q^n}=\xi\Rightarrow\xi^{q^n-1}=1$ and hence $(q^{i}-1)|(q^n-1)\Rightarrow i|n$. Therefore $N_{n,i}^*(\xi)\in M_n^*$ and $\varphi_n(N_{n,i}^*(\xi))=[\xi]$. Moreover $L_m\subset L_n$ if and only if $m|n$. In fact, if $m|n$, then we have the diagram
+\begin{center}
+    \begin{tikzcd}
+        M_m \arrow[r,"N_{n,m}^*"]\arrow[d, "\varphi_m"] &  M_n\arrow[d, "\varphi_n"]\\
+        L_m \arrow[r, dashed] &  L_n
+    \end{tikzcd}
+\end{center}
+Since $N_{n,m}^*(\xi)\sim\xi\;\forall\xi\in M_m^*$, we get an inclusion $\varphi_n N_{n,m}^*\varphi_m^{-1}:L_m\hookrightarrow L_n$. Conversely, if $L_m\subset L_n\Rightarrow |L_m|$ divides $|L_n|$, i.e. $(q^{m}-1)|(q^{n}-1)\Rightarrow m|n$. Then we get the next theorem.
+\begin{dang}
+    \begin{theorem}\label{Theorem: definition of L and its characterization of orbits}\cite{macdonald1998symmetric}
+        Let $L$ be the direct limit of the directed system $(M_n^*,N_{n,m}^*)$. Then, the Frobenius automorphism defines an action on $L$ through the map $[\xi]\mapsto [F(\xi)]$. Also denote by $L_n$  the $F^n-$invariant subgroup of $L$, then
+        \begin{enumerate}
+            \item[(1)]$L=\bigcup_{n\geq1}L_n$ where $L_n\cong M_n^*$ for each $n\geq1$.
+            \item[(2)] $L_m\subset L_n\iff m|n$.    
+        \end{enumerate}
+    \end{theorem}
+\end{dang}
+Let $G$ be a group acting on a set $S$. For $s\in S$, $G_s\bydef\{g\in G\;| g*s=s\}$ is a subgroup of $G$ called the \textit{stabilizer} of $s$. Also, the orbit of $s\in S$ by the action of $G$ is defined to be the set $O_s\bydef\{s^\prime\in S\;|\;s^\prime=gs\text{ for some }g\in G\}$. With these definitions, the orbit-stabilizer theorem asserts
+\begin{equation}
+    G/G_s\rightarrow O_s: gG_s\mapsto g*s
+\end{equation}
+Particularly, if $G$ is a finite group, then $|O_s|=[G:G_s]=|G|/|G_s|\Rightarrow |G|=|O_s||G_s|$. This last expression is called the \textit{counting formula} for the action of $G$ on $S$.
+\begin{dang}
+    \begin{theorem}\cite{macdonald1998symmetric}
+    Let $\Phi^*$ (resp. $\Phi_n^*$) be the set of $F-$orbits in $L$ (resp. $L_n$). If $d(\phi)$ denotes the cardinality of $\phi\in\Phi^*$, then $\Phi_n^*=\{\phi\in\Phi^*\;|\;d(\phi)|n\}$.
+    \end{theorem}
+\end{dang}
+Proof: For each $n\geq1$, the cyclic group $G\bydef\langle F|_{L_n}\rangle$ is of cardinality $n$ and we have an action $G\times L_n\rightarrow L_n$. The set of orbits induced by this action is $\Phi_n^*$ and, by the counting formula for the action of $G$ on $L_n$, $d(\phi)|n$ for each orbit $\phi\in\Phi_n^*$. Conversely, if $\phi\in\Phi^*$ and $d(\phi)|n$, then since each $[\xi]\in\phi$ is $F^{d(\phi)}-$invariant, we have $[\xi]\in L_{d(\phi)}\subset L_n\Rightarrow [\xi]\in L_n$ and $\phi\in\Phi_n^*$.
+
+\begin{dang}
+    \begin{definition}\cite{macdonald1998symmetric}
+        Define a pairing between $M_n^*$ and $M_n$ by $\langle \xi,x\rangle_n=\xi(x)$.
+    \end{definition}
+\end{dang}
+It's important to note that if $m|n$, $x\in M_m$ and $\xi\in M_m^*$, then $\langle N_{n,m}^*(\xi),x\rangle_n=(\langle \xi,x\rangle_m)^{\frac{n}{m}}$. So, the pairings $\langle\cdot,\cdot\rangle_n$ are not compatible with the embeddings
+\begin{equation}
+    N_{n,m}^*\times \iota: M_m^*\times M_m \hookrightarrow M_n^*\times M_n:(\xi,x)\mapsto (N_{n,m}^*(\xi),x).
+\end{equation}
+\begin{dang}
+    \begin{definition}\cite{jing2024characters}\label{pairing_between_orbits}
+        Let $n\geq1$, $\phi\in\Phi^*$ and $f\in\Phi$. If $d(\phi),d(f)|n$, we define
+        \[
+        (\phi,f)_n = \frac{1}{d(\phi)}\sum_{\xi\in\phi}\langle \xi, x\rangle_n
+        \]
+        where $x\in f$ is fixed, and
+        \[
+         (\phi,f)_n=0
+        \]
+        otherwise. In the first case, the expression does not depend on the choice of $x\in f$.
+    \end{definition}
+\end{dang}
+ If both $d(\phi),d(f)|n\Rightarrow \phi\in\Phi_n^*$ and $f\in\Phi_n$. So $\langle \xi,F^kx\rangle_n=\xi(F^kx)=(F^k\xi)(x)$. Therefore $\langle \xi, F^kx\rangle_n=\langle F^k\xi, x\rangle_n$ and $\sum_{\xi\in\phi}\langle F^k\xi,x\rangle_n=\sum_{\xi\in\phi}\langle \xi,x\rangle_n$. This proves the independence of the choice of $x\in f$.
+\begin{dang}
+    \begin{lemma}\cite{jing2024characters}
+    In the context of definition~(\ref{pairing_between_orbits}). If $d(\phi),d(f)|n$, then 
+    \[
+    (\phi,f)_n = \frac{1}{d(f)}\sum_{x\in f}\langle \xi, x\rangle_n
+    \]
+    where $\xi\in\phi$ is fixed. Futhermore this expression does not depend on the choice of $\xi$.
+    \end{lemma}
+\end{dang}
+Proof: Let $g(i)=\langle\xi^{q^i},x\rangle_n$. Then $g$ is $d([\xi])-$periodic. So
+\begin{equation}\label{Equation: periodic sum}
+    \sum_{i=0}^{n-1}g(i) = \sum_{j=0}^{\frac{n}{d([\xi])}-1}\sum_{i=0}^{d([\xi])-1}g(i+jd([\xi]))=\frac{n}{d([\xi])}\sum_{i=0}^{d([\xi])-1}g(i)
+\end{equation}
+which is equivalent to 
+\begin{equation}
+    \frac{1}{n} \sum_{i=0}^{n-1}\langle\xi^{q^i},x\rangle_n=\frac{1}{d([\xi])}\sum_{i=0}^{d([\xi])-1}\langle\xi^{q^i},x\rangle_n=([\xi],[x])_n
+\end{equation}
+In the same way we can show that
+\begin{equation}
+     \frac{1}{n} \sum_{i=0}^{n-1}\langle\xi^{q^i},x\rangle_n = \frac{1}{d(f)}\sum_{i=0}^{d(f)-1}\langle\xi,x^{q^{i}}\rangle_n.
+\end{equation}
+Comparing the last two equations, we get the result.
+
+\subsection{\texorpdfstring{Irreducible polynomials over $\bb{F}_{q}$}{Irreducible polynomials over \text{Fq}}}
+We have seen in the proof of theorem~(\ref{each irredcubible polynomial f gives an orbit of the Frobenius automorphism}) that if $f\in\fq[x]$ is irreducible of degree $m$, then $\bb{F}_{q^m}$ is obtained from $\fq$ by adjunction of one of the roots of $f$. In this section, we will prove that for each $m\geq1$ there is an irreducible polynomial $f$ of degree $m$, so we can construct $\bb{F}_{q^m}$ explicitly, provided we have an algorithm to find these polynomials. 
+\begin{dang}
+    \begin{theorem}
+        For each $m\geq1$ there exists an irreducible polynomial $f$ of degree $m$ over $\fq$.
+    \end{theorem}
+\end{dang}
+Proof: Let $\bb{F}_{q^m}\bydef\text{Split}_{\fq}(x^{q^m}-x)$. We know that $M_m=\bb{F}_{q^m}^\times$ is cyclic because of lemma~(\ref{multiplicative group of a finite field is cyclic}). Therefore, there is a generator $\alpha\in M_n$ which is a root of $x^{q^m}-x\in\fq[x]$, so it must be a root of some irreducible polynomial $f\in\fq[x]$ (by unique factorization in $\fq[x]$). We claim that $d(f)=m$, in fact $\fq(\alpha)=\bb{F}_{q^m}$ (because $\bb{F}_{q^m}=\{0\}\cup \langle\alpha\rangle$) and $\fq(\alpha)=\bb{F}_{q^m}$. By theorem~(\ref{Fqn is the unique extension of Fqm of degree n/m}), $\fq(\alpha)|\fq$ is an extension of degree $m$, so $f$ must have degree $m$.\par
+
+Now we know that for each integer $m\geq1$, there is a irreducible polynomial $f$ of degree $m$ over $\fq$. But the proof of the previous theorem is somewhat nonconstructive and it would be interesting to find $f$, so $\bb{F}_{q^m}$ can be realized as $\fq[x]/(f)$, where calculations can be carried out explicitly. Said this, we must find a criteria to determine if some polynomial over $\fq$ is irreducible or not. To do this observe that if $f\in\fq[x]$ and $\gcd(f,f^\prime)\neq1$, i.e., is non-constant, then $f$ must be reducible. So we will just consider the cases where $\text{gcd}(f,f^\prime)=1$, i.e. all the irreducible components of $f$ are distinct.
+\begin{dang}
+    \begin{lemma}\cite{isaacs2009algebra}\label{chinese remainder theorem}
+        Let $f$ be a polynomial over a field $\bb{F}$. Suppose that $f$ factors in $\bb{F}$ as a product of pairwise coprime factors $g_1,\dots,g_m$. Then
+        \begin{equation}
+            \theta:\frac{\bb{F}[x]}{(f)}\rightarrow \bigoplus_{j=1}^m\frac{\bb{F}[x]}{(g_j)}: h+(f)\mapsto (h+(g_1),\dots, h+(g_m))
+        \end{equation}
+        is an isomorphism or rings. 
+    \end{lemma}
+\end{dang}
+Proof: Lets write $R=\bb{F}[x]/(f),\;R_j=\bb{F}[x]/(g_j)$ and $\overline{h}=h+(f)\in R$. Since the product on $\bigoplus_{j=1}^mR_j$ is given pointwise on each component, $\theta$ is clearly a homomorphism. Now, $\theta(\overline{h})=0\Rightarrow h\in (g_j)\;\forall j$ and since the factors $g_j$ are pairwise coprime, we conclude that $h\in (f)\Rightarrow\overline{h}=0$, so $\theta$ is injective. Therefore $\theta(R)$ (viewed as a vector space over $\bb{F}$) is of dimension $\text{dim}_{\bb{F}}(R)=d(f)$. But, viewing $\bigoplus_{j=1}^mR_j$ as a vector space over $\bb{F}$ we get $\text{dim}_{\bb{F}}(\bigoplus_{j=1}^mR_j)=\sum_{j=1}^m\text{dim}_{\bb{F}}(R_j)=\sum_{j=1}^md(g_j)=d(f)$, the same dimension as the image of $\theta$, proving the surjectivity of $\theta$. So we conclude that $\theta$ is an isomorphism of rings.
+\begin{dang}
+    \begin{definition}\cite{isaacs2009algebra}
+        Let $f$ be a polynomial over $\fq$. We say that $h\in\fq[x]$ is a factorization polynomial for $f$ if $f$ divides the polynomial $\prod_{a\in\fq}(h-a)$.
+    \end{definition}
+\end{dang}
+For example, for any polynomial $f\in\fq[x]$, a degree zero polynomial is always a factorization polynomials for $f$. Also, $f$ is clearly a factorization polynomial for $f$. Much more interesting, is the case where we have a factorization polynomial $h$ for $f$ such that $0<d(h)<d(f)$. We will see in the next theorem, an algorithm to produce such polynomials. Before we do that, a little observation: Let $f\in\fq[x]$ be a polynomial with distinct irreducible factors $g_j, \;j=1,\dots,m$ and $h$ a factorization polynomial for $f$. Since $f$ divide the product $\prod_{a\in\fq}(h-a)$, each irreducible factor $g_j$ must divide $h-a$ for some $a\in\fq$. But the polynomials $h-a,\;a\in\fq$ are pairwise coprime and hence, for each $j$ there is a unique $a_j\in\fq$ such that $g_j|(h-a_j)$. Hence each factorization polynomial $h$ uniquely determine a list $(a_1,\dots,a_m)\in\fq^m$ with the property that $g_j |(h-a_j)\;\;\forall j=1,\dots,m$. 
+\par
+Therefore we have a map
+\begin{equation}
+    \rho: h \mapsto (a_1,\dots,a_m)
+\end{equation}
+which maps factorization polynomials for $f$ to vectors in $\fq^m$.
+\begin{dang}
+    \begin{theorem}\cite{isaacs2009algebra}\label{dim(U) gives the number of irreducible factors}
+        Suppose that $f\in\fq[x]$ is a polynomial with distinct irreducible factors $g_j,\;j=1,\dots,m$. Let $R=\fq[x]/(f),\; L_j=\fq[x]/(g_j),\;\psi:R\rightarrow R: v\mapsto v^q$ (a linear map over $\fq$) and $U\bydef\text{Ker}(\psi-I_R)$. We claim that if $\overline{h}\in U$, then $h$ is a factorization polynomial for $f$ and the map $\varphi:U\rightarrow\fq^m:\overline{h}\mapsto\rho(h)$ is a well defined isomorphism. In particular, the number of irreducible factors of $f$ is $m=\text{dim}_{\fq}(U)$.
+    \end{theorem}
+\end{dang}
+Proof: By theorem~(\ref{chinese remainder theorem}), we have a (ring) isomorphism
+\begin{equation}
+    \theta: R\rightarrow L_1\oplus\cdots\oplus L_m
+\end{equation}
+Write $L=\bigoplus_{j=1}^m L_j$ and consider the projections $p_j: L\rightarrow L_j$. Now, since $p_j\circ \theta |_{\fq} : \fq\rightarrow L_j$ is a nonzero ring homomorphism and $\fq$ is field, we get that $E_j\bydef p_j\circ\theta(\fq)$ is a field isomorphic to $\fq$. Therefore, by corollary~(\ref{characterization of M_m inside M_n}), $E_j\subset L_j$ is characterized as being the subset fixed by the action of the Frobenius map $x\mapsto x^q$. Since $\bar{h}^q=\overline{h}$ whenever $\overline{h}\in U$, we have $p_j\circ\theta(\overline{h})=h+(g_j)\in E_j$. But we also have that $p_j\circ\theta(\fq)=(\fq+(g_j))/(g_j)$. So, for each $j$, there is a unique $a_j\in\fq$ such that $h+(g_j)=a_j+(g_j)\Rightarrow g_j|(h-a_j)$, which implies that $h$ is a factorization polynomial for $f$ and $\rho(h)=(a_1,\dots,a_m)$.\par
+From its definition, it is clear that the map $\varphi:\overline{h}\mapsto\rho(h)$ is a vector space homomorphism. Let's show that $\varphi$ is in fact a vector space isomorphism. To see injectivity, suppose that $\rho(h)=0$, then $h+(g_j)=0+(g_j)\;(\iff h\in (g_j))$ for each $j=1,\dots,m$. Since, the factors $g_j$ are pairwise coprime, we get that their product divides $h$, i.e. $f| h\Rightarrow\overline{h}=0$.\par
+Now let $(a_1,\dots,a_m)\in\fq^m$ and $v=(a_1+(g_1),\dots,a_m+(g_m))\in L$. Since $\theta$ is surjective, there exists $\overline{h}\in R$ such that $\theta(\overline{h})=v$. But, we know that
+\begin{equation}
+    v^q=(a_1^q+(g_1),\dots,a_m^q+(g_m))=(a_1+(g_1),\dots,a_m+(g_m)) = v
+\end{equation}
+so $\theta(\bar{h}^{q})=\theta(\overline{h})\Rightarrow \bar{h}^{q}=\overline{h}$ and $\overline{h}\in U$. This shows that $\varphi$ is surjective and we conclude the proof.\par
+From this result, we can already decide if a polynomial with distinct factors is irreducible or not, we just need to compute the dimension of $U$.
+\begin{dang}
+    \begin{example}\label{example: x4+2 is not irreducible over F3}
+        The polynomial $x^4+2\in\bb{F}_3[x]$ has two irreducible factors, therefore is not irreducible.
+    \end{example}
+\end{dang}
+In this case $R=\bb{F}_3[x]/(x^4+2)$ is a vector space of dimension $4$ over $\bb{F}_3$. It has a basis $\{\overline{1},\overline{x},\overline{x}^2,\overline{x}^3\}$. So $\psi(\overline{1})=\overline{1}$ and $\psi(\overline{x})=\overline{x}^3$. To compute $\psi(\overline{x}^2)=\overline{x}^6$, we just divide $x^6$ by $x^4+2$ using long division, to get the remainder $x^2$. So $\psi(\overline{x}^2)=\overline{x}^6=\overline{x}^2$ and similarly for $\overline{x}^3$ we compute $\psi(\overline{x}^3)=\overline{x}^9=\overline{x}$. Therefore, the matrix of $\psi$ is
+\begin{equation}
+    M = \begin{pmatrix}
+        1&0&0&0\\
+        0&0&0&1\\
+        0&0&1&0\\
+        0&1&0&0
+    \end{pmatrix}\Rightarrow
+    M-I = \begin{pmatrix}
+        0&0&0&0\\
+        0&2&0&1\\
+        0&0&0&0\\
+        0&1&0&2
+    \end{pmatrix}
+\end{equation}
+So, the kernel of $M-I$ is the span of the set $\{(a,b,c,b)\;|\;a,b,c\in\bb{F}_3\}$ which corresponds to $U=\text{Span}\{\overline{1},\overline{x}^2,\overline{x}^3+\overline{x}\}$ in $R$. By the previous theorem, all the polynomials $1, x^2$ and $x^3+x$ are factorization polynomials for $x^4+2$ over $\bb{F}_3$. Since $\text{dim}_{\bb{F}_3}(U)=3$, the polynomial $x^4+2\in\bb{F}_3[x]$ must have three irreducible factors, particularly it isn't irreducible.
+
+\section{\texorpdfstring{Structure of $GL_n(\mathbb{F}_q)$}{Structure of GLn(Fq)}}
+\subsection{Parametrization of conjugacy classes}
+The purpose of this section is to parametrize the conjugacy classes of $GL_n(\fq)$. To do this, given $g\in GL_n(\fq)$, we define an $\fq[t]-$module $V_g$ as follows: $V_g=\fq^n$ with the action $t\cdot v\bydef gv$ for $v\in\fq^n$. Therefore, $V_g$ is a finitely generated module over the principal ideal domain $\fq[t]$, and we can apply Corollary~(\ref{refinement_of_structure_theorem}) to get
+\begin{equation}\label{decomposition_of_V_g}
+    V_g \cong \bigoplus_{f\in\Phi}\bigoplus_{i\geq1}\fq[t]/(f)^{\mu_i(f)}
+\end{equation}\par
+Here we have used the fact that each element $h\in\fq[t]$ decomposes uniquely (up to $\fq$) as a product of irreducible factors $h_1,h_2,\cdots h_n$, which is a consequence of the euclidean division algorithm. Observe that 
+\begin{equation}\label{weighted_partition_function}
+    n = \text{dim}_{\fq}(V_g)=\sum_{f\in\Phi}\sum_{i\geq1}d(f)\mu_i(f)=\sum_{f\in\Phi}d(f)|\mu(f)|
+\end{equation}\par
+Therefore $\mu$ is a \textit{weighted} partition valued function, i.e., it's a map
+\begin{equation}
+    \mu:\Phi\rightarrow\mathcal{P}
+\end{equation}
+satisfying $||\mu||<\infty$ where $||\mu||\bydef \sum_{f\in\Phi}d(f)|\mu(f)|$ is called the \textit{weight} of $\mu$. Also, since $t$ acts on $V_g$ as an isomorphism we necessarily have $\mu(t)=0$.
+\begin{dang}
+    \begin{theorem}\label{Vg is isomorphiv to Vh iff g and h are in the same conjugacy class}
+        $V_g\cong V_h\iff g\text{ and }h$ belongs to the same conjugacy class.
+    \end{theorem}
+\end{dang}
+Proof: We have $V_g\cong V_h$ if and only if there exists an isomorphism $T:V_g\rightarrow V_h$ such that $T(t\cdot v)=t\cdot (Tv) \iff T(gv)=h(Tv)$ for all $v\in\fq^n$. Since at the level of vector spaces $V_g=V_h=\fq^n$, we have that $T$ has a matrix representation $x\in GL_n(\fq)$. Therefore $x(gv)=h(xv)$ for all $v\in \fq^n\Rightarrow xg=hx,\;x\in GL_n(\fq)\Rightarrow g$ and $h$ are conjugates. Conversely, if there exists $x\in GL_n(\fq)$ such that $xg=hx$, then $x: V_g\rightarrow V_h: v\mapsto xv$ is an isomorphism of $\fq[t]-$modules. 
+\begin{dang}
+    \begin{lemma}\label{gcd(f,h)=1 then h acts as an automorphism of Fq[t]/f}
+        Let $f,h\in\Phi$, $f\neq h$ and $m\geq1$ a positive integer. Then the map
+        \begin{equation}
+            \varphi_h:\fq[t]/(f^m)\rightarrow \fq[t]/(f^m): \overline{u}\mapsto h\overline{u}
+        \end{equation}
+        is an automorphism of $\fq[t]/(f^m)$.
+    \end{lemma}
+\end{dang}
+Proof: Suppose that $h\overline{u}=0$, then $hu\in(f^m)\Rightarrow f^m|hu\Rightarrow f^m|u$ because $\text{gcd}(f,h)=1$. So $\overline{u}=0$ and $\varphi_h$ is an injective endomorphism of $\fq[t]/(f^m)$, a finite dimensional vector space, then $\varphi_h$ is also automorphism of $\fq[t]/(f^m)$.
+\begin{dang}
+    \begin{definition}
+         Let $\mu$ be a weighted partition valued function. We will define the set $\text{Supp}(f)$, called the \textit{support} of $\mu$, to be the set of $f\in\Phi$ such that $\mu(f)\neq0$.
+    \end{definition}   
+\end{dang}
+\begin{dang}
+    \begin{theorem}\label{cojugacy_classes_and_partition_functions}
+        There is a one-to-one correspondence between weighted partition valued functions $\mu:\Phi\rightarrow\mathcal{P}$ such that $||\mu||=n$ and $\mu(t)=0$, and conjugacy classes $c_{\mu}$ in $GL_n(\fq)$.
+    \end{theorem}
+\end{dang}
+Proof: A direct consequence of the Theorem~(\ref{Vg is isomorphiv to Vh iff g and h are in the same conjugacy class}), is that there is a one to one correspondence between conjugacy classes $c$ of $GL_n(\fq)$ and $\fq[t]-$modules $V_c$ such that $t$ acts on $V_c$ as an isomorphism. By equation~(\ref{weighted_partition_function}) we see that each conjugacy class gives a weighted partition function $\mu:\Phi\rightarrow \mathcal{P}$ such that $||\mu||=n$ and $\mu(t)=0$. 
+\par
+Conversely, each weighted partition valued function $\mu:\Phi\rightarrow\mathcal{P}$ such that $||\mu||=n$ and $\mu(t)=0$ determines a $\fq[t]-$module $V_{\mu}=\bigoplus_{f\in\Phi}\bigoplus_{i\geq1}\fq[t]/(f)^{\mu_i(f)}$. Furthermore, the action of $t$ on $V_{\mu}$ is defined by the map $\bigoplus_{f\in\text{Supp}(\mu)}\varphi_t$.
+So, by the lemma~(\ref{gcd(f,h)=1 then h acts as an automorphism of Fq[t]/f}), $t$ acts on $V_{\mu}$ as an isomorphism of vector spaces. Therefore $\mu$ can be identified with a conjugacy class $c_{\mu}$ on $GL_n(\fq)$.\par
+\begin{dang}
+    \begin{notation}
+        Because of the previous theorem, we will write $V_\mu$ for the isomorphism class of modules $V_g$, for $g\in c_\mu$. Of course, by construction $V_\mu$ has decomposition as in the equation~(\ref{decomposition_of_V_g}).
+    \end{notation}
+\end{dang}
+Now is a good time to give some examples. Let's parametrize the conjugacy classes of $GL_2(\bb{F}_2)$ using the machinery built up so far.  
+\begin{dang}
+    \begin{example}\label{Example: conjucacy classes of GL2(F2)}
+        Let $n=2$ and $q=2$. Since $n=2\Rightarrow \mu(f)=0$ if $d(f)\geq3$, and the only irreducible polynomials over $\bb{F}_2$ of degree at most two are $t, t+1$ and $t^2+t+1$ (see theorem~(\ref{dim(U) gives the number of irreducible factors}) for a criterion for irreducibility). Therefore, we have three cases for the weighted partition function $\mu$ and the corresponding representatives for conjugacy classes in $GL_2(\bb{F}_2)$:
+        \begin{align*}
+            &  (1)\quad\Biggl\{\begin{matrix}
+       \mu(t^2+t+1)=(1,0,\dots)\\
+       \mu(f)=0\text{ if }f\neq t^2+t+1
+        \end{matrix}\longleftrightarrow 
+        \begin{pmatrix}
+            0&1\\
+            1&1
+        \end{pmatrix}\\    
+   &(2)\quad\Biggl\{\begin{matrix}
+       \mu(t+1)=(2,0,\dots)\\
+       \mu(f)=0\text{ if }f\neq t+1
+   \end{matrix}\longleftrightarrow 
+        \begin{pmatrix}
+            0&1\\
+            1&0
+        \end{pmatrix}\\
+   &(3)\quad\Biggl\{\begin{matrix}
+       \mu(t+1)=(1,1,0,\dots)\\
+       \mu(f)=0\text{ if }f\neq t+1
+   \end{matrix}\longleftrightarrow 
+        \begin{pmatrix}
+            1&0\\
+            0&1
+        \end{pmatrix}
+        \end{align*}
+    \end{example}
+\end{dang}
+ In the first case, we have the vector space isomorphism $V_\mu\cong 1\cdot\bb{F}_2\oplus t\cdot\bb{F}_2$. So, in this case, the action of $t$ on the basis $\{1,t\}$ of $V_\mu$ is as follows:
+ \begin{equation}
+     \varphi_t: 1\mapsto \;t\text{ and }\;t\mapsto t^2=t+1
+ \end{equation}
+ Therefore, the corresponding conjugacy class in $GL_2(\bb{F}_2)$ is the one containing the matrix representation of $\varphi_t$, that is $\begin{psmallmatrix}0&1\\1&1\end{psmallmatrix}$.\par
+ Similarly, in the second case we have the vector space isomorphism $V_\mu\cong 1\cdot\bb{F}_2\oplus t\cdot\bb{F}_2$, but the action of $t$ on the basis $\{1,t\}$ of $V_\mu$ is 
+ \begin{equation}
+     \varphi_t:1\mapsto t\;\text{ and }\;t\mapsto t^2=1
+ \end{equation}
+ Therefore, the corresponding conjugacy class, is the one containing the matrix $\begin{psmallmatrix}0&1\\1&0\end{psmallmatrix}$.\par
+ In the last case, $t$ acts diagonally like the identity and the corresponding conjugacy class is the singleton containing the identity matrix. Evidently, this last case can be generalized to
+        \begin{equation}
+            V_{\{I_n\}}\cong \left(\frac{\fq[t]}{(t-1)}\right)^{\oplus n}
+        \end{equation}
+\subsection{Formula for the order of the centralizer}
+Now, let's compute the cardinality of centralizers in $GL_n(\fq)$. To do this, observe that there is a one-to-one correspondence between elements of the centralizer of $g\in GL_n(\fq)$ and elements of $\text{Aut}(V_g)$. Now, if $V$ has decomposition as in equation~(\ref{decomposition_of_V_g}) and $T\in\text{Aut}(V)$, then $T(V_{(f)})\subset V_{(f)}$ where $V_{(f)}\bydef \bigoplus_{i\geq1}\bb{F}_q[t]/(f)^{\mu_i(f)}$. In fact, let $m\geq1$ and $h\in\fq[t]$ be such that $\text{gcd}(f,h)=1$ (which is true whenever $h\in\Phi-\{f\}$). Then, if $\overline{u}\in \fq[t]/(h)^m$ and $f^n\overline{u}=0$ for some $n\geq1$ then $f^nu\in (h)^m\Rightarrow h^m|f^nu\Rightarrow h^m|u$ and $\overline{u}=0$. Since $f^{|\mu(f)|}T(v)=0$ for any $v\in V_{(f)}$, we see that for each $h\in\Phi-\{f\}$, the projection of $T(v)$ in $V_{h}$ is zero. Now, since $T|_{V_{(f)}}:V_{(f)}\rightarrow V_{(f)}$ is an injective map between vector spaces over $\fq$, we obtain that $T(V_{(f)})=V_{(f)}$.\par
+The modules $V_{(f)}$ are called $f-$\textit{primary components} of $V$ and, by the above discussion, they are characterized by the property of being the submodule of $V$ generated by all elements that are annihilated by some power of $f$. So we get the next theorem.
+\begin{dang}
+    \begin{theorem}\cite{macdonald1998symmetric}\label{automorphisms_restricts_to_primary_components}
+    Let $V=V_\mu$ be a $\fq[t]-$module as in equation~(\ref{decomposition_of_V_g}). Then if $T$ is an automorphism of $V$, its restriction $T|_{V_{(f)}}$ is an automorphism of $V_{(f)}$.  In particular, we have an isomorphism of groups 
+    \begin{equation}
+    \begin{split}
+         \text{Aut}&(V)\rightarrow \prod_{i\geq1}\text{Aut}(V_{(f)})\\
+         &T\longmapsto \left(T|_{V_{(f)}}\right)_{f\in\Phi}
+    \end{split}  
+    \end{equation}
+    \end{theorem}
+\end{dang}
+We will show that each $f-$primary component $V_{(f)}\subset V_\mu$ is a $\fq[t]_{(f)}-$module of type $\mu(f)$. For each $h\in\text{Supp}(\mu)-\{f\}$ the map $\bigoplus_{1\leq i\leq l(\mu(f))}\varphi_h:V_{(f)}\rightarrow V_{(f)}$ is an isomorphism by Lemma~(\ref{gcd(f,h)=1 then h acts as an automorphism of Fq[t]/f}). Therefore, multiplication by $h$ defines an automorphism of $V_{(f)}$. So if $ S\bydef \fq[t]-(f)$, then
+\begin{equation}
+  S_{V_{(f)}}\subset\text{Aut}(V_{(f)})
+\end{equation}
+(remember the notation ~(\ref{notation for x_M which maps m to xm})). By the functorial property of localization~(\ref{functorial_property_of_localization}) we have that $V_{(f)}$ is an $\fq[t]_{(f)}-$module. Moreover, by Theorem~(\ref{localization_at_prime_ideals_on_a_PID}), $\fq[t]_{(f)}$ is a discrete valuation ring with maximal ideal given by $S^{-1}(f)=(f/1)$ and residue field $\fq[t]/(f)=\bb{F}_{q^{d(f)}}$ (see example~(\ref{residue_field_of_Rp})). This shows that $V_{(f)}$ is a module over a discrete valuation ring $\fq[t]_{(f)}$, that is killed by some power of $f/1$. \par
+In this context, $V_{(f)}$ is a finite $\fq[t]_{(f)}-$module and must have some type. We will show that this type is exactly $\mu(f)$. In fact, since $ S_{V_{(f)}}\subset\text{Aut}(V_{(f)})$, we have the isomorphisms
+\begin{equation}
+    \begin{split}
+         V_{(f)}&=\bigoplus_{i\geq1}\fq[t]/(f^{\mu_i(f)})\\
+         &\cong\bigoplus_{i\geq1} S^{-1}\left(\fq[t]/(f^{\mu_i(f)})\right)\;\;(\text{by Theorem~(\ref{localization_does_not_change_the_module})})\\
+         &\cong\bigoplus_{i\geq1}\fq[t]_{(f)}/((f/1)^{\mu_i(f)})\;\;(\text{by the Corollary~(\ref{localization of a quotient if the quotient of localizations})})
+    \end{split}
+\end{equation}\par
+The isomorphism $V_{(f)}\cong \bigoplus_{i\geq1}\fq[t]_{(f)}/((f/1)^{\mu_i(f)})$ is an $\fq[t]_{(f)}-$module isomorphism, which shows that $V_{(f)}$ is of type $\mu(f)$. Now, we can apply theorem~(\ref{numbero_of_automorphisms_of_M_of_type_lambda}) to deduce that
+\begin{equation}\label{number_of_elements_in_Aut(Vg)}
+    |\text{Aut}(V_{(f)})|=q_f^{|\mu(f)|+2n(\mu(f))}\prod_{i\geq1}\varphi_{m_i(\mu(f))}(q_f^{-1})
+\end{equation}
+where $q_f\bydef q^{d(f)}$. 
+\begin{dang}
+    \begin{notation}
+ We \;will\; write $b_\lambda(q)\;\bydef\;\prod_{i\geq1}\varphi_{m_i(\lambda)}(q)\quad$ and $\quad a_\lambda(q)\;=\;\quad$\\
+ $q^{|\lambda|+2n(\lambda)}b_\lambda(q^{-1})$.
+    \end{notation}
+\end{dang}
+By theorem~(\ref{automorphisms_restricts_to_primary_components}) and equation~(\ref{number_of_elements_in_Aut(Vg)}), we get the next result.
+\begin{dang}
+\begin{theorem}\cite{macdonald1998symmetric}\label{number_of_elements_in_the_centralizer}
+        Suppose that $g\in GL_n(\fq)$ belongs to a conjugacy class $c_\mu$. Then, the order of the centralizer of $g$ is
+        \begin{equation}
+            a_\mu\bydef |\text{Aut}(V_\mu)|=\prod_{f\in\Phi}a_{\mu(f)}(q_f)
+        \end{equation}
+    \end{theorem}
+\end{dang}
+As an example, we get another way to evaluate the cardinality of $GL_n(\fq)$.
+\begin{dang}
+    \begin{corollary}
+        $|GL_n(\fq)|=(q^n-1)(q^n-q)\cdots(q^n-q^{n-1})$
+    \end{corollary}
+\end{dang}
+Proof: The centralizer of the identity $I_n\in GL_n(\fq)$ is the whole group. Moreover its conjugacy class is in correspondence with the weighted valued partition function with support in $t-1$, with $(1^n)$ as its unique nonzero value. So we can apply formula~(\ref{number_of_elements_in_the_centralizer}) to get
+\begin{equation}
+\begin{split}
+      |GL_n(\fq)|&=a_{(1^n)}(q)\\
+      &=q^{n+n(n-1)}\varphi_n(q^{-1})\\
+      &=q^{n^2}(1-q^{-1})(1-q^{-2})\cdots(1-q^{-n})\\
+      &=(q^n-1)(q^n-q)\cdots(q^n-q^{n-1}).
+\end{split}
+\end{equation}
+\subsection{\texorpdfstring{The space of characters $\mathcal{R}(q)$}{The space of characters R(q)}}
+
+Let $\mathcal{R}_n(q)$ be the vector space of complex valued class functions on $GL_n(\fq)$ (To ease notation we will write $G_n$ for $GL_n(\fq)$). Then, $\mathcal{R}_n(q)$ is equipped with a canonical inner product defined by 
+\begin{equation}\label{Equation: inner product for characters}
+    \langle u,v\rangle_{G_n}=\frac{1}{|G_n|}\sum_{g\in G_n}u(g)\overline{v(g)}\quad u,v\in \mathcal{R}_n(q).
+\end{equation}
+The dimension of $\mathcal{R}_n(q)$ equals the number of conjugacy classes of $G_n$, i.e. the number of weighted partition valued functions $\mu:\Phi\rightarrow \mathcal{P}$ such that $||\mu||=n$. Define the graded vector space
+\begin{equation}
+    \mathcal{R}(q) = \bigoplus_{n\geq0}\mathcal{R}_n(q)
+\end{equation}
+where $R_0=\bb{C}$. Extending $\langle\cdot,\cdot\rangle$ to $\mathcal{R}(q)$ by putting $\langle\mathcal{R}_n(q),\mathcal{R}_m(q)\rangle=0$ for $n\neq m$, we get an inner product on $\mathcal{R}(q)$ such that the irreducible characters of $G_n$ for different $n$ are all mutually orthogonal.\par
+The first objective of this subsection, is to prove that $\mathcal{R}(q)$ has a structure of an associative algebra. To show this, we first need to define the so called ``parabolic induction'' functor. Let $n=n_1+\cdots+ n_r$ and let $V_i$ be the subspace of $V=\fq^n$ spanned by the first $n_1+\cdots +n_i$ basis vectors, i.e.
+\begin{equation}\label{equation: definition of the chain of flags}
+    V_i=\text{Span}\{v_1,\dots,v_{n_1+\cdots+v_{n_i}}\}
+\end{equation}
+where $\{v_i\}$ denotes the canonical basis of $V=\fq^n$. Let $F$ denote the flag
+\begin{equation}
+    (0)=V_0\subset V_1\subset\cdots\subset V_r=V.
+\end{equation}
+The subgroup $P_{(n_1,\dots,n_r)}$ denotes those matrices in $G_n$ that fix the flag $F$. So we have
+\begin{equation}
+    P_{(n_1,n_2,\dots,n_r)}=\left\{\left(\begin{smallmatrix}
+        A_1 & B_{12}&\quad &B_{1r}\\
+         0 & A_2& &B_{2r}\\
+          \cdots& & &\cdots\\
+           0 & 0& &A_r
+    \end{smallmatrix}\right)\right\}
+\end{equation}
+where $A_i\in G_{n_i}$. Then we have the decomposition $P_{(n_1,\dots,n_r)}=MU$ where
+\begin{equation}
+    M =\left\{\left(\begin{smallmatrix}
+         A_1 & 0&\quad &0\\
+         0 & A_2& &0\\
+          \dots& & &\dots\\
+           0 & 0& &A_r
+    \end{smallmatrix}\right)\right\}\cong G_{n_1}\times\cdots \times G_{n_r}
+\end{equation}
+and
+\begin{equation}
+    U = \left\{\left(\begin{smallmatrix}
+         I_{n_1} & B_{12}&\quad &B_{1r}\\
+         0 & I_{n_2}& &B_{2r}\\
+          \dots& & &\dots\\
+           0 & 0& &I_{n_r}
+    \end{smallmatrix}\right)\right\}
+\end{equation}
+is a normal subgroup of $P_{(n_1,\dots,n_r)}$. We can see that the map 
+\begin{equation}
+    M \rightarrow P_{(n_1,\dots,n_r)}/U: \left(\begin{smallmatrix}
+        A_1 & 0&\quad &0\\
+         0 & A_2& &0\\
+          \dots& & &\dots\\
+           0 & 0& &A_r
+    \end{smallmatrix}\right)
+    \mapsto \left(\begin{smallmatrix}
+        A_1 & 0&\quad &0\\
+         0 & A_2& &0\\
+          \dots& & &\dots\\
+           0 & 0& &A_r
+    \end{smallmatrix}\right)U
+\end{equation}
+is an isomorphism. In fact, surjectivity follows from
+\begin{equation}
+\begin{split}
+    \left(\begin{smallmatrix}
+          A_1 & B_{12}&\quad &B_{1r}\\
+         0 & A_2& &B_{2r}\\
+          \dots& & &\dots\\
+           0 & 0& &A_r
+    \end{smallmatrix}\right)U&= \left(\begin{smallmatrix}
+        A_1 & 0&\quad &0\\
+         0 & A_2& &0\\
+          \dots& & &\dots\\
+           0 & 0& &A_r
+    \end{smallmatrix}\right) 
+    \left(\begin{smallmatrix}
+        I_{n_1} & A_1^{-1}B_{12}&\quad &A_1^{-1}B_{1r}\\
+         0 & I_{n_2}& &A_2^{-1}B_{2r}\\
+          \dots& & &\dots\\
+           0 & 0& &I_{n_r}
+    \end{smallmatrix}\right)U\\
+    &=\left(\begin{smallmatrix}
+        A_1 & 0&\quad &0\\
+         0 & A_2& &0\\
+          \dots& & &\dots\\
+           0 & 0& &A_r
+    \end{smallmatrix}\right)U,
+    \end{split}
+\end{equation}
+and injectivity follows from the fact that $U\cap M=\{1\}$. Now, if 
+\begin{equation}
+    p_{(n_1,\dots,n_r)}:P_{(n_1,\dots,n_r)}\rightarrow P_{(n_1,\dots,n_r)}/U\cong M
+\end{equation}
+is the canonical projection, then each representation of $M\cong G_{n_1\times\cdots\times G_{n_r}}$ can be pulled back to $P_{(n_1,\dots,n_r)}$ through $p_{(n_1,\dots,n_r)}$.
+\begin{dang}
+    \begin{notation}
+      Let $G$ be a finite group, then $\mathcal{A}(G)$ will denote the category of finite dimensional complex representations of $G$, or equivalently the category of $\bb{C}G-$modules $V$ such that $\text{dim}_{\bb{C}}V<\infty$.
+    \end{notation}
+\end{dang}
+Recall that if $G$ is a group and $H\subset G$ is a subgroup, then we have a functor 
+\begin{equation}
+    \text{Ind}_H^G:\mathcal{A}(H)\rightarrow\mathcal{A}(G): V\mapsto V^G= \bb{C}G\otimes_{\bb{C}H}V
+\end{equation}
+called \textit{induction} from $H$ to $G$. 
+\begin{dang}
+\begin{theorem}\label{theorem: properties of induction of reps of groups}
+The induction functor has the following properties:
+\begin{enumerate}
+    \item[(1)] It is transitive, i.e., if we have subgroups $K\subset H\subset G$ and $(V,\rho)$ a $\bb{C}K-$module, then $\text{Ind}_H^G\text{Ind}_K^H\rho \cong \text{Ind}_K^G\rho$.
+    \item[(2)] If $(V,\rho)$ is a $\bb{C}H-$module, where $H\subset G$ is a subgroup, then 
+    \begin{equation}
+        \text{dim}_{\bb{C}}V^G=[G:H]\text{dim}_{\bb{C}}V.
+    \end{equation}
+\end{enumerate}
+\end{theorem}
+\end{dang}
+The first property is a direct consequence of Lemma~(\ref{theorem: associativity of the induction functor}). Now, for the second property let $G=\bigcup_{i=1}^ks_iH$ be a decomposition of $G$ into left cosets, where $k=[G:H]$. So, for each $g\in G$ there exist a unique $i,\;1\leq i \leq t$ and $h\in H$ such that $g=s_ih$. This shows that each element of $\bb{C}G$ can be written uniquely as a sum $\sum_{i=1}^ks_ib_i$ where $b_i\in\bb{C}H$. Therefore we have the vector space decomposition
+\begin{equation}
+    \bb{C}G \cong \bigoplus_{i=1}^ks_i\bb{C}H.
+\end{equation}
+So, by applying theorem~(\ref{theorem: tensor product distributes under coproducts}), we obtain the vector space decomposition
+\begin{equation}
+\begin{split}
+    \bb{C}G\otimes_{\bb{C}H}V&\cong\bigoplus_{i=1}^ks_i\bb{C}H\otimes_{\bb{C}H} V\\
+    &\cong \bigoplus_{i=1}^k\bb{C}H\otimes_{\bb{C}H}V\quad\text{(because }s_i\bb{C}H\cong \bb{C}H\text{ as right }\bb{C}H-\text{modules)}\\
+    &\cong\bigoplus_{i=1}^kV\quad\text{(because of lemma~(\ref{lemma: R otimes S is isomorphic to S}))}
+\end{split}
+\end{equation}
+By the last equation we get $\text{dim}_{\bb{C}}V^G=k\cdot\text{dim}_{\bb{C}}V=[G:H]\text{dim}_{\bb{C}}V$. In particular, if $\{v_j\}$ is a basis of $V$, then $\{s_i\otimes v_j\}$ is a spanning set for $V^G$ of the same cardinality as the dimension of $V^G$, so it's a basis for $V^G$.\par
+Now we are ready to describe the parabolic induction functor. Let $(\rho_j,V_j)$ be representations for the the groups $G_{n_j},\;j=1,2$. Then $(\rho_1\otimes\rho_2, V_{1}\otimes V_{2})$ is a representation of $G_{n_1}\times G_{n_2}$ and we can pull it back to a representation $(p_{(n,m)}^*(\rho_1\otimes\rho_2),  V_{1}\otimes V_{2})$ of $P_{(n_1,n_2)}$. Finally, we induce this representation to the full linear group $G_{n_1+n_2}$.
+\begin{dang}
+    \begin{definition}(Parabolic induction)
+         For each $j=1,2$, let $(\rho_j,V_j)$ be a representation for the the group $G_{n_j}$. We define the representation $(\rho_1\circ\rho_2, V_1\otimes V_2)$ of $G_{n_1+n_2}$ by setting
+        \begin{equation}
+            \rho_1\circ\rho_2=\text{Ind}_{P_{(n_1,n_2)}}^{G_{n_1+n_2}}p_{(n_1,n_2)}^*(\rho_1\otimes\rho_2).
+        \end{equation}
+        Moreover, if $\chi_j$ is the character associated to $(\rho_j,V_j)$, we write 
+        \begin{equation}
+            \chi_1\circ\chi_2=\text{Ind}_{P_{(n_1,n_2)}}^{G_{n_1+n_2}}p_{(n_1,n_2)}^*(\chi_1\otimes\chi_2)
+        \end{equation}
+        for the character associated to the representation $(\rho_1\circ\rho_2, V_1\otimes V_2)$.
+    \end{definition}
+\end{dang}
+The effect of pulling back a representation $(\rho,V)$ of $G_{n_1}\times G_{n_2}$ is the following. Let $v\in V$, then 
+\begin{equation}
+    p_{(n_1,n_2)}^*\rho\left(\begin{smallmatrix}
+        A_1 & B_{12}\\
+            & A_2
+    \end{smallmatrix}\right)(v) = \rho\left(\begin{smallmatrix}
+        A_1 & 0\\
+            & A_2
+    \end{smallmatrix}\right)(v)
+\end{equation}
+So, to ease notation, we will drop the symbol for the pullback of the projection in the parabolic induction. We just need to have in mind that after the pullback, the action is defined only by the block diagonal elements $A_1$ and $A_2$ as in the previous equation. For example, let $A=\left(\begin{smallmatrix}
+A_1&B_{12}\\
+   & A_2
+\end{smallmatrix}\right)\in P_{(n_1,n_2)}$ and $(\rho_j,V_j)$ representations of $G_{n_j}$ for $j=1,2$. Then, viewing the vector space $V_1\otimes V_2$ as a $\bb{C}P_{(n,m)}-$module, we get the following action
+\begin{equation}
+    A(v_1\otimes v_2)= \rho_1(A_1)v_1\otimes \rho_2(A_2)v_2.
+\end{equation}
+This point of view will be useful to avoid a cumbersome notation by writing $p_{(n,m)}^*(\rho_1\otimes\rho_2)$ everywhere.
+\begin{dang}
+    \begin{theorem}\label{theorem: associativity of parabolic induction}
+         For each $j=1,2,3$, let $(\rho_j,V_j)$ be a representation of the group $G_{n_j}$. Then there is an isomorphism $\rho_1\circ(\rho_2\circ\rho_2)\cong (\rho_1\circ\rho_2)\circ\rho_3$  of representations of $G_{n_1+n_2+n_3}$.   
+    \end{theorem}
+\end{dang}
+Proof: Let 
+\begin{equation}
+    P_{(n_1,n_2,n_3)}=\left\{\left(\begin{smallmatrix}
+        A_1&B_{12}&B_{13}\\
+           &A_2&B_{23}\\
+           &   &A_3
+    \end{smallmatrix}\right)\right\}
+\end{equation}
+where $A_j\in G_{n_j}$ for $j=1,2,3$. We define $\rho_1\circ\rho_2\circ\rho_3$ (without parentheses) to be the representation $\text{Ind}_{P_{(n_1,n_2,n_3)}}^{G_{n_1+n_2+n_3}}(\rho_1\otimes\rho_2\otimes\rho_3)$ (remember that we are dropping the pullback of the projection). We will show that $\rho_1\circ\rho_2\circ\rho_3\cong (\rho_1\circ\rho_2)\circ\rho_3$. By definition
+\begin{equation}
+    \begin{split}
+        (\rho_1\circ\rho_2)\circ\rho_3&= \text{Ind}_{P_{(n_1+n_2,n_3)}}^{G_{n_1+n_2+n_3}}(\rho_1\circ\rho_2)\otimes\rho_3\\
+        &=\text{Ind}_{P_{(n_1+n_2,n_3)}}^{G_{n_1+n_2+n_3}}(\text{Ind}_{P_{(n_1+n_2,n_3)}}^{G_{n_1+n_2+n_3}}\rho_1\otimes\rho_2)\otimes\rho_3.
+    \end{split}
+\end{equation}
+So, if we show that 
+\begin{equation}
+    (\text{Ind}_{P_{(n_1+n_2,n_3)}}^{G_{n_1+n_2+n_3}}\rho_1\otimes\rho_2)\otimes\rho_3\cong \text{Ind}_{P_{(n_1,n_2,n_3)}}^{P_{(n_1+n_2,n_3)}}\rho_1\otimes\rho_2\otimes\rho_3,
+\end{equation}
+we get the result by the transitivity property of induction (see theorem~(\ref{theorem: associativity of the induction functor}). Therefore, we need to construct an isomorphism
+\begin{equation}
+   \bb{C}P_{(n_1+n_2,n_3)}\otimes_{\bb{C}P_{n_1,n_2,n_3}}V_1\otimes V_2\otimes V_3 \rightarrow (\bb{C}G_{n_1+n_2}\otimes_{\bb{C}P_{(n_1,n_2)}}V_1\otimes V_2)\otimes V_3
+\end{equation}
+First, lets show that both of the vector spaces in the last equation have the same dimension. Choose a decomposition into left cosets $G_{n_1+n_n}=\bigcup_{i}s_iP_{(n_1,n_2)}$. This decomposition induces another decomposition into left cosets 
+\begin{equation}
+    P_{(n_1+n_2,n_3)}=\bigcup_i\begin{pmatrix}s_i&\\&I_{n_3}\end{pmatrix}P_{(n_1,n_2,n_3)}
+\end{equation} 
+so we get that $[G_{n_1+n_2}:P_{(n_1,n_2)}]=[P_{(n_1+n_2,n_3)}:P_{(n_1,n_2,n_3)}]$, and by the Theorem~(\ref{theorem: properties of induction of reps of groups}) we obtain the equality of dimensions. Writing $g_i$ for the block diagonal matrix $\text{diag}(s_i,I_{n_3})$ appearing in the decomposition of $P_{(n_1+n_2,n_3)}$ into left cosets, and $\{v_i^j\;|i=1,\dots,\text{dim}_{\bb{C}}V_j\}$ for the basis of $V_j$ for $j=1,2,3$ we get that $\{g_i\otimes v_j\otimes v_k\otimes v_l\}$ is a basis for
+\begin{equation}
+   \bb{C}P_{(n_1+n_2,n_3)}\otimes_{\bb{C}P_{n_1,n_2,n_3}}V_1\otimes V_2\otimes V_3. 
+\end{equation}
+Therefore, we have a well defined homomorphism of vector spaces
+\begin{equation}
+    \begin{split}
+       \varphi:\bb{C}P_{(n_1+n_2,n_3)}&\otimes_{\bb{C}P_{(n_1,n_2,n_3)}}V_1\otimes V_2\otimes V_3 \rightarrow (\bb{C}G_{n_1+n_2}\otimes_{\bb{C}P_{(n_1,n_2)}}V_1\otimes V_2)\otimes V_3 \\
+       &g_i\otimes v_j\otimes v_k\otimes v_l\longmapsto (s_i\otimes(v_j\otimes v_k))\otimes v_l
+    \end{split}
+\end{equation}
+Observe that by multilinearity we have $\varphi(g_i\otimes u\otimes v\otimes w) = (s_i\otimes(u\otimes v))\otimes w\;\forall u\in V_1, v\in V_2, w\in V_3$. This homomorphism is clearly seen to be surjective. Moreover, since both the domain and its image have the same dimension, we get that $\varphi$ is in fact a vector space isomorphism. We claim that $\varphi$ is an isomorphism of representations of $P_{(n_1+n_2,n_3)}$. Let 
+\begin{equation}
+    A=\begin{pmatrix}
+        A_1&B_{12}\\
+        &A_2
+    \end{pmatrix}\in P_{(n_1+n_2,n_3)},
+\end{equation}
+then, if $A_1s_i=s_mC$ where $C=\left(\begin{smallmatrix}
+    C_1&D_{12}\\
+    & C_2
+\end{smallmatrix}\right)\in P_{(n_1,n_2)}$, we get
+\begin{equation}
+    \begin{split}
+        A(g_i\otimes v_j\otimes v_k\otimes v_l)
+        &=Ag_i\otimes v_j\otimes v_k\otimes v_l\\
+        &=\begin{pmatrix}
+            A_1s_i&B_{12}\\
+            & A_2
+        \end{pmatrix}\otimes v_j\otimes v_k\otimes v_l\\
+        &=\begin{pmatrix}
+            s_mC&B_{12}\\
+            & A_2
+        \end{pmatrix}\otimes v_j\otimes v_k\otimes v_l\\
+        &=g_m\otimes
+        \begin{pmatrix}
+           C&B_{12}\\
+           &A_2
+        \end{pmatrix}(v_j\otimes v_k\otimes v_l)\\
+        &=g_m\otimes
+        C_1v_j\otimes C_2v_k\otimes A_2v_l.
+    \end{split}
+\end{equation}
+But 
+\begin{equation}
+    \begin{split}
+        \varphi((g_m\otimes
+        C_1v_j\otimes C_2v_k)\otimes A_2v_l)
+        &=(s_m\otimes C_1v_j\otimes C_2v_k)\otimes A_2v_l\\
+        &=(s_m\otimes C(v_j\otimes v_k))\otimes A_2 v_l\\
+        &=(s_mC\otimes v_j\otimes v_k)\otimes A_2v_l\\
+        &=(A_1s_i\otimes v_j\otimes v_k)\otimes A_2v_l\\
+        &=A(s_i\otimes v_j\otimes v_k)\otimes v_l.
+    \end{split}
+\end{equation}
+So we conclude that $\varphi$ is in fact an isomorphism of representations and the theorem is proved.\par
+
+
+As a direct consequence of this theorem, we see that if $\chi_j$ is the character associated to the representation $(\rho_j,V_j),\;j=1,2,3$, then $(\chi_1\circ\chi_2)\circ\chi_3 = \chi_1\circ(\chi_2\circ\chi_3)$. Moreover, the proof of Theorem~(\ref{theorem: associativity of parabolic induction}) can be generalized to show that if $\chi_j$ are characters for the groups $G_{n_j}$ for $j=1,\dots,r$ and $n=n_1+\cdots+n_r$. Then 
+\begin{equation}\label{equation: general product of characters}
+\chi_1\circ\cdots\circ\chi_r\bydef\text{Ind}_{P_{(n_1,\dots,n_r)}}^{G_n}\chi_1\otimes\cdots\otimes \chi_r
+\end{equation}
+is exactly the product of the of the characters $\{\chi_j\}$ in $\mathcal{R}(q)$ in any order.
+\begin{dang}
+    \begin{theorem}\cite{jing2024characters}
+        The product $\circ:\mathcal{R}_{n}(q)\times\mathcal{R}_{m}(q)\rightarrow \mathcal{R}_{n+m}(q)\;\forall n,m$ can be extended to the whole space $\mathcal{R}(q)$ turning it into a commutative and associative $\bb{C}-$algebra.
+    \end{theorem}
+\end{dang}
+Proof: Associativity follows from Theorem~(\ref{theorem: associativity of parabolic induction}), so it only remains to prove the commutativity of $\circ$, which follows from the isomorphism of representations
+\begin{equation}
+    p_{(n_1,n_2)}^*(\rho_1\otimes\rho_2)\cong p_{(n_2,n_1)}^*(\rho_2\otimes\rho_1).
+\end{equation}
+\par
+The next objective of this subsection is to show that $\mathcal{R}(q)$ is a certain tensor product of Hall algebras. Let $G$ be a finite group and $H\subset G$ a subgroup. We will show that if $(\rho, V)$ is a representation of $H$ with associated character $\chi$, and $G=\bigcup_{i=1}^ks_iH$ is a decomposition of $G$ into left cosets, then the associated character of $V^G$ is
+\begin{equation}
+    \text{Ind}_H^G\chi(g) = \sum_{i=1}^k\chi(s_i^{-1}gs_i),
+\end{equation}
+where we set $\chi(s_{i}^{-1}gs_i)=0$ if $s_{i}^{-1}gs_i\notin H$. To show this, we use the vector space decomposition
+\begin{equation}
+    V^G\bydef \bb{C}G\otimes_{\bb{C}H}V\cong \bigoplus_{i=1}^ks_i\otimes_{\bb{C}H}V.
+\end{equation}
+Let $g\in G$ and let $i$ be fixed, then $gs_i=s_jh$ for unique $j$ and $h\in H$. Therefore $g(s_i\otimes v)=s_jh\otimes v = s_j\otimes \rho(h)v=s_j\otimes\rho(s_j^{-1}gs_i)v$ and those $i$'s that give a nonzero contribution to $\text{Ind}_H^G(g)$ are those such that $gs_i=s_ih$ for some $h\in H\iff s_i^{-1}gs_i\in H$. In particular, if $\{v_j\mid j=1,\dots, n\}$ is a basis of $V$, then for $h\in H$ we have $\chi(h)=\text{Tr}\rho(h) = \sum_i(\rho(h)v_i)_i$ where $(\cdot)_i:V\rightarrow\bb{C}$ denotes the projection taking the $i$th coordinate. Therefore $(s_j\otimes \rho(h)v_i)_{ij}=(\rho(h)v_i)_i$ where $(\cdot)_{ij}:V^G\rightarrow\bb{C}$ is the projection of the $(i,j)$th coordinate. So we conclude that
+\begin{equation}
+\begin{split}
+     \text{Ind}_H^G\chi(g)&=\sum_{i:s_i^{-1}gs_i\in H}\sum_{j=1}^n(s_i\otimes\rho(s_i^{-1}gs_i)v_j)_{ij}\\
+     &=\sum_{i:s_i^{-1}gs_i\in H}\sum_{j=1}^n(\rho(s_i^{-1}gs_i)v_j)_j\\
+     &=\sum_{i:s_i^{-1}gs_i\in H}\chi(s_i^{-1}gs_i).
+\end{split}
+\end{equation}
+If we put $\chi(s_i^{-1}gs_i)=0$ if $s_i^{-1}gs_i\notin H$ we get the result.\par
+Now, let $n=n_1+\cdots+n_r$ and $G_n=\bigcup_{s\in S}sP_{(n_1,\dots,n_r)}$ a left coset decomposition. By the discussion at the beginning of this section, if $u_j\;(j=1,\dots, r)$ are characters (or more generally class functions), then the class function $u=u_1\otimes\cdots\otimes u_r$ of $G_{n_1}\times\cdots\times G_{n_r}$ can be pulled back to $P_{(n_1,\dots,n_r)}$ in such a way that
+\begin{equation}
+\begin{split}
+    p_{(n_1,\dots,n_r)}^*u\left(\begin{smallmatrix}
+        A_1 & B_{12}&\quad &B_{1r}\\
+         0 & A_2& &B_{2r}\\
+          \dots& & &\dots\\
+           0 & 0& &A_r
+    \end{smallmatrix}\right) 
+    &= u_1\otimes\cdots\otimes u_r\left(\begin{smallmatrix}
+         A_1 & 0&\quad &0\\
+         0 & A_2& &0\\
+          \dots& & &\dots\\
+           0 & 0& &A_r
+    \end{smallmatrix}\right)\\
+    &=\prod_{i=1}^ru_i(A_i)
+\end{split}
+\end{equation}
+Of course for simplicity of notation, we will continue to omit the pullback, and use the same notation ``$u$'' for the character $p_{(n_1,\dots,n_r)}^*u$. Now, by equation~(\ref{equation: general product of characters}) we get
+\begin{equation}
+    u_1\circ\cdots\circ u_r(x)=\sum_{s\in S}u(s^{-1}xs).
+\end{equation}
+So $u(s^{-1}xs)$ contributes to $ u_1\circ\cdots\circ u_r(x)$ if and only if $s^{-1}xs\in P_{(n_1,\dots,n_r)}$, i.e. if and only if $s^{-1}xs$ preserves the flag $F$
+\begin{equation}
+    (0)=V_0\subset V_1\subset \cdots V_r= V
+\end{equation}
+as defined in equation~(\ref{equation: definition of the chain of flags}). Moreover, $s^{-1}xs$ preserves $F$ if and only if $x$ preserves the flag $sF$
+\begin{equation}
+    (0)=W_0\subset W_1\subset\cdots\subset W_r= V.
+\end{equation}
+where $W_i=sV_i$. This means that the chain $(W_i)_{i=0}^r$ (with $W_r=V_x$ and $W_0=(0)$), is a chain of $\fq[t]-$submodules. Now, if we put
+\begin{equation}
+    s^{-1}xs = \left(\begin{smallmatrix}
+        A_1 & B_{12}&\quad &B_{1r}\\
+         0 & A_2& &B_{2r}\\
+          \dots& & &\dots\\
+           0 & 0& &A_r
+    \end{smallmatrix}\right)
+\end{equation}
+then $u(s^{-1}xs)=\prod_{i=1}^ru_i(A_i)$ and for $n_{i-1}<k\leq n_i$
+\begin{equation}
+\begin{split}
+    &s^{-1}xs(v_k)-\sum_{l=n_1+\cdots+n_{i-1}+1}^{n_1+\cdots+n_i}(A_i)_{lk}v_l \quad\in V_{i-1}\iff\\
+    &x(sv_k)-\sum_{l=n_1+\cdots+n_{i-1}+1}^{n_1+\cdots+n_i}(A_i)_{lk}(sv_l) \quad\in W_{i-1}
+\end{split}
+\end{equation}
+So $x$ (and hence $t$) acts on $W_i/W_{i-1}$ as the matrix $A_i$, which implies that $W_i/W_{i-1}\cong V_{A_i}$ as $\fq[t]-$modules. Conversely, let 
+\begin{equation}
+     (0)=W_0\subset W_1\subset\cdots\subset W_r= V_x
+\end{equation}
+be a chain of $\fq[t]-$submodules, such that $W_i/W_{i-1}\cong V_{A_i}$. This means that there is a choice of basis of $V_x=\fq^n$ such that $x$ has matrix representation
+\begin{equation}
+    A=\left(\begin{smallmatrix}
+        A_1 & B_{12}&\quad &B_{1r}\\
+         0 & A_2& &B_{2r}\\
+          \dots& & &\dots\\
+           0 & 0& &A_r
+    \end{smallmatrix}\right)
+\end{equation}
+which implies that $A$ is conjugate in $P_{(n_1,\dots,n_r)}$ to $s^{-1}xs$ for some $s\in S$. So, the contributions for the summand $\prod_{i=1}^ru_i(A_i)$ are in one to one correspondence with chains of $\fq[t]-$submodules
+\begin{equation}
+    (0)=W_0\subset W_1\subset\cdots\subset W_r= V_x
+\end{equation}
+such that $W_i/W_{i-1}\cong V_{A_i}$. From this discussion we have proved the following theorem.
+\begin{dang}
+    \begin{theorem}\cite{macdonald1998symmetric}
+        Let $u_i$ be a class function on $G_{n_i}$ for each $i=1,\dots,r$ and write $n=n_1+\cdots+n_r$. Then if $c_{\mu}$ is a conjugacy class in $G_n$, we get
+        \begin{equation}
+            u_1\circ\cdots\circ u_r(c_\mu)=\sum g_{\mu^1\cdots\mu^r}^\mu\prod_{i=1}^ru_i(c_{\mu^i})
+        \end{equation}
+        where the sum runs over all sequences $(\mu^1,\dots,\mu^r)$ such that $c_{\mu^i}$ is a conjugacy class in $G_{n_i}$ for $i=1,\dots,r$, and $g_{\mu^1\dots\mu^r}^\mu$ is the number of chains of submodules
+        \begin{equation}
+            (0)=W_0\subset W_1\subset\cdots\subset W_r= V_\mu
+        \end{equation}
+        such that $W_i/W_{i-1}\cong V_{\mu^i}$.
+    \end{theorem}
+\end{dang}
+Now, for $c_\mu$ a conjugacy class in $G_n$, define the class function $\pi_\mu$ on $G_n$ by
+\begin{equation}
+    \pi_\mu(c_\lambda)=\left\{\begin{matrix}
+        1 \;\text{ if }\lambda=\mu\\
+        0 \;\text{ if }\lambda\neq \mu
+    \end{matrix}\right.
+\end{equation}
+Now fix conjugacy classes $c_{\mu^i}$ in $G_{n_i}$ for each $i=1,\dots,r$. Then by the previous theorem, we get that
+\begin{equation}
+    \pi_{\mu^1}\circ\cdots\circ\pi_{\mu^r}(c_\mu)=g_{\mu^1\dots\mu^r}^\mu = g_{\mu^1\dots\mu^r}^\mu\pi_\mu(c_\mu)
+\end{equation}
+for all conjugacy classes $c_\mu$ on $G_n$. Therefore
+\begin{equation}
+    \pi_{\mu^1}\circ\cdots\circ\pi_{\mu^r}=\sum_\mu g_{\mu^1\dots\mu^r}^\mu\pi_\mu.
+\end{equation}
+Now we com to the link with Hall algebras. We claim that $g_{\mu^1\dots\mu^r}^\mu=\prod_{f\in\Phi}G_{\mu^1(f)\dots\mu^r(f)}^{\mu(f)}(q_f)$ where $q_f\bydef q^{d(f)}$. Indeed, if
+\begin{equation}
+      (0)=W_0\subset W_1\subset\cdots\subset W_r= V_\mu,
+\end{equation}
+then
+\begin{equation}
+\begin{split}
+     &W_i/W_{i-1} \cong V_{\mu^i} \iff\\
+     &\bigoplus_{f\in\Phi}(W_i)_{(f)}/(W_{i-1})_{(f)}\cong \bigoplus_{f\in \Phi}\bigoplus_{j\geq1}\fq[t]/(f^{\mu_j^i(f)})\;\;\forall i\iff\\
+      &(W_i)_{(f)}/(W_{i-1})_{(f)}\text{ is of type }\mu_i(f)\;\forall f\in\Phi
+\end{split}
+\end{equation}
+Therefore, to build a chain of submodules $(W_i)_{i=0}^r$ (with $W_r=V_\mu \text{ and }W_0=(0)$) such that $W_i/W_{i-1}\cong V_{\mu^i}$ for each $i=1,\dots,r$, we just need to construct, for each $f\in\Phi$, a chain
+\begin{equation}
+    (0)=(W_0)_{(f)}\subset (W_1)_{(f)}\subset\cdots\subset (W_r)_{(f)}= V_{\mu(f)}=(V_\mu)_{(f)}
+\end{equation}
+such that the quotient module $(W_i)_{(f)}/(W_{i-1})_{(f)}$ is of type $\mu^i(f)$ for each $i=1,\dots,r$. The number of these chains is $G_{\mu^1(f)\dots\mu^r(f)}^{\mu(f)}(q_f)$ by definition and we get the result.
+\begin{dang}
+    \begin{theorem}\cite{jing2024characters}\label{theorem: space of characters is isomorphic to the tensor of Hall algebras}
+        We have an isomorphism of associative algebras:
+        \begin{equation}
+        \begin{split}
+           \varphi: \mathcal{R}&(q)\rightarrow \bigotimes_{f\in\Phi}H(\fq[t]_{(f)})\otimes_{\bb{Z}}\bb{C}\\
+            &\pi_\mu\longmapsto \otimes_{f\in \Phi}u_{\mu(f)}
+        \end{split}            
+        \end{equation}
+    \end{theorem}
+\end{dang}
+Before we proceed to the proof we need to define carefully what we mean by the infinite tensor product $\bigotimes_{f\in\Phi}H(\fq[t]_{(f)})$. For each $n\geq1$ we can form the finite tensor product $\bigotimes_{f\in\Phi_n}H(\fq[t]_{(f)})$. Moreover, by corollary~(\ref{corollary: tensor distributes over infinite coproducts}) we have
+\begin{equation}
+    \bigotimes_{f\in\Phi_n}H(\fq[t]_{(f)})=\bigoplus_{\mu:\text{Supp}(\mu)\subset \Phi_n}\bb{Z}\bigotimes_{f\in\Phi_n}u_{\mu(f)}.
+\end{equation}
+Also, if $m|n\Rightarrow \Phi_m\subset \Phi_n$ and we have a canonical monomorphism
+\begin{equation}
+    \theta_{m,n}: \bigotimes_{f\in\Phi_m}H(\fq[t]_{(f)})\rightarrow  \bigotimes_{f\in\Phi_n}H(\fq[t]_{(f)}) : \bigotimes_{f\in\Phi_m}u_{\mu(f)} \mapsto \bigotimes_{f\in\Phi_n}u_{\mu(f)}
+\end{equation}
+where $\text{Supp}(\mu)\subset \Phi_m$. Therefore, $(\bigotimes_{f\in\Phi_n}H(\fq[t]_{(f)}),\theta_{m,n})$ is a directed system and we define 
+\begin{equation}
+    \bigotimes_{f\in\Phi}H(\fq[t]_{(f)})\bydef\varinjlim \bigotimes_{f\in\Phi_n}H(\fq[t]_{(f)}).
+\end{equation}
+Since each $\theta_{m,n}$ is injective, the canonical homomorphisms 
+\begin{equation}
+   \bigotimes_{f\in\Phi_n}H(\fq[t]_{(f)})\rightarrow \bigotimes_{f\in\Phi}H(\fq[t]_{(f)}): \bigotimes_{f\in\Phi_n}u_{\mu(f)}\mapsto [\bigotimes_{f\in\Phi_n}u_{\mu(f)}]
+\end{equation}
+are also injective. By theorem~(\ref{theorem: direct limit commute with tensor product}) we get an isomorphism $ \bigotimes_{f\in\Phi}H(\fq[t]_{(f)})\otimes_{\bb{Z}}\bb{C}\cong\varinjlim  \bigotimes_{f\in\Phi_n}H(\fq[t]_{(f)})\otimes_{\bb{Z}}\bb{C}$. Moreover, if $n\geq1$,
+\begin{equation}
+\begin{split}
+     \bigotimes_{f\in\Phi_n}H(\fq[t]_{(f)})\otimes_{\bb{Z}}\bb{C}&\cong \bigoplus_{\mu\;:\;\text{Supp}(\mu)\subset\Phi_n}\bb{C}\bigotimes_{f\in\Phi_n}u_{\mu(f)}\\
+     &\cong \bigoplus_{m\geq1}\underset{||\mu||\leq m}{\bigoplus_{\text{Supp}(\mu)\subset\Phi_n}}\bb{C}\bigotimes_{f\in\Phi_n}u_{\mu(f)}
+\end{split}
+\end{equation}
+is a infinite direct sum, which can be seen as a direct limit of finite dimensional algebras over $\bb{C}$ (see the proof of the corollary~(\ref{corollary: tensor distributes over infinite coproducts})). But, by theorem~(\ref{theorem: tensor of product of algebras is a tensor product}) we see that $  \bigotimes_{f\in\Phi_n}H(\fq[t]_{(f)})\otimes_{\bb{Z}}\bb{C}$ is a $\bb{C}-$algebra with multiplication defined componentwise. In this context it's clear that the group monomorphisms $\theta_{m,n}$ are also $\bb{C}-$algebra monomorphisms. Therefore $\bigotimes_{f\in\Phi}H(\fq[t]_{(f)})\otimes_{\bb{Z}}\bb{C}$, as a direct limit of $\bb{C}-$algebras, is a $\bb{C}-$algebra. Moreover, for $\text{Supp}(\mu)\subset\Phi_n$ write $\bigotimes_{f\in\Phi}u_{\mu(f)}=[\bigotimes_{f\in\Phi_n}u_{\mu(f)}]$, then since the canonical map $\bigotimes_{f\in\Phi_n}u_{\mu(f)}\mapsto \bigotimes_{f\in\Phi}u_{\mu(f)}$ is injective, the set $\{\bigotimes_{f\in\Phi}u_{\mu(f)}\;|\;\mu\}$ must be linearly independent.\par
+Now we can proceed to the proof of the theorem~(\ref{theorem: space of characters is isomorphic to the tensor of Hall algebras}).\par
+Proof: The map $\varphi$ is clearly surjective, by the previous construction of the tensor product $\bigotimes_{f\in\Phi}H(\fq[t]_{(f)})$, and injectivity comes from the fact that $\{\bigotimes_{f\in\Phi}u_{\mu(f)}\;|\;\mu\}$ is a basis of $\bigotimes_{f\in\Phi}H(\fq[t]_{(f)})\otimes_{\bb{Z}}\bb{C}$. It remains to show that $\varphi$ is a homomorphism of algebras. But
+\begin{equation}
+    \begin{split}
+\varphi(\pi_\mu)\varphi(\pi_\nu)&=\bigotimes_{f\in\Phi}u_{\mu(f)}\bigotimes_{f\in\Phi}u_{\nu(f)}\\
+&=\bigotimes_{f\in\Phi}u_{\mu(f)}u_{\nu(f)}\\
+&=\bigotimes_{f\in\Phi}\sum_{\lambda(f)}G_{\mu(f)\nu(f)}^{\lambda(f)}(q_f)u_{\lambda(f)}\\
+&=\sum_\lambda \prod_{f\in\Phi}G_{\mu(f)\nu(f)}^{\lambda(f)}(q_f)\bigotimes_{f\in\Phi}u_{\lambda(f)}\\
+&=\sum_\lambda g_{\mu\nu}^{\lambda}\bigotimes_{f\in\Phi}u_{\lambda(f)}\\
+&=\varphi(\pi_\mu\circ\pi_\nu)
+    \end{split}
+\end{equation}
+and we conclude the proof.

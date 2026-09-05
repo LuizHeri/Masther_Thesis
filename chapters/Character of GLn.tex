@@ -1,0 +1,757 @@
+\chapter{\texorpdfstring{Characters of $GL_n(\fq)$}{Characters of GLn(Fq)}}
+\section{Construction of Heisenberg systems}
+From Theorem~(\ref{each irredcubible polynomial f gives an orbit of the Frobenius automorphism}) and~(\ref{Theorem: definition of L and its characterization of orbits}) we have two sets of orbits $\Phi, \Phi^*$ induced by the action of the Frobenius map $F: x\mapsto x^q$ on $M$ and $L$.\par
+For each $\phi\in\Phi$ we associate the ring $\Lambda_{\bb{C}}(\phi)$ of symmetric functions. We will identity 
+\begin{equation}
+    \Lambda_{\bb{C}}(\phi) = \bb{C}[p_1(\phi),p_2(\phi),\dots]
+\end{equation}
+where $p_j(\phi)=\sum_{i\geq1}\epsilon_{i,\phi}^j$. As in Theorem~(\ref{theorem: space of characters is isomorphic to the tensor of Hall algebras}) we define the tensor product
+\begin{equation}
+    \mathcal{F} = \bigotimes_{\phi\in\Phi^*}\Lambda_{\bb{C}}(\phi).
+\end{equation}
+It has a basis consisting of elements $p_{\tlambda} =\prod_{\phi\in\Phi^*}p_{\tlambda(\phi)}(\phi)$ (we will use $\prod$ notation instead of $\otimes$) where $\tlambda:\Phi^*\rightarrow \mathcal{P}$ denotes a weighted partition valued function, i.e.,
+\begin{equation}
+    ||\tlambda|| \bydef \sum_{\phi\in\Phi^*}|\tlambda(\phi)|=\sum_{\phi\in\Phi^*}\sum_{i\geq 1}\tlambda_i(\phi)<\infty.
+\end{equation}
+There is an Hermitian form on $\mathcal{F}$ defined by
+\begin{equation}\label{Equation: hermitian form on mathcal F}
+    \langle p_{\tlambda} ,p_{\tmu} \rangle = z_{\tlambda}\delta_{\tlambda\tmu}
+\end{equation}
+where $z_{\tlambda} = \prod_{\phi\in\Phi^*}z_{\tlambda(\phi)}$. Now, for a fixed partition $\lambda\in\mathcal{P}$ and orbit $\phi\in\Phi^*$, let
+\begin{align*}
+   \tlambda = 
+   \left\{\begin{aligned}
+        &\phi\mapsto \lambda\\
+        &\phi^\prime \mapsto 0,\;\phi^\prime\neq\phi.
+    \end{aligned}\right.
+\end{align*}
+Then we have a monomorphism $\Lambda_{\bb{C}}(\phi)\rightarrow\mathcal{F}: p_\lambda(\phi)\mapsto p_{\tlambda}$. Identifying $p_\lambda(\phi)$ with $p_{\tlambda}$, we get
+\begin{equation}\label{Equation: hermitian form on (p_lambda(phi),p_mu(phi'))}
+    \langle p_\lambda(\phi), p_\mu(\phi^\prime) \rangle = z_\lambda\delta_{\lambda\mu}\delta_{\phi\phi^\prime}
+\end{equation}
+so we recover the Hermitian form on $\Lambda_{\bb{C}}(\phi)$ obtained by the Boson-Fermion correspondence (see Theorem~(\ref{Theorem: boson fermion correspondence final version})). In particular, the vertex operator $S(\phi;u):\mathcal{F}\rightarrow \hat{\mathcal{F}}$ defined by
+\begin{equation}\label{Equation: vertex operator for Schur}
+     S(\phi;u) = \exp\left(\sum_{j\geq1}\frac{p_j(\phi)}{j}u^j\right)\exp\left(-\sum_{j\geq1}\frac{\partial}{\partial p_j(\phi)}u^{-j}\right)
+\end{equation}
+gives the realization of Schur symmetric functions in the power sums $p_r(\phi)$, i.e. for a partition $\lambda =(\lambda_1\cdots, \lambda_r)$,
+\begin{equation}
+   s_\lambda(\phi)\bydef s_\lambda(p_1(\phi),p_2(\phi),\dots)=S_{\lambda_1}(\phi)\cdots S_{\lambda_r}(\phi)\cdot 1
+\end{equation}
+where $S(\phi;u)=\sum_{j\in\bb{Z}}S_n(\phi)u^j$ .\par
+
+For a weighted partition valued function $\tlambda:\Phi^*\rightarrow \mathcal{P}$ we define $S_{\tlambda}=\prod_{\phi\in\Phi^*} s_{\tlambda(\phi)}(\phi)$. From the Boson-Fermion correspondence~(\ref{Theorem: boson fermion correspondence final version}) and equations~(\ref{Equation: hermitian form on mathcal F}) and~(\ref{Equation: hermitian form on (p_lambda(phi),p_mu(phi'))}) we have
+\begin{equation}
+    \langle s_\lambda(\phi),s_\mu(\phi^\prime) \rangle = \delta_{\lambda\mu}\delta_{\phi\phi^\prime}
+\end{equation}
+and
+\begin{equation}\label{Equation: orthonormality of S_tlambda}
+    \langle S_{\tlambda},S_{\tmu}\rangle = \delta_{\tlambda\tmu}.
+\end{equation}
+
+\begin{dang}
+    \begin{definition}\cite{jing2024characters}\label{Definition: p hat xi}
+        For an orbit $\phi\in\Phi^*$ and $\xi\in\phi$, define
+        \begin{equation}\label{Equation: definition of p_n(xi)}
+           \hat{p}_n(\xi)= \left\{\begin{aligned}
+                &p_{n/d(\phi)}(\phi)\quad\text{if }\;d(\phi)|n,\\
+                &0\quad\text{otherwise}.
+            \end{aligned}\right.
+        \end{equation}
+        In particular, if $\xi,\xi^\prime\in\phi$, then $\hat{p}_n(\xi)=\hat{p}_n(\xi^\prime)$.
+    \end{definition}
+\end{dang}
+Let $\xi\in L_n,\xi^\prime\in L_m$ and $[\xi]=\phi, [\xi^\prime]=\phi^\prime$. Then by equation~(\ref{Equation: definition of p_n(xi)}) we get
+\begin{equation}
+\begin{split}
+      \langle \hat{p}_n(\xi),\hat{p}_m(\xi^\prime)\rangle & = \langle p_{n/d(\phi)}(\phi), p_{m/d(\phi^\prime)}(\phi^\prime) \rangle\\
+      &=\frac{n}{d(\phi)}\delta_{\frac{n}{d(\phi)},\frac{m}{d(\phi^\prime)}}\delta_{\phi\phi^\prime}\\
+      &=\frac{n}{d(\phi)}\delta_{nm}\delta_{\phi\phi^\prime}.
+\end{split}
+\end{equation}
+\begin{dang}
+    \begin{definition}\cite{jing2024characters}\label{Definition: p hat x}
+        Let $x\in M$, then we write
+        \begin{equation}\label{Equation: pn(x)}
+            \hat{p}_n(x)=\left\{\begin{aligned}
+                &(-1)^{n-1}\frac{1}{q^n-1}\sum_{\xi\in M_n^*}\overline{\langle\xi,x\rangle}\hat{p}_n(\xi)\quad\text{if}\quad x\in M_n\\
+                &0\quad\text{otherwise}.
+            \end{aligned}\right.
+        \end{equation}
+    \end{definition}
+\end{dang}
+We can see that if $x, y$ are in the same orbit in $M_n$, then $\hat{p}_n(x)=\hat{p}_n(y)$. In fact, let $y=F^k(x)$, then
+\begin{equation}
+    \begin{split}
+        \hat{p}_n(y)&=\sum_{\xi\in M_n^*}\overline{\langle\xi, F^kx\rangle}_n\hat{p}_n(\xi)\\
+        &=\sum_{\xi\in M_n^*}\overline{\langle F^k\xi, x\rangle}_n\hat{p}_n(\xi)\\
+        &=\sum_{\xi\in M_n^*}\overline{\langle \xi, x\rangle}_n\hat{p}_n(\xi)\\
+        &=\hat{p}_n(x).
+    \end{split}
+\end{equation}
+The last line follows because $F$ is an automorphism of $M_n$.
+\begin{dang}
+    \begin{lemma}\label{Lemma: pn(xi) as a linear combination of pn(x)}
+        We have
+        \begin{equation}
+            \hat{p}_n(\xi)= (-1)^{n-1}\sum_{x\in M_n}\langle\xi,x\rangle_n\hat{p}_n(x).
+        \end{equation}
+    \end{lemma}
+\end{dang}
+Proof: This follows from
+\begin{equation}\label{Equation: pn(xi)}
+\begin{split}
+     (-1)^{n-1}\sum_{x\in M_n}\langle\xi,x\rangle_n\hat{p}_n(x) &=\frac{1}{q^n-1}\sum_{x\in M_n}\sum_{\xi^\prime\in M_n^*}\langle\xi,x\rangle_n\overline{\langle\xi^\prime,x\rangle}_n\hat{p}_n(\xi^\prime)\\
+     &=\sum_{\xi^\prime\in M_n^*}\left(\frac{1}{q^n-1}\sum_{x\in M_n}\langle\xi,x\rangle_n\overline{\langle\xi^\prime,x\rangle}_n\right)\hat{p}_n(\xi^\prime)\\
+     &=\sum_{\xi^\prime\in M_n^*}\langle\xi,\xi^\prime\rangle_{M_n}\hat{p}_n(\xi^\prime)\\
+     &=\hat{p}_n(\xi)
+\end{split}
+\end{equation}
+because $\langle\xi,\xi^\prime\rangle_{M_n}=\delta_{\xi\xi^\prime}$.
+\begin{dang}
+    \begin{definition}\cite{jing2024characters}\label{Definition: pn(f)}
+        Let $n\geq1, f\in\Phi$, we put $p_n(f)=\hat{p}_{nd(f)}(x)$ for $x\in f$.  
+    \end{definition}
+\end{dang}
+Since $x\in M_{d(f)}\subset M_{nd(f)}$, this definition makes sense, i.e. $\hat{p}_{nd(f)}(x)\neq0$.
+\begin{dang}
+    \begin{lemma}\cite{jing2024characters}\label{Lemma: inner product between power sums in f}
+        For any two orbits $f_1,f_2\in \Phi$, we have
+        \begin{equation}
+            \langle p_n(f_1), p_m(f_2)\rangle = \frac{n}{q_{f_1}^n-1}\delta_{mn}\delta_{f_1f_2}.
+        \end{equation}
+    \end{lemma}
+\end{dang} 
+Proof: Let $d_i = d(f_i)\;(i=1,2)$ and $x\in f_1, y\in f_2$. Then
+\begin{equation}\label{Equation: ugly equation1}
+    \begin{split}
+        \langle p_n(f_1)&,p_m(f_2) \rangle = \langle \hat{p}_{nd_1}(x),\hat{p}_{md_2}(y)\rangle\\
+        &=(-1)^{nd_1+md_2}\frac{1}{q^{nd_1}-1}\frac{1}{q^{md_2}-1}\underset{\xi^\prime\in M_{md_2}}{\sum_{\xi\in M_{nd_1}}}\overline{\langle\xi, x\rangle}_{nd_1}\langle\xi^\prime,y\rangle_{md_2}\langle\hat{p}_{nd_1}(\xi),\hat{p}_{md_2}(\xi^\prime)\rangle.
+    \end{split}
+\end{equation}
+But $\langle\hat{p}_{nd_1}(\xi),\hat{p}_{md_2}(\xi^\prime)\rangle=\frac{nd_1}{d([\xi])}\delta_{nd_1,md_2}\delta_{[\xi],[\xi^\prime]}$ and
+\begin{equation}\label{Equation: ugly equation 2}
+    \begin{split}
+        \underset{\xi^\prime\in M_{md_2}}{\sum_{\xi\in M_{nd_1}}}&\overline{\langle\xi, x\rangle}_{nd_1}\langle\xi^\prime,y\rangle_{md_2}\langle\hat{p}_{nd_1}(\xi),\hat{p}_{md_2}(\xi^\prime)\rangle \\
+        &=\underset{\xi^\prime\in M_{md_2}}{\sum_{\xi\in M_{nd_1}}}\overline{\langle\xi, x\rangle}_{nd_1}\langle\xi^\prime,y\rangle_{md_2}\frac{nd_1}{d([\xi])}\delta_{nd_1,md_2}\delta_{[\xi],[\xi^\prime]}\\
+        &=\delta_{nd_1,md_2}\underset{[\xi]=[\xi^\prime]}{\sum_{\xi,\xi^\prime\in M_{nd_1}}}\overline{\langle\xi, x\rangle}_{nd_1}\langle\xi^\prime,y\rangle_{nd_1}\frac{nd_1}{d([\xi])}\\
+        &=\delta_{nd_1,md_2}\sum_{\xi\in M_{nd_1}}\overline{\langle\xi, x\rangle}_{nd_1}\left(\frac{nd_1}{d([\xi])}\sum_{j=0}^{d([\xi])-1}\langle F^j\xi, y\rangle_{nd_1}\right)\\
+        &=\delta_{nd_1,md_2}\sum_{\xi\in M_{nd_1}}\overline{\langle\xi, x\rangle}_{nd_1}\sum_{j=0}^{nd_1-1}\langle F^j\xi,y\rangle_{nd_1}\;\;(\text{see equation~(\ref{Equation: periodic sum})})\\
+        &=\delta_{nd_1,md_2}\sum_{j=0}^{nd_1-1}\sum_{\xi\in M_{nd_1}}\overline{\langle\xi,x\rangle}_{nd_1}\langle\xi,F^jy\rangle_{nd_1}\\
+        &=\delta_{nd_1,md_2}\sum_{j=0}^{nd_1-1}(q^{nd_1}-1)\delta_{x, F^jy}\\
+        &=\delta_{nd_1,md_2}\delta_{f_1,f_2}(q^{nd_1}-1)\frac{nd_1}{d_1}\\
+        &=\frac{n}{q_{f_1}^n-1}\delta_{nd_1,md_2}\delta_{f_1,f_2}.
+    \end{split}
+\end{equation}
+Using equations~(\ref{Equation: ugly equation1}) and~(\ref{Equation: ugly equation 2}) we get the result.
+
+\begin{dang}
+    \begin{definition}
+        Define a gradation on $\mathcal{F}$ by putting $\text{deg}\;p_n(\phi)=nd(\phi)$. The $m$th homogeneous component of $\mathcal{F}$ will be denoted by $\mathcal{F}_m$.
+    \end{definition}
+\end{dang}
+It is a direct consequence of the previous definitions that $\text{deg}\;\hat{p}_n(\xi)=n,\;(\xi\in M_n^*)$, $\hat{p}_n(x)=n,\;(x\in M_n)$ and $\text{deg}\;p_n(f)= nd(f)$. Moreover, from equation~(\ref{Equation: hermitian form on (p_lambda(phi),p_mu(phi'))}) we get
+\begin{equation}
+    p_n(\phi)^\dagger = n\frac{\partial}{\partial p_n(\phi)}:\mathcal{F}_m\rightarrow \mathcal{F}_{m-nd(\phi)}.
+\end{equation}
+Moreover, the equation 
+\begin{equation}
+    [p_m(\phi)^\dagger,p_n(\phi^\prime)]=\langle p_m(\phi),p_n(\phi^\prime) \rangle\mathds{1}_{\mathcal{F}}
+\end{equation}
+is satisfied. By bilinearity and Lemma~(\ref{Lemma: inner product between power sums in f}), we get
+\begin{equation}\label{Equation: commuation between pn(f)dagger and pm(f)}
+    [p_n(f_1)^\dagger,p_m(f_2)]=\frac{n}{q_{f_1}^n-1}\delta_{f_1f_2}\mathds{1}_{\mathcal{F}}.
+\end{equation}
+From equations~(\ref{Equation: hermitian form on mathcal F}) and~(\ref{Equation: hermitian form on (p_lambda(phi),p_mu(phi'))}) we see that $\langle p_{\tlambda}, p_{t\mu}\rangle = \prod_{\phi\in\Phi^*}\langle p_{\tlambda(\phi)}(\phi),p_{\tmu(\phi)}(\phi)\rangle$, so we have a general rule:
+\begin{equation}\label{Equation: general rule for hermitian product}
+    \biggl< \prod_{m\geq0}\mathcal{F}_m, \prod_{m\geq0}\mathcal{F}_m\biggr> =\prod_{m\geq0}\big<\mathcal{F}_m,\mathcal{F}_m\bigr>.
+\end{equation}
+
+
+\begin{dang}
+    \begin{theorem}\cite{jing2024characters}\label{Theorem: orthogonality of pm(f)}
+        For a partition $\lambda=(\lambda_1,\dots,\lambda_r)$, let $p_\lambda(f) = p_{\lambda_1}(f)\cdots p_{\lambda_r}(f)$. Then
+         \begin{equation}
+             \langle p_\lambda(f_1),p_\mu(f_2)\rangle = z_\lambda(q_{f_1}^{-1})q_{f_1}^{-|\lambda|}\delta_{\lambda\mu}\delta_{f_1f_2}
+         \end{equation}
+         where $z_\lambda(t) = \prod_{j\geq1}j^{m_j(\lambda)}m_j(\lambda)!/(1-t^{\lambda_j})$.
+    \end{theorem}
+\end{dang}
+Proof: The proof of this theorem closely follows the proof of Theorem~(\ref{Theorem: hermitian form on the representation of the oscillator algebra V}), but using the commutator formula~(\ref{Equation: commuation between pn(f)dagger and pm(f)}) and~(\ref{Equation: general rule for hermitian product}).
+
+\begin{dang}
+    \begin{lemma}\label{Lemma: one-to-one correspondence between orbits}
+        There is a one-to-one correspondence $\Phi^*\longleftrightarrow \Phi$.
+    \end{lemma}
+\end{dang}
+Proof: Let $n\geq1$, we claim that there is a one-to-one correspondence between orbits $\Phi^*\rightarrow \Phi$.  Let $\omega_n$ be an $n$th primitive root of unity, so $M_n \cong \langle\omega_n\rangle$. The character given by $\xi_n(\omega_n)=\omega_n$ generates the whole group $M_n^*$, so $M_n^*=\langle\xi_n\rangle$. Then we have an isomorphism $M_n^*\rightarrow M_n: \xi_n^k\mapsto \xi_n^k(\omega_n)$ which commutes the with action of the Frobenius map on $M_n^*$ and $M_n$. Therefore, this map induces a bijection $\Phi^*\rightarrow \Phi$.
+
+\begin{dang}
+    \begin{lemma}\label{Lemma: dimension of mth homogeneous component of F}
+        The dimension $\text{dim}\;\mathcal{F}_m$ of the $m$th homogeneous component $\mathcal{F}_m$ is the same as the number of weighted partition valued functions $\tlambda: \Phi^*\rightarrow\mathcal{P}$ such that $||\tlambda||= m$.
+        \end{lemma}
+\end{dang}
+Proof: Since $p_{\tlambda}=\prod_{\phi\in\Phi^*}p_{\tlambda(\phi)}(\phi)$, then
+\begin{equation}
+    \begin{split}
+        \text{deg}\;p_{\tlambda} &= \sum_{\phi\in\Phi^*}\text{deg}\;p_{\tlambda(\phi)}(\phi)\\
+        &=\sum_{\phi\in\Phi^*}\sum_{i\geq1}d(\phi)|\tlambda_i(\phi)|\\
+        &=||\tlambda||.
+    \end{split}
+\end{equation}
+But $\mathcal{F}$ is freely generated by the set $\{p_{\tlambda}\;|\;\tlambda:\Phi^*\rightarrow\mathcal{P}\}$ and the lemma follows.
+\begin{dang}
+    \begin{theorem}\label{Theorem: F isomorphic to the span of p(f)'s}
+    We have an isomorphism 
+    \begin{equation}
+        \mathcal{F}\cong\bigotimes_{f\in\Phi}\bb{C}[p_1(f),p_2(f),\dots].
+    \end{equation}
+    \end{theorem}
+\end{dang}
+Proof: Let $\boldsymbol{\mu}:\Phi\rightarrow \mathcal{P}$ be a weighted partition valued function of weight $||\boldsymbol{\mu}||=m$ for a fixed $m\geq1$. By Lemma~(\ref{Lemma: one-to-one correspondence between orbits}), the number of such functions is the same as that of weighted partition valued functions $\tlambda:\Phi^*\rightarrow\mathcal{P}$ of weight $||\tlambda||=m$. Therefore by Lemma~(\ref{Lemma: dimension of mth homogeneous component of F}), the number of weighted partition valued functions $\boldsymbol{\mu}:\Phi\rightarrow \mathcal{P}$ of weight $||\boldsymbol{\mu}||=m$ is $\text{dim}\;\mathcal{F}_m$. Moreover by Theorem~(\ref{Theorem: orthogonality of pm(f)}), the set of polynomials $\prod_{f\in\Phi}p_{\boldsymbol{\mu}(f)}(f),\;||\boldsymbol{\mu}||=m$ is a linearly independent set. But since $\text{deg}\;\prod_{f\in\Phi}p_{\boldsymbol{\mu}(f)}(f)=||\boldsymbol{\mu}||$, we get that this set is a basis of $\mathcal{F}_m$ and the result follows because $\mathcal{F}=\bigoplus_{m\geq1}\mathcal{F}_m$.
+
+
+\section{The characteristic map}
+\subsection{Vertex operator for Hall-Littlewood symmetric polynomials}
+A consequence of Lemma~(\ref{Lemma: inner product between power sums in f}) is that $\Lambda_{\bb{C}}(f)=\bb{C}[p_1(f),p_2(f),\dots]$ can be regarded as a representation of a ``deformed'' version of the oscillator algebra $\mathcal{A}=\{a_n\}_{n\neq0}\cup\{\mathds{1}\}$ with commutator relation given by
+\begin{equation}
+    [a_n,a_m]=\frac{n}{q_f^n-1}\delta_{nm}\mathds{1}.
+\end{equation}
+In~\cite{jing1991vertex}, a version of the oscillator algebra $\mathcal{A}=\{a_n\}_{n\neq0}\cup\{\mathds{1}\}$ is presented, with commutation relation given by
+\begin{equation}
+     [a_n,a_m]=\frac{n}{1-t^{|n|}}\delta_{nm}\mathds{1}.
+\end{equation}
+In this case, the bosonic Fock space $B$ is realized as $\text{Sym}(a_{-n}:n\geq1)$, and the action of $\mathcal{A}$ on $B$ is given by
+\begin{equation}
+    \left\{\begin{aligned}
+        &\text{For }n>0\\
+        &a_{-n}\mapsto a_{-n}\cdot\quad (\text{multiplication by }a_{-n})\\
+        &a_n\mapsto \frac{n}{1-t^n}\frac{\partial}{\partial a_{-n}}.
+    \end{aligned}\right.
+\end{equation}
+Moreover, a vertex operator $H(u): B\rightarrow B[u^\pm]$ is defined
+\begin{equation}\label{Equation: Jing vertex operator H}
+    H(u) = \exp\left(\sum_{j\geq1}\frac{1-t^j}{j}a_{-j}u^j\right)\exp\left(-\sum_{j\geq1}\frac{1-t^j}{j}a_ju^{-j}\right) =\sum_{j\in\bb{Z}}H_jz^j
+\end{equation}
+which is a generalization of the vertex operator given in~(\ref{Theorem: boson fermion correspondence final version}). As in theorem~(\ref{Theorem: hermitian form on the representation of the oscillator algebra V}), there is an unique hermitian form $\langle\cdot,\cdot\rangle$ which is contravariant with respect to the anti-linear anti-involution $\omega: a_n\mapsto a_{-n}$. This hermitian form satisfies
+\begin{equation}\label{Equation: hermitian form in the Jing bosonic Fock space}
+    \langle a_{-\lambda},a_{-\mu} \rangle=z_{\lambda}(t)\delta_{\lambda\mu}
+\end{equation}
+where $z_{\lambda}(t)= \prod_{j\geq1}j^{m_j(\lambda)}m_j(\lambda)!/(1-t^{\lambda_j})$. 
+\begin{dang}
+    \begin{theorem}(\cite{jing1991vertex} Proposition 2.20)\label{Theorem: orthogonality of H_lambda1}
+        For any partition $\lambda=(\lambda_1,\dots,\lambda_r)$, let $H_\lambda = H_{\lambda_1}\cdots H_{\lambda_r}\cdot1$. Then, with respect to the Hermitian form~(\ref{Equation: hermitian form in the Jing bosonic Fock space}), we have
+        \begin{equation}
+            \langle H_\lambda\cdot1,H_\mu\cdot1\rangle = b_\lambda(t)\delta_{\lambda\mu}.
+        \end{equation}
+    \end{theorem}
+\end{dang}
+In particular, $\{H_\lambda\cdot1\;|\;\lambda\in\mathcal{P}\}$ is a linearly independent set.
+\begin{dang}
+    \begin{definition}
+        Define a gradation on $B=\text{Sym}(a_{-n}:n\geq1)$ by 
+        \begin{equation}
+            \text{deg}(a_\lambda) = |\lambda|.
+        \end{equation}
+        So the $m$th homogeneous component $B_m$ of $B$ has dimension $p(m)$, the number of partitions of $m$.
+    \end{definition}
+\end{dang}
+\begin{dang}
+    \begin{theorem}\label{Theorem: H_lambda is a basis of F}
+        The set $\{H_\lambda\cdot1\;|\;\lambda\in\mathcal{P}\}$ is a basis of $\mathcal{F}$.
+    \end{theorem}
+\end{dang}
+Proof: It's a direct consequence of~(\ref{Equation: Jing vertex operator H}) that $H_n: B_m\rightarrow B_{m+n}$. Therefore $\text{deg}(H_\lambda\cdot 1)=|\lambda|$ and the set $\{H_\lambda\cdot1\;|\;|\lambda|=m\}\subset B_m$ is a linearly independent set with $p(m)$ elements. It follows that $V_m=\text{Span}\{H_\lambda\cdot1\;|\;|\lambda|=m\}$ and that $\{H_\lambda\cdot1\;|\lambda\in\mathcal{P}\}$ is a basis of $V$.\par
+
+
+From Theorems~(\ref{Theorem: orthogonality of pm(f)}) and~(\ref{Theorem: F isomorphic to the span of p(f)'s}), we see that the vertex operator~(\ref{Equation: Jing vertex operator H}) acts on $\mathcal{F}$, provided we make a formal change in the parameters:
+\begin{equation}\label{Equation: change of parameters in the vertex operator H}
+    \left\{\begin{aligned}
+        &t\mapsto q_f^{-1}\\
+        &a_{-n}\mapsto q_f^{n/2}p_n(f)\\
+        &u\mapsto q_f^{1/2}u
+    \end{aligned}\right.
+\end{equation}
+where $f\in\Phi$ is chosen as before. With these changes we write the vertex operator~(\ref{Equation: Jing vertex operator H}) as
+\begin{equation}\label{Equation: vertex operator for Hall-Littlewood}
+    Q(u;f) = \exp\left(\sum_{j\geq1}\frac{q_f^{j}-1}{j}p_j(f)u^j\right)\exp\left(-\sum_{j\geq1}q_f^{-j}\frac{\partial}{\partial p_j(f)}u^{-j}\right)=\sum_{j\in\bb{Z}}Q_ju^j.
+\end{equation}
+\begin{dang}
+    \begin{theorem}(\cite{jing2024characters}, Proposition 4.1)\label{Theorem: orthogonality of Jing's Q_lambda}
+        For a partition $\lambda=(\lambda_1,\dots,\lambda_r)$, let $Q_\lambda\cdot1 = Q_{\lambda_1}\cdots Q_{\lambda_r}\cdot1$. Then $\{Q_\lambda\cdot1\;|\;\lambda\in\mathcal{P}\}$ is a orthogonal basis of $\mathcal{F}$. In particular
+        \begin{equation}
+             \langle Q_\lambda\cdot1, Q_\mu\cdot1 \rangle = b_\lambda(q_f^{-1})q_f^{|\lambda|}\delta_{\lambda\mu},
+        \end{equation}
+        where the Hermitian form $\langle\cdot,\cdot\rangle$ is defined by $\langle p_\lambda,p_\mu\rangle=z_\lambda\delta_{\lambda\mu}$ and $b_\lambda(t)=\prod_{i\geq1}\varphi_{m_i(\lambda)}(t)$.
+    \end{theorem}
+\end{dang}
+Proof: Under the formal change of variables~(\ref{Equation: change of parameters in the vertex operator H}), we get the identification $H_n=q_f^{n/2}Q_n$, and using Theorem~(\ref{Theorem: orthogonality of H_lambda1}) we get the result. Moreover, the fact that $\mathcal{F}=\text{Span}\{Q_\lambda\cdot1\;|\;\lambda\in\mathcal{P}\}$ is a consequence of Theorem~(\ref{Theorem: H_lambda is a basis of F}).
+\begin{dang}
+    \begin{theorem}\cite{jing1991vertex}\label{Theorem: deformed clifford relation for H}
+        Let $H(u)$ be the vertex operator~(\ref{Equation: Jing vertex operator H}). Then we have the identity
+        \begin{equation}
+            H_{n}H_{m+1}-tH_{n+1}H_m = tH_{m+1}H_n-H_{m+1}H_n.
+        \end{equation}
+    \end{theorem}
+\end{dang}
+Proof: Let 
+\begin{equation}
+    H(u,v)=\exp\left(\sum_{j\geq1}\frac{1-t^j}{j}a_{-j}(u^j+v^j)\right)\exp\left(-\sum_{j\geq1}\frac{1-t^j}{j}a_j(u^{-j}+v^{-j})\right),
+\end{equation}
+so $H(u,v)=H(u,v)$. Moreover, using the rule $e^xe^y=e^ye^xe^{[x,y]}$ for the case $[[x,y],x]=[[x,y],y]=0$, we get
+\begin{equation}
+\begin{split}
+      H(u)H(v) &= H(u,v)\exp\left(-\sum_{j,k\geq1}\frac{1-t^j}{j}\frac{1-t^k}{k}\left[a_{j},a_{-k}\right]u^{-j}v^k\right)\\
+      &= H(u,v)\exp\left(-\sum_{j\geq1}\frac{1-t^j}{j}u^{-j}v^j\right)\\
+      &=H(u,v)\exp\log\left(\frac{1-\frac{v}{u}}{1-\frac{tv}{u}}\right)\\
+      &=H(u,v)\left(\frac{1-\frac{v}{u}}{1-\frac{tv}{u}}\right)\\
+      &=H(u,v)i_{u,v}\frac{u-v}{u-tv}.
+\end{split}
+\end{equation}
+Therefore
+\begin{equation}
+\begin{split}
+     &(u-tv)H(u)H(v) +(v-tu)H(v)H(u) = 0 \Rightarrow\\
+     &\quad\sum_{n,m}(H_{n-1}H_m-tH_nH_{m-1}+H_{m-1}H_n-tH_mH_{n-1})z^nw^m = 0
+\end{split}
+\end{equation}
+ and making a change in the parameters $n\to n+1, m\to m+1$ we get the result.
+ \begin{dang}
+     \begin{corollary}(\cite{jing2024characters}, Proposition 4.2)
+         Let $f\in \Phi$ and $m\geq1$, then
+         \begin{equation}\label{Equation: deformed clifford for Q_n(f)}
+             Q_n(f)Q_{m+1}(f)-q_f^{-1}Q_{n+1}(f)Q_{m}(f)=q_f^{-1}Q_{m+1}(f)Q_n(f)-Q_{m+1}(f)Q_n(f).
+         \end{equation}
+     \end{corollary}
+ \end{dang}
+ Proof: This follows from Theorem~(\ref{Theorem: deformed clifford relation for H}) and equation~(\ref{Equation: change of parameters in the vertex operator H}).\par
+
+There exists a generating function for the elementary symmetric functions in the power sum functions.  Recall from~(\ref{Equation: generating function of elementary symmetric}) of elementary symmetric functions $e_j(\epsilon)$ is
+\begin{equation}
+    \begin{split}
+        E(t) = \sum_{j\geq0}e_j(\epsilon)t^j=\prod_{j\geq1}(1+t\epsilon_j).
+    \end{split}
+\end{equation}
+Moreover 
+\begin{equation}
+\begin{split}
+      P(-u) &= \sum_{i\geq1}p_i(\epsilon)(-u)^{i-1}\\
+      &=\sum_{i\geq1}\sum_{j\geq1}\epsilon_j^i(-u)^{i-1}\\
+      &=\sum_{j\geq1}\frac{\epsilon_j}{1+\epsilon_ju}\\
+      &=\sum_{j\geq1}\frac{d}{du}\log(1+\epsilon_ju)\\
+      &=\frac{d}{du}\log\prod_{j\geq1}(1+\epsilon_ju)\\
+      &=\frac{d}{du}\log E(u)
+\end{split}
+\end{equation}
+and we conclude that
+\begin{equation}
+    E(u)=\exp\left(\sum_{j\geq1}\frac{(-1)^{j-1}}{j}p_ju^j\right).
+\end{equation}
+For $f\in\Phi$ we define the half vertex operator
+\begin{equation}
+    E_r(u;f)=\exp\left(\sum_{j\geq1}\frac{(-1)^{j-1}}{j}p_j(f)u^j\right)=\sum_{j\geq1}E_j(f)u^j
+\end{equation}
+which is a generating function for the elementary symmetric functions in $\Lambda_{\bb{C}}(f)$, the ring of symmetric functions in the variables $\{x_{f,i}\;|i\geq1\}$. Under the adjoint operator $p_n(f)^\dagger=\frac{n}{q_f^n-1}\frac{\partial}{\partial p_n(f)}$, we define
+\begin{equation}
+    E_r^\dagger(u;f)=\exp\left(-\sum_{j\geq1}\frac{(-1)^{j}}{q_f^j-1}\frac{\partial}{\partial p_j(f)}u^j\right)=\sum_{j\geq1}E_j^\dagger(f)u^j.
+\end{equation}
+
+
+\begin{dang}
+    \begin{theorem}(\cite{jing2024characters}, Theorem 4.3)
+        Let $\nu=(\nu_1,\dots,\nu_l)$ be a partition, $r,(0< r\leq l)$ a positive integer and $f\in \Phi$. Then 
+        \begin{equation}\label{Equation: E_r dagger on Q_nu 1}
+            E_r^\dagger(f) Q_\nu(f)\cdot 1= \sum_{1\leq i_1<\cdots<i_r\leq l}Q_{\nu-(e_{i_1}+\cdots+e_{i_r})}(f)\cdot1
+        \end{equation}
+        where $e_i=(\delta_{ij})_{j=1}^l$ is the $i$th element vector. Moreover, $E_r^\dagger(f)Q_\nu(f)\cdot1=0$ for $r>l$.
+    \end{theorem}
+\end{dang}
+Proof: We use the relation $e^xe^y=e^ye^xe^{[x,y]}$, which is satisfied whenever $[[x,y],x]=[[x,y],y]=0$.
+\begin{equation}
+\begin{split}
+     &E^\dagger(u;f)\exp\left(\sum_{j\geq1}\frac{q_f^j-1}{j}p_j(f)v^j\right) =\\
+     &\;\exp\left(\sum_{j\geq1}\frac{q_f^j-1}{j}p_j(f)v^j\right)E^\dagger(u;f)\times\\
+     &\quad\quad\quad\times\exp\left(-\sum_{j,k\geq1}\frac{(-1)^j}{q_f^j-1}\frac{(-1)^k}{q_f^k-1}\left[\frac{\partial}{\partial p_j(f)},p_k(f)\right]u^jv^k\right).
+\end{split}
+\end{equation}
+But
+\begin{equation}
+    \begin{split}
+        &\exp\left(-\sum_{j,k\geq1}\frac{(-1)^j}{q_f^j-1}\frac{(-1)^k}{q_f^k-1}\left[\frac{\partial}{\partial p_j(f)},p_k(f)\right]u^jv^k\right)\\
+        &\quad=\exp\left(-\sum_{j,k\geq1}\frac{(-1)^j}{q_f^j-1}\frac{q_f^k-1}{k}\delta_{jk}u^jv^k\right)\\
+        &\quad=\exp\left(-\sum_{j,k\geq1}\frac{(-1)^j}{j}u^jv^j\right)=(1+uv)
+    \end{split}
+\end{equation}
+and
+\begin{equation}
+   E^\dagger(u;f)\exp\left(\sum_{j\geq1}\frac{q_f^j-1}{j}p_j(f)v^j\right) = \exp\left(\sum_{j\geq1}\frac{q_f^j-1}{j}p_j(f)v^j\right)E^\dagger(u;f)(1+uv).
+\end{equation}
+Using this commutation relation we get
+\begin{equation}
+    E^\dagger(u;f)Q(v_1;f)\cdots Q(v_l;f)\cdot1=\prod_{1\leq i\leq l}(1+uv_i) Q(v_1;f)\cdots Q(v_l;f)\cdot1.
+\end{equation}
+Collecting the coefficients of $u^rv_1^{\nu_1}\cdots v_l^{\nu_l}$ on both sides of the previous equation we get that $E_r(f)^\dagger Q_\nu(f)\cdot1=0$ for $r>l$, and for $r\leq l$ we get equation~(\ref{Equation: E_r dagger on Q_nu 1}).\par
+
+In the next Lemma and Theorem, we fix $f\in \Phi$ and write $Q_n, E_n^\dagger$ and $q$, instead of $Q_n(f),E_n^\dagger(f)$ and $q_f$.
+\begin{dang}
+    \begin{lemma}(\cite{jing2024characters}, Lemma 4.4)\label{Lemma: E_daggerQ_(npowerm1)}
+    For $r\leq m$ we have
+    \begin{equation}\label{Equation: E_daggerQ_(npowerm1)}
+        E_r^\dagger Q_{(n^m)}\cdot1= \gausspol{m}{r}_{q^{-1}}Q_{(n^{m-r},(n-1)^r)}\cdot1.
+    \end{equation}
+    \end{lemma}
+\end{dang}
+Proof: The proof goes by induction in $m+r$. We will prove the base case first, in this case it's sufficient to verify~(\ref{Equation: E_daggerQ_(npowerm1)}) for $r=1$ and $m\geq1$. By equation~(\ref{Equation: E_r dagger on Q_nu 1}), we have
+
+\begin{equation}
+\begin{split}
+    E_1^\dagger Q_{(n^m)}\cdot1&=\sum_{i=1}^mQ_{n}^{i-1}Q_{n-1}Q_{n}^{m-i}\cdot1\\
+    &=\sum_{i=1}^mq^{-m+i}Q_{(n^{m-1},n-1)}\cdot1\quad(\text{by equation~(\ref{Equation: deformed clifford for Q_n(f)}) for }n=m)\\
+    &=\gausspol{m}{1}_{q^{-1}}Q_{(n^{m-1},n-1)}\cdot1.
+\end{split}
+\end{equation}
+Now, let $r\; (1\leq r\leq m)$ be fixed, and suppose that the statement holds for $k<m+r$. In the case $r=m$, equation~(\ref{Equation: E_r dagger on Q_nu 1}) has only one summand $Q_{(n-1)^m}\cdot1$ on the right side, which coincides with~(\ref{Equation: E_daggerQ_(npowerm1)}). Now, if $r<m$ we divide~(\ref{Equation: E_r dagger on Q_nu 1}) into two sums:
+\begin{equation}
+\begin{split}
+      &\sum_{2\leq i_2<\cdots<i_r\leq m}Q_{(n^m)-(e_1+e_{i_2}+\dots+e_{i_r})}\cdot1= \\
+      &\quad\quad= \sum_{2\leq i_2<\cdots<i_r\leq m}Q_{(n-1)}Q_{(n^{m-1})-(e_{i_2}+\cdots+e_{i_r})}\cdot1\\
+      &\quad\quad=Q_{(n-1)}\gausspol{m-1}{r-1}_{q^{-1}}Q_{(n^{m-r},(n-1)^{r-1})}\cdot1\quad(\text{by the induction hypothesis})\\
+      &\quad\quad =\gausspol{m-1}{r-1}_{q^{-1}}q^{-m+r}Q_{(n^{m-r},(n-1)^r)}\cdot 1
+\end{split}
+\end{equation}
+because of equation~(\ref{Equation: deformed clifford for Q_n(f)}) for $n=m$. The second summand is
+\begin{equation}
+    \begin{split}
+        &\sum_{1\leq i_1<\cdots<i_r\leq m}Q_{n}Q_{(n^{m-1})-(e_{i_1}+\cdots+e_{i_r})}\cdot1=\\
+        &\quad Q_n\gausspol{m-1}{r}_{q^{-1}}Q_{(n^{m-1-r},(n-1)^r)}\cdot1\quad(\text{by the induction hypothesis})\\
+        &\quad\gausspol{m-1}{r}_{q^{-1}}Q_{(n^{m-r},(n-1)^r)}\cdot1.
+    \end{split}
+\end{equation}
+Summing everything we get
+\begin{equation}
+\begin{split}
+     E_r^\dagger Q_{n^{m}}\cdot1 &= \left(\gausspol{m-1}{r-1}_{q^{-1}}q^{-m+r}+\gausspol{m-1}{r}_{q^{-1}}\right)Q_{(n^{m-r},(n-1)^r)}\cdot1\\
+     &=\gausspol{m}{r}_{q^{-1}}Q_{(n^{m-r},(n-1)^r)}\cdot1.
+\end{split} 
+\end{equation}
+
+\begin{dang}
+    \begin{theorem}(\cite{jing2024characters}, Theorem 4.5)\label{Theorem: E_r dagger Q_nu explicit formula}
+        Let $\nu=(1^{m_1}\dots k^{m_k})$ be a partition of length $l$ and $r\leq l$ be a positive integer. Then
+        \begin{equation}
+            E_r^\dagger Q_\nu\cdot1=\sum_{\mu}\prod_{i\geq1}\gausspol{\nu_i^\prime-\nu_{i+1}^\prime}{\nu_i^\prime-\mu_i^\prime}_{q^{-1}}Q_\mu\cdot1
+        \end{equation}
+        where the sum runs over all partitions $\mu\subset \nu$ such that the skew diagram $\theta=\nu-\mu$ is a vertical $r$-strip, i.e. $\theta_i\leq1$ while $|\theta|=r$.
+    \end{theorem}
+\end{dang}
+Proof: By equation~(\ref{Equation: E_r dagger on Q_nu 1}), we have
+\begin{equation}
+        E_r^\dagger Q_\nu\cdot1 = \underset{r_1\leq m_1,\dots,r_k\leq m_k}{\sum_{r_1+\dots +r_k=r}} \sum_{v_1,\dots v_k}Q_{((k^{m_k})-v_k,\dots, (1^{m_1})-v_1)}\cdot1
+\end{equation}
+where each $v_j,(1\leq j\leq k)$ ranges over all the vectors $e_{i_1}+\cdots+e_{i_{r_j}}$ for $1\leq i_1<\dots<i_{r_j}\leq m_j$. By Lemma~(\ref{Lemma: E_daggerQ_(npowerm1)}), we get
+\begin{equation}\label{Equation: E_r dagger Q_nu crazysum}
+     E_r^\dagger Q_\nu\cdot1 = \underset{r_1\leq m_1,\dots,r_k\leq m_k}{\sum_{r_1+\dots +r_k=r}}\prod_{i\geq1}\gausspol{m_i}{r_i}_{q^{-1}}Q_{(k^{m_k-r_k},\dots,j^{m_j+r_{j+1}-r_j},\dots,1^{m_1+r_2-r_1})}\cdot1.
+\end{equation}
+Now, fix $r=r_1+\cdots+r_k$ and let $\mu=(k^{m_k-r_k},\dots,j^{m_j+r_{j+1}-r_j},\dots,1^{m_1+r_2-r_1})$. Then, setting $r_{k+1}=0$, we get $m_j(\mu)=m_j+r_{j+1}-r_j,(1\leq j\leq k)$. In particular
+\begin{equation}
+    \begin{split}
+        r_i&=r_i-r_{k+1}\\
+        &=\sum_{j=i}^k(r_j-r_{j+1})\\
+        &=\sum_{j=i}^k(m_j-m_j(\mu))\\
+        &=\sum_{j=i}^k(\nu_j^\prime-\nu_{j+1}^\prime-\mu_j^\prime+\mu_{j+1}^\prime)\\
+        &=\nu_i^\prime -\mu_i^\prime
+    \end{split}
+\end{equation}
+because $\nu_{k+1}^\prime=\mu_{k+1}^\prime=0$. Therefore $\mu_i^\prime=\nu_i^\prime-r_i,(1\leq i\leq l)$ while $r =\sum r_i, (r_i\leq m_i)$. This characterizes $\theta=\nu-\mu$ as being a vertical $r-$strip. So we conclude from equation~(\ref{Equation: E_r dagger Q_nu crazysum}) that 
+\begin{equation}
+      E_r^\dagger Q_\nu\cdot1=\sum_{\mu}\prod_{i\geq1}\gausspol{\nu_i^\prime-\nu_{i+1}^\prime}{\nu_i^\prime-\mu_i^\prime}_{q^{-1}}Q_\mu\cdot1
+\end{equation}
+summed over all $\mu$ such that $\nu-\mu$ is a vertical strip.
+\subsection{Hall-Littlewood polynomials}
+In~\cite{jing1991vertex}, it's shown that under the characteristic map $\iota(a_{-1}^{m_1}\cdots a_{-k}^{m_k})=p_1^{m_1}\cdots p_k^{m_k}$, we have $\iota (H_\lambda\cdot1)=L_\lambda$, where 
+\begin{equation}\label{Equation: Jing's Hall Littlewood polynomial}
+    L_\lambda(x_1,\dots,x_n;t)=(1-t)^{l(\lambda)}\sum_{w\in S_n}w\left(x_1^{\lambda_1}\dots x_n^{\lambda_n}\prod_{i<j}\frac{x_i-tx_j}{x_i-x_j}\right)
+\end{equation}
+is a symmetric polynomial for $n\geq l(\lambda)$ . It's important to note that
+\begin{equation}
+    L(x_1,\dots,x_n,0;t)=L(x_1,\dots,x_n;t),
+\end{equation}
+so it make sense to talk about the $L_\lambda$ in the limit $n\to\infty$. In~\cite{jing1991vertex}, the polynomials $L_\lambda$ are called Hall-Littlewood polynomials. However, in~\cite{macdonald1998symmetric}, the Hall-Littlewood polynomials are defined by
+\begin{equation}\label{Equation: Mcdonald Hall-Littlewood polynomials}
+    P_\lambda(x_1,\dots,x_n;t)=\frac{1}{v_\lambda(t)}\sum_{w\in S_n}w\left(x_1^{\lambda_1}\dots x_n^{\lambda_n}\prod_{i<j}\frac{x_i-tx_j}{x_i-x_j}\right)
+\end{equation}
+where $v_\lambda=(1-t)^{-l(\lambda)}b_\lambda(t)$. They serve to interpolate Schur symmetric $s_\lambda$ functions and monomial symmetric functions $m_\lambda(x)$, i.e.
+\begin{equation}
+    \begin{split}
+      &P_\lambda(x_1,\dots,x_n;0)=s_\lambda(x_1,\dots,x_n)\\
+      &P_\lambda(x_1,\dots,x_n;1)=m_\lambda(x_1,\dots,x_n).
+    \end{split}
+\end{equation}
+In this work we will choose equation~(\ref{Equation: Mcdonald Hall-Littlewood polynomials}) to define Hall-Littlewood polynomials. Therefore $\iota(H_\lambda\cdot1)=b_\lambda(t)P_\lambda$, and under the formal change of variables~(\ref{Equation: change of parameters in the vertex operator H}) we get 
+\begin{equation}
+\begin{split}
+     q_f^{-|\lambda|}Q_\lambda(f)\cdot1=b_\lambda(q_f^{-1})P_\lambda(f)\Rightarrow\\
+     P_\lambda(f) = q_f^{-|\lambda|}b_\lambda(q_f^{-1})^{-1}Q_\lambda(f)\cdot1
+\end{split}
+\end{equation}
+for $f\in\Phi$.
+
+\begin{dang}
+    \begin{notation}
+        We will write $P_\lambda(f) = q_f^{-|\lambda|}b_\lambda(q_f^{-1})^{-1}Q_\lambda(f)\cdot1$ for Hall-Littlewood polynomials in $\Lambda_{\bb{C}}(f)$. Moreover by Theorem~(\ref{Theorem: orthogonality of Jing's Q_lambda}) we have 
+        \begin{equation}\label{Equation: duality Q_lambda and P_lambda}
+            \langle P_\lambda(f), Q_\mu(f) \rangle = \delta_{\lambda\mu}.
+        \end{equation}
+    \end{notation}
+\end{dang}
+\begin{dang}
+\begin{theorem}\cite{jing1991vertex}\label{Theorem: product between hall littlewood polynomials P_mu and P_(1pr)}
+Let $\lambda$ be a partition and $\mu$ be the partition obtained by removing the last column of $\lambda$. Then, if the last column of $\lambda$ has $r$ boxes, the following relation is satisfied:
+    \begin{equation}\label{Equation: product between hall littlewood polynomials P_mu and P_(1pr)}
+        P_\mu(f) P_{(1^r)}(f) = P_\lambda(f) +\sum_{\nu}g_{\mu(1^r)}^\nu(q_f) P_\nu(f)
+    \end{equation}
+    in $\Lambda_{\bb{C}}(f)$, where $g_{\mu(1^r)}^\nu(q_f)=\prod_{i\geq1}\gausspol{\nu_i^\prime-\nu_{i+1}^\prime}{\nu_i^\prime-\mu_i^\prime}_{q_f^{-1}}$.
+\end{theorem}
+\end{dang}
+Proof: We will use the fact that the Hall-Littlewood polynomial $P_{(1^r)}$ coincides with the elementary symmetric function $e_r$ (\cite{macdonald1998symmetric}, p.209). So we write
+\begin{equation}
+  P_\mu(f) P_{(1^r)}(f)=E_r(f)\cdot P_\mu(f).
+\end{equation}
+Now, by Theorem~(\ref{Theorem: E_r dagger Q_nu explicit formula}) and equation~(\ref{Equation: duality Q_lambda and P_lambda}),
+\begin{equation}
+    \langle E_r(f)\cdot P_\mu(f), Q_\nu(f)\rangle=\langle P_\mu,E_r(f)^\dagger Q_\nu(f)\rangle
+\end{equation}
+is nonzero only if $\nu-\mu$ is a vertical strip, and if that is the case we have
+\begin{equation}\label{Equation: support of P_mu P_(1pr)}
+    \langle P_\mu(f),E_r(f)^\dagger Q_\nu(f)\rangle=\prod_{i\geq1}\gausspol{\nu_i^\prime-\nu_{i+1}^\prime}{\nu_i^\prime-\mu_i^\prime}_{q_f^{-1}}=g_{\mu(1^r)}^\nu(q_f).
+\end{equation}
+But, by Theorem~(\ref{Theorem: orthogonality of Jing's Q_lambda}) and the definition of $P_\lambda$, we see that the set of Hall-Littlewood polynomials $\{P_\lambda(f)\;|\;\lambda\in\mathcal{P}\}$ is a basis of $\Lambda_{\bb{C}}(f)$. So from equation~(\ref{Equation: support of P_mu P_(1pr)}), we see that
+\begin{equation}
+    P_\mu(f)P_{(1^r)}(f) = \sum_{\nu}g_{\mu(1^r)}^\nu(q_f)P_\nu(f).
+\end{equation}
+Moreover
+\begin{equation}
+    g_{\mu(1^r)}^\lambda(q_f)=\prod_{i=1}^{\lambda_1-1}\gausspol{\lambda_i^\prime-\lambda_{i+1}^\prime}{0}_{q_f^{-1}}\gausspol{\lambda_{\lambda_1}^\prime-\lambda_{\lambda_1+1}^\prime}{\lambda_{\lambda_1}^\prime-\mu_{\lambda_1}^\prime}_{q_f^{-1}}=1
+\end{equation}
+because $\lambda_{\lambda_1+1}^\prime=\mu_{\lambda_1}^\prime=0$.\par
+An important thing to notice in the sum~(\ref{Equation: product between hall littlewood polynomials P_mu and P_(1pr)}) is that $\nu-\mu$ is a vertical strip implies $\nu\leq \mu$, so the sum is taken only over partitions dominated by $\lambda$.
+\begin{dang}
+    \begin{theorem}(\cite{jing2024characters}, Theorem 4.7)\label{Theorem: Hall algebra is isomorphic to the ring of symmetric functions}
+        For a fixed $f\in\Phi$, there exists an isomorphism
+        \begin{equation}
+            \theta: H(\fq[t]_{(f)})\otimes_{\bb{Z}}\bb{C}\rightarrow \Lambda_{\bb{C}}(f): u_\lambda\mapsto q_f^{-|\lambda|}P_\lambda(f).
+        \end{equation}
+    \end{theorem}
+\end{dang}
+Proof: By Theorems~(\ref{free generators of the hall algebra}) and~(\ref{Theorem: the ring of symmetric functions is freely generated by the power sum}) we can define the ring homomorphism
+\begin{equation}
+    \psi:H(\fq[t]_{(f)})\otimes_{\bb{Z}}\bb{C}\rightarrow \Lambda_{\bb{C}}(f): u_{(1^r)}\mapsto q_f^{-n(1^r)}P_{(1^r)}(f).
+\end{equation}
+We will prove by induction in the weight of $\lambda$ that $\theta=\psi$. If $\lambda=(0)$, we have $\theta(1)=1=\psi(1)$. Now, let $|\lambda|>0$ and $\mu$ be the partition obtained by $\lambda$ by deleting the last column of $r$ boxes. Then by Theorem~(\ref{fundamental structure constants theorem}), we have
+\begin{equation}
+    u_\mu u_{(1^r)}= u_\lambda +\sum_{\nu<\lambda}G_{\mu(1^r)}^\lambda(q_f) u_\lambda.
+\end{equation}
+where $G_{\mu(1^r)}^\nu(q_f)=q_f^{n(\nu)-n(\mu)-n(1^r)}\prod_{i\geq1}\smallgausspol{\nu_i^\prime-\nu_{i+1}^\prime}{\nu_i^\prime-\mu_i^\prime}_{q_f^{-1}}$ if $\nu-\mu$ is a vertical strip and zero otherwise. Now, by applying $\psi$ on both sides of this equation and using the induction hypothesis we get
+\begin{equation}
+\begin{split}
+     &q_f^{-(n(\mu)-n(1^r))}P_\mu(f)P_{(1^r)}(f)\\
+     &=\psi(u_\lambda)+\sum_{\nu<\mu}G_{\mu(1^r)}^\nu q_f^{-n(\nu)}P_\nu(f)\\
+     &=\psi(u_\lambda)+\sum_{\nu<\mu}q_f^{-(n(\mu)-n(1^r))}\prod_{i\geq1}\gausspol{\nu_i^\prime-\nu_{i+1}^\prime}{\nu_i^\prime-\mu_i^\prime}_{q_f^{-1}} P_\nu(f)
+\end{split}
+\end{equation}
+by Theorem~(\ref{fundamental structure constants theorem}). Therefore
+\begin{equation}
+\begin{split}
+     \psi(u_\lambda) &= q_f^{-(n(\mu)+n(1^r))}(P_\mu(f)P_{(1^r)}(f)-\sum_{\nu<\mu}\prod_{i\geq1}\gausspol{\nu_i^\prime-\nu_{i+1}^\prime}{\nu_i^\prime-\mu_i^\prime}_{q_f^{-1}} P_\nu(f))\\
+    &=q_f^{-(n(\mu)+n(1^r))}P_\lambda(f)\quad(\text{by Theorem~(\ref{Theorem: product between hall littlewood polynomials P_mu and P_(1pr)})})\\
+    &=q_f^{-n(\lambda)}P_\lambda(f)
+\end{split}
+\end{equation}
+which concludes the induction step.\par
+Now come to the main theorem of this section.
+\begin{dang}
+  \begin{theorem}\label{Theorem: the characteristic map}(\cite{jing1991vertex}, Theorem 4.8)
+    The characteristic map $ch: \mathcal{R}(q)\rightarrow \mathcal{F}$,
+    \begin{equation}
+        \pi_{\boldsymbol{\lambda}}\mapsto \prod_{f\in\Phi}q_f^{-n(\boldsymbol{\lambda}(f))}P_{\boldsymbol{\lambda}(f)}(f)
+    \end{equation}
+    is an isometric ring isomorphism.
+  \end{theorem}
+\end{dang}
+Proof: The fact that ch is an isomorphism follows from Theorems~(\ref{theorem: space of characters is isomorphic to the tensor of Hall algebras}) and~(\ref{Theorem: Hall algebra is isomorphic to the ring of symmetric functions}). Now, from equation~(\ref{Equation: inner product for characters}) we get
+\begin{equation}
+    \langle \pi_{\boldsymbol{\lambda}},\pi_{\boldsymbol{\mu}}\rangle=0
+\end{equation}
+if $||\blambda||\neq||\bmu||$, and if $||\blambda||=||\bmu||=n$ we get
+\begin{equation}
+\begin{split}
+      \langle\pi_{\blambda},\pi_{\bmu}\rangle &= \frac{1}{|G_n|}\sum_{g\in G_n}\pi_{\blambda}(g)\overline{\pi_{\bmu}(g)}\\
+      &=\frac{1}{|G_n|}|c_{\blambda}|\delta_{\blambda\bmu}\\
+      &=a_{\blambda}^{-1}\delta_{\blambda\bmu}
+\end{split}
+\end{equation}
+because of Theorem~(\ref{number_of_elements_in_the_centralizer}). For the other side
+\begin{equation}
+\begin{split}
+     &\langle \prod_{f\in\Phi}q_f^{-n(\blambda(f))}P_{\blambda(f)}(f),\prod_{f\in\Phi}q_f^{-n(\bmu(f))}P_{\bmu(f)}(f)\rangle \\
+     &\quad= \prod_{f\in\Phi}q_f^{-n(\blambda(f)-n(\bmu(f)))}\langle P_{\blambda(f)}(f),P_{\bmu(f)}(f) \rangle\\
+     &\quad=\prod_{f\in\Phi}q_f^{-n(\blambda(f)-n(\bmu(f)))}q_{f}^{-|\blambda(f)|}b_{\blambda(f)}(q_f^{-1})^{-1}\delta_{\blambda(f)\bmu(f)}\quad(\text{by equation~(\ref{Equation: duality Q_lambda and P_lambda})})\\
+     &\quad=\delta_{\blambda\bmu}\prod_{f\in\Phi}q_f^{-|\blambda(f)|-2n(\blambda(f)}b_{\blambda(f)}(q_f^{-1})^{-1}\delta_{\blambda(f)\bmu(f)}\\
+     &\quad=a_{\blambda}^{-1}\delta_{\blambda\bmu}.
+\end{split}
+\end{equation}
+Then we see that $ch$ is also an isometry.
+\begin{dang}
+    \begin{theorem}(\cite{macdonald1998symmetric}, chapter IV)\label{Theorem: S_tlambda is the characteristic of a character of G_||tlambda||}
+        Let $\phi$ be an orbit of $L$ and $n\geq0$, then $e_n(\phi)$ is the characteristic of a character of $G_{nd(\phi)}$, i.e. $ch^{-1}(e_n(\phi))$ is a character of $G_{nd(\phi)}$.
+    \end{theorem}
+\end{dang}
+Proof: See~(\cite{macdonald1998symmetric} p.283).\par
+
+There exists another version of the Jacobi-Trudy formula 
+\begin{equation}
+    s_\lambda(\phi) = \text{det}(e_{\lambda_i^\prime-i+j})_{1\leq i,j\leq m}
+\end{equation}
+where $m\geq l(\lambda)$ (see \cite{macdonald1998symmetric}, p.41). Therefore
+\begin{equation}
+    s_\lambda(\phi) = \sum_{\sigma\in S_n}\text{sgn}(\sigma) e_{\lambda_1^\prime-1+\sigma(1)}(\phi)\cdots e_{\lambda_n^\prime-n+\sigma(m)}(\phi).
+\end{equation}
+But $e_{\lambda^\prime_j-j+\sigma(j)}$ is the characteristic of a character of $G_{d(\phi)(\lambda^\prime_j-j+\sigma(j))}$ because of the previous theorem. Therefore, the polynomial $e_{\lambda_1^\prime-1+\sigma(1)}(\phi)\cdots e_{\lambda_n^\prime-n+\sigma(n)}(\phi)$ is the characteristic of a character of $G_{d(\phi)|\lambda|}$. In fact
+\begin{equation}
+    \sum_{j=1}^n(\lambda_j^\prime-j+\sigma(j))= |\lambda|
+\end{equation}
+for any $\sigma\in S_n$. So, we conclude that if $\tlambda:\Phi^*\rightarrow\mathcal{P}$ is a weighted partition valued function, then $S_{\tlambda}=\prod_{\phi\in\Phi^*}s_{\tlambda(\phi)}(\phi)$ is the characteristic of a virtual character $\chi^{\tlambda}$ of $ G_{||\tlambda||}$.\par
+But, from equation~(\ref{Equation: orthonormality of S_tlambda}) and Theorem~(\ref{Theorem: the characteristic map}), we see that $\langle\chi^{\tlambda},\chi^{\tmu} \rangle=\delta_{\tlambda\tmu}$ and $\pm \chi^{\tlambda}$ must be an irreducible character of $G_{||\tlambda||}$. In fact $\chi^{\tlambda}$ is the irreducible character (see \cite{jing2024characters}).
+
+\section{\texorpdfstring{Formula for the character table of $GL_n(\fq)$}{Formula for the character table of GLn(Fq)}}
+
+Let $n\geq1$, then by Theorem~(\ref{Theorem: S_tlambda is the characteristic of a character of G_||tlambda||}), if $\tlambda:\Phi^*\rightarrow \mathcal{P}$ is a weighted partition valued function of weight $n$, $S_{\tlambda}$ is the characteristic of a character $\chi^{\tlambda}$ of $G_n$. Therefore
+\begin{equation}\label{Equation: chi tlambda as a linear combination of pi_bmu}
+    \chi^{\tlambda}=\sum_{\bmu}\chi_{\bmu}^{\tlambda}\pi_{\bmu}
+\end{equation}
+where the sum ranges over all weighted partition valued functions $\bmu:\Phi\rightarrow\mathcal{P}$ such that $||\bmu||=n$. So $\chi_{\bmu}^{\tlambda}$ is the value of the character $\chi_{\bmu}^{\tlambda}$ in the conjugacy class of $G_n$ represented by $\bmu$. \par
+ Moreover, the number of weighted partition valued functions $\tlambda:\Phi^*\rightarrow\mathcal{P}$ of weight $n$ is the same as that of the weighted partition valued functions $\bmu:\Phi\rightarrow\mathcal{P}$ of weight $n$, i.e., the number of conjugacy classes of $G_n$. By orthogonality of the irreducible characters, the set $\{\chi^{\tlambda}\;|\;||\tlambda||=n\}$ is the set of irreducible characters of $G_n$. Therefore, the matrix $(\chi_{\bmu}^{\tlambda})$ for $||\tlambda||=||\bmu||=n$ is the character table of $G_n$.\par
+ Applying $ch$ on both sides of equation~(\ref{Equation: chi tlambda as a linear combination of pi_bmu}), we get
+ \begin{equation}
+     S_{\tlambda}= \sum_{\bmu}\chi_{\bmu}^{\tlambda}\prod_{f\in\Phi}q_f^{-n(\bmu(f))}P_{\bmu(f)}(f).
+ \end{equation}
+ Therefore, by equation~(\ref{Equation: duality Q_lambda and P_lambda}), we get
+ \begin{equation}
+     \chi_{\bmu}^{\tlambda}=\biggl< S_{\tlambda},\prod_{f\in\Phi}q^{n(\bmu(f))}Q_{\bmu(f)}\cdot1\biggr>.
+ \end{equation}
+ \begin{dang}
+     \begin{theorem}\cite{jing2024characters}\label{Theorem: character table for GLn(Fq)}
+         Let $n\geq1$, the character table of $G_n$ is given by the matrix $(\chi_{\bmu}^{\tlambda})$, where
+         \begin{equation}\label{Equation: character table for GLn(Fq)}
+              \chi_{\bmu}^{\tlambda}=\biggl< S_{\tlambda},\prod_{f\in\Phi}q^{n(\bmu(f))}Q_{\bmu(f)}\cdot1\biggr>
+         \end{equation}
+         and $\tlambda$ (resp. $\bmu$) ranges over the set of weighted partition valued functions $\Phi^*\rightarrow\mathcal{P}$ (resp. $\Phi\rightarrow\mathcal{P}$) of weight $n$.
+     \end{theorem}
+ \end{dang}
+ Let's do a low degree computation for $q=n=2$. Since we are interested in weighted partition valued functions $\tlambda:\Phi^*\rightarrow\mathcal{P}$ of weight $2$, the support of $\tlambda$ must be contained in $\Phi^*_2$. In this case $L_2\cong M_2^*\cong\bb{Z}_3$, so we can identify $\Phi_2^*$ with the set of orbits $\{\{0\},\{1,2\}\}$ induced by the Frobenius map $x\mapsto 2x$ in $\bb{Z}_3$. So we have three possibilities for $\tlambda$:
+ \begin{equation}\label{Equation: tlambda for q=n=2}
+    \tlambda=\left\{ \begin{aligned}
+         &\{0\}\mapsto (1^2)\\
+         &\text{oth}\mapsto 0
+     \end{aligned}\right.
+     ,\quad
+      \tlambda=\left\{ \begin{aligned}
+         &\{0\}\mapsto (2)\\
+         &\text{oth}\mapsto 0
+     \end{aligned}\right.
+     \text{, and }
+      \tlambda=\left\{ \begin{aligned}
+         &\{1,2\}\mapsto (1)\\
+         &\text{oth}\mapsto 0
+     \end{aligned}\right..
+ \end{equation}
+ From equations (\ref{Equation: tlambda for q=n=2}), (\ref{Equation: character table for GLn(Fq)}) and example~(\ref{Example: conjucacy classes of GL2(F2)}), we see that we need to compute the polynomials: $s_{(1^2)}(\{0\}), s_{(2)}(\{0\}), s_{(1)}(\{1,2\}), 2Q_{(1^2)}(t-1), Q_2(t-1)$ and $Q_1(t^2+t+1)$. For the Schur polynomials we can use the vertex operator~(\ref{Equation: vertex operator for Schur}) to get
+ \begin{equation}
+     \begin{split}
+         &s_{(1^2)}(\{0\})=\frac{1}{2}(p_1(\{0\})^2-p_2(\{0\}))\\
+         &s_{(1)}(\{1,2\})=p_1(\{1,2\})\\
+         &s_{(2)}(\{0\})=\frac{1}{2}(p_1(\{0\})^2+p_2(\{0\})).
+     \end{split}
+ \end{equation}
+ Furthermore, using the vertex operator~(\ref{Equation: vertex operator for Hall-Littlewood}), we get
+ \begin{equation}
+     \begin{split}
+         &2Q_{(1^2)}(t-1)\cdot1 = \frac{3}{2}(p_1(t-1)^2-p_2(t-1))\\
+         &Q_{(1)}(t^2+t+1)\cdot1 = 3p_1(t^2+t+1)\\
+         &Q_{(2)}(t-1)\cdot1 = \frac{1}{2}p_1(t-1)^2+\frac{3}{2}p_2(t-1).
+     \end{split}
+ \end{equation}
+ Also we have 
+ \begin{equation}
+     \begin{split}
+         &p_1(t-1)=p_1(\{0\})\\
+         &p_2(t-1)=-\frac{1}{3}(2p_1(\{1,2\})+p_2(\{0\}))\\
+         &p_1(t^2+t+1)=\frac{1}{3}(p_1(\{1,2\})-p_2(\{0\}))
+     \end{split}
+ \end{equation}
+ because of definitions~(\ref{Definition: pn(f)}), (\ref{Definition: p hat x}) and (\ref{Definition: p hat xi}). Combining the last two set of equations we get
+ \begin{equation}
+     \begin{split}
+         &2Q_{(1^2)}(t-1)\cdot1=\frac{3}{2}p_1(\{0\})^2+\frac{1}{2}p_2(\{0\})+p_1(\{1,2\})\\
+         &Q_{(1)}(t^2+t+1)\cdot1 = p_1(\{1,2\})-p_2(\{0\})\\
+         &Q_{(2)}\cdot1=\frac{1}{2}p_1(\{0\})^2-p_1(\{1,2\})-\frac{1}{2}p_2(\{0\}).
+     \end{split}
+ \end{equation}
+ Using the orthogonality relation $\langle p_\lambda(\phi),p_\mu(\phi^\prime)\rangle=z_\lambda\delta_{\phi\phi^\prime}$, we get
+ \begin{equation}
+     \begin{split}
+         &\langle s_{(1^2)}(\{0\}), 2Q_{(1^2)}(t-1)\cdot1\rangle =1\\
+         &\langle s_{(1^2)}(\{0\}), Q_{(1)}(t^2+t+1)\cdot1\rangle =1\\
+         &\langle s_{(1^2)}(\{0\}), Q_{(2)}(t-1)\cdot1\rangle =1
+     \end{split}
+ \end{equation}
+ so the weighted partition valued function $\tlambda$ with support in $\{0\}$ and value $(1^2)$ is associated to the trivial character. Moreover, $GL_2(\bb{F}_2)\cong S_3$ so we see that $\tlambda: \{1,2\}\mapsto (1)$ is associated to the sign representation and $\tlambda: \{0\}\mapsto (2)$ is associated to the unique $2-$dimensional irreducible representation of $S_3$, which we will call ``standard'' representation. The character table of $S_3$ is the following:
+
+  \begin{center}
+   \begin{tabular}{c|c c c |}
+       & (1) & (12) & (123)\\
+       \hline
+\text{Trivial}& 1 & 1 & 1\\
+\text{Sign}  & 1 & -1 & 1\\
+\text{Standard}  & 2 & 0 & -1\\
+\hline
+   \end{tabular}
+   \end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

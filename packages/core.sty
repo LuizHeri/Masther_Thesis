@@ -1,0 +1,80 @@
+% -------- Core Packages ------- %
+\usepackage{todonotes}
+\usepackage[utf8]{inputenc} % Input encoding
+\usepackage[style=numeric]{biblatex} % For bibliography
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{etoolbox} % alternative latex kernel commands
+\usepackage{multicol} % For multicolumn documents
+% --------- Hyperlinks --------- %
+\usepackage{hyperref} % Hyperlinks
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+% ----- Language and Fonts ----- %
+\usepackage[T1]{fontenc} % Output encoding
+\usepackage{amsfonts} % various fonts (ex.: \mathbb)
+\usepackage{bbm} % Black-board fonts (\mathbbm)
+\usepackage{yfonts} % Goth characters
+\usepackage{dsfont} % Double stroke fonts (\mathds)
+\usepackage{lmodern} % Latin modern fonts
+\usepackage{mathrsfs} % Ralph Smith Formal Script font
+
+% ----- Calculation, Algorithms and Tables ----- %
+\usepackage{caption} % For caption customization
+\usepackage{longtable} % Multi-page tables
+\usepackage{calculation} % Calculational proofs
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{ytableau}
+% ---------- Graphics ---------- %
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{xcolor} % Render color palletes
+% --- For commands with more than 9 arguments ---%
+\usepackage{array}
+\usepackage{xparse}
+
+
+% ============================== %
+% ======== ENVIRONMENTS ======== %
+% ============================== %
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{notation}[theorem]{Notation}
+%\counterwithin*{exercise}{exercise}
+\newtheorem{exercise}{Exercise} 
+
+% ============================== %
+% ========== COMMANDS ========== %
+% ============================== %
+
+\ExplSyntaxOn
+\NewDocumentCommand{\newlistcommand}{mm}
+ {
+  \NewDocumentCommand{#1}{m}
+   {
+    \clist_set:Nn \l_xaero_args_clist { ##1 }
+    #2
+   }
+ }
+\NewExpandableDocumentCommand{\argx}{m}
+ {
+  \clist_item:Nn \l_xaero_args_clist { #1 }
+ }
+\ExplSyntaxOff

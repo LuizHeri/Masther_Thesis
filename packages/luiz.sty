@@ -1,0 +1,38 @@
+% QUALITY OF LIFE NOTATION
+\newcommand{\cb}[1]{\begin{center}\textbf{#1}\end{center}}
+\newcommand{\F}[1]{\mathbb{F}_{#1}}
+\newcommand{\TODO}{$\color{red}\text{TODO}\color{black}$ }
+\newcommand{\DONEBUT}{$\color{orange}\text{DONE BUT:}\color{black}$ }
+\newcommand{\Ker}[1]{\text{Ker}(#1)}
+\newcommand{\Image}[1]{\text{Im}(#1)}
+\newcommand{\Hom}[3][]{\text{Hom}_{#1}(#2,#3)}
+\newcommand{\End}[1]{\text{End}(#1)}
+% PARTITIONS
+\newcommand{\tlambda}{\Tilde{\lambda}}
+\newcommand{\tmu}{\Tilde{\mu}}
+\newcommand{\blambda}{\boldsymbol{\lambda}}
+\newcommand{\bmu}{\boldsymbol{\mu}}
+
+% FIEDS AND RINGS
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\fq}{\mathbb{F}_q}
+% NEW NOTATIONS
+\newcommand{\ndiv}{\hspace{-4pt}\not|\hspace{2pt}}
+\newcommand{\bydef}{\raisebox{0.1ex}{\;:\raisebox{-0.11969ex}{\(=\)}}\;}
+\newcommand{\cat}[1]{{#1}-\overline{\textbf{mod}}}
+\newcommand{\gausspol}[2]{\begin{bmatrix} #1\\#2\end{bmatrix}}
+\newcommand{\smallgausspol}[2]{\begin{bsmallmatrix} #1\\#2\end{bsmallmatrix}}
+%===== WIDE HAT =====%
+\usepackage{scalerel,stackengine}
+\stackMath
+\newcommand\bighat[1]{%
+\savestack{\tmpbox}{\stretchto{%
+  \scaleto{%
+    \scalerel*[\widthof{\ensuremath{#1}}]{\kern-.6pt\bigwedge\kern-.6pt}%
+    {\rule[-\textheight/2]{1ex}{\textheight}}%WIDTH-LIMITED BIG WEDGE
+  }{\textheight}% 
+}{0.5ex}}%
+\stackon[1pt]{#1}{\tmpbox}%
+}
+%\parskip 1ex
+%====================%
