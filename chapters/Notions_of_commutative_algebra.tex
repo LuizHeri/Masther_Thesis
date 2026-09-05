@@ -32,7 +32,7 @@ This is the notion of left $R-$module. Right $R-$modules are defined in a simila
          Given a family $\{M_\alpha\}_{\alpha\in A}$ of $R-$modules, the product $M=\prod_{\alpha\in A}M_\alpha$ is defined to be the set of maps $f: A\rightarrow\bigcup_{\alpha\in A}M_\alpha$ with the property $f(\alpha)\in M_\alpha,\;\forall\alpha\in A$. So, $\prod_{\alpha\in A}M_\alpha$ inherits a structure of a $R-$module by defining $rf$ to be the map $\alpha\mapsto rf(\alpha)$. The product is equipped with canonical projections $p_\alpha: M\rightarrow M_\alpha: f\mapsto f(\alpha)$.
     \end{definition}
 \end{dang}
-The product $M=\prod_{\alpha\in A}M_\alpha$ is characterized the following universal property: Suppose that we are given a $R-$module $N$ with a collection of homomorphisms $g_\alpha: N\rightarrow M_\alpha$, then there exists a unique homomorphism $g: N\rightarrow M$ such that the diagram
+The product $M=\prod_{\alpha\in A}M_\alpha$ is characterized the following universal property: Suppose that we are given a $R-$module $N$ with a collection of homomorphisms $g_\alpha: N\rightarrow M_\alpha$, then there exist a unique homomorphism $g: N\rightarrow M$ such that the diagram
 \begin{center}
     \begin{tikzcd}
         N \arrow[r, "g"]\arrow[rd, "g_\alpha"]& M\arrow[d,"p_\alpha"]\\
@@ -67,7 +67,7 @@ commutes for all $\alpha\in A$ \cite{jacobsonbasic}.
 \end{dang}
 \begin{dang}
     \begin{definition}\cite{curtis1966representation}
-        A subset $S$ of an $R-$module $M$ is said to be a set of generators of $M$, if for every $m\in M$, exists $r_1,\dots,r_k\in R$ and $m_1,\dots,m_k\in S$ such that $m=\sum_{i=1}^kr_im_i$. 
+        A subset $S$ of an $R-$module $M$ is said to be a set of generators of $M$, if for every $m\in M$, we have $r_1,\dots,r_k\in R$ and $m_1,\dots,m_k\in S$ such that $m=\sum_{i=1}^kr_im_i$. 
     \end{definition}
 \end{dang}
 \begin{dang}
@@ -127,10 +127,10 @@ The main purpose of this subsection is to construct the tensor product modules.
 This concept can be seen as an extension of the concept of bilinear maps from linear algebra. 
 \begin{dang}
     \begin{theorem}\label{theorem: existence of tensor products}\cite{curtis1966representation}
-        Let $M$ (resp. $N$) be right (resp. left) $R-$modules. Then there exists an abelian group $M\otimes_RN$, called the \textit{tensor product} between $M$ and $N$, with the following properties. 
+        Let $M$ (resp. $N$) be right (resp. left) $R-$modules. Then there exist an abelian group $M\otimes_RN$, called the \textit{tensor product} between $M$ and $N$, with the following properties. 
         \begin{enumerate}
-            \item[(1)] There exists a balanced map $\pi: M\times N\rightarrow M\otimes_R N$ such that every element of $M\otimes_R N$ is of the form $\sum_{i=1}^k\pi(m_i,n_i)$ where $m_i\in M$ and $n_i\in N$.
-            \item[(2)] Every balanced map $f: M\times N\rightarrow P$ factors through $M\otimes_R N$, i.e. exists $\Tilde{f}: M\otimes_RN\rightarrow P$ such that
+            \item[(1)] There exist a balanced map $\pi: M\times N\rightarrow M\otimes_R N$ such that every element of $M\otimes_R N$ is of the form $\sum_{i=1}^k\pi(m_i,n_i)$ where $m_i\in M$ and $n_i\in N$.
+            \item[(2)] Every balanced map $f: M\times N\rightarrow P$ factors through $M\otimes_R N$, i.e. there exist $\Tilde{f}: M\otimes_RN\rightarrow P$ such that
             $\Tilde{f}\circ\pi=f$.
         \end{enumerate}
     \end{theorem}   
@@ -163,8 +163,8 @@ By the property (2), both maps $\overline{\pi}$ and $\overline{\pi}^\prime$ are 
     \end{definition}
 \end{dang}
 An important observation is that if $R$ is a commutative ring, then there is no difference between left $R-$modules and right $R-$modules. In fact, any left (or right) $R-$module is a $(R,R)-$bimodule. For example, if $M$ is a left $R-$module, we can just define $mr\bydef rm$ turning $M$ into a $(R,R)-$bimodule. The associativity property is a direct consequence of the commutativity of $R$. Therefore, when working with modules over commutative rings we will not specify left or right. For example, any vector space $V$ over a field $\bb{F}$ is a $(\bb{F},\bb{F})-$bimodule and if $W$ is another vector space over the same field, we conclude that $V\otimes_{\bb{F}} W$ is also a vector space over $\bb{F}$.\par
-Now, let $M$ be an $(S,R)-$bimodule and $N$ a right $R-$module. We claim that $M\otimes_RN$ has a structure of a left $S-$module. To see this, just define for $s\in S$ the map $f_s: M\times N\rightarrow M\otimes_RN:(m,n)\mapsto sm\otimes n$. This map is clearly balanced, so this define an action $s(m\otimes n)\bydef \Tilde{f_s}(m\otimes n)=(sm)\otimes n$. In summary, we have:
-Therefore, we have proved the next theorem.
+Now, let $M$ be an $(S,R)-$bimodule and $N$ a right $R-$module. We claim that $M\otimes_RN$ has a structure of a left $S-$module. To see this, just define for $s\in S$ the map $f_s: M\times N\rightarrow M\otimes_RN:(m,n)\mapsto sm\otimes n$. This map is clearly balanced, so this define an action $s(m\otimes n)\bydef \Tilde{f_s}(m\otimes n)=(sm)\otimes n$. 
+In summary, we have:
 \begin{dang}
     \begin{theorem}\cite{curtis1966representation}
         Let $M$ be a $(S,R)-$bimodule and $N$ a right $R-$module. The tensor product of modules $M\otimes_R N$ is a left $S-$module with action
@@ -627,7 +627,7 @@ To see this, let $F$ be the free $\bb{F}[[t]]-$module generated by the canonical
         \begin{equation}
             M\cong \frac{F}{\text{Ker}(f)}\cong\frac{\bb{F}[[t]]}{(t^3)}
         \end{equation}
-These examples illustrate very well the structure theorem for finitely generated modules over a principal integral domain.
+These examples illustrate the structure theorem for finitely generated modules over a principal integral domain.
 \begin{dang}
 \begin{theorem}\label{structure_theorem_for_modules_over_PID}
     \cite{curtis1966representation}
@@ -651,7 +651,8 @@ Proof: Let $p,q$ be non-associated primes. Then $(p)\neq(q)\Rightarrow (p)+(q)=R
 \begin{equation}
     \varphi: R/(p)\oplus R/(q)\rightarrow R/(pq):(x+(p),y+(q))\mapsto py+qx+(pq)
 \end{equation}
-This map is clearly a well defined homomorphism of $R-$modules. Since $R/(pq)$ is cyclic and $\varphi(s+(p),r+(q))=1+(pq)$, we see that $\varphi$ is surjective. To see that it is injective let $\varphi(x+(p),y+(q))=0\iff py+qx=pqu$ for some $u\in R$. Now, multiplying $rp+sq=1$ by $y$, we get $yrp+ysq=y$ which implies that $y+rqx=pqu+ysq\Rightarrow y\in (q)$. Similarly, multiplying $rp+sq=1$ by $x$ we see that $x\in (p)$. This shows that $\varphi$ is injective. The rest of the proof follows by induction.
+This map is clearly a well defined homomorphism of $R-$modules. Since $R/(pq)$ is cyclic and $\varphi(s+(p),r+(q))=1+(pq)$, we see that $\varphi$ is surjective. To see that it is injective let $\varphi(x+(p),y+(q))=0\iff py+qx=pqu$ for some $u\in R$. Now, multiplying $rp+sq=1$ by $y$, we get $yrp+ysq=y$ which implies that $y+rqx=pqu+ysq\Rightarrow y\in (q)$. Similarly, multiplying $rp+sq=1$ by $x$ we see that $x\in (p)$. 
+This shows that $\varphi$ is injective and the rest of the proof follows by induction.
 
 \begin{dang}
     \begin{example}
@@ -736,7 +737,7 @@ Since $0\in S$ implies $S^{-1}R=(0)$, this case isn't interesting. Therefore we 
     Let $R$ be an integral domain and $S\subset R-\{0\}$ a multiplicative system. Then $S^{-1}R$ is an integral domain.
     \end{lemma}
 \end{dang}
-Proof: Suppose that $\frac{r_1}{s_1}\frac{r_2}{s_2}=0$. Then exists $s\in S$ such that $r_1r_2s=0\Rightarrow r_1r_2=0$ because $s\neq0$. So $r_1=0$ or $r_2=0\Rightarrow r_1/s_1=0$ or $r_2/s_2=0$. 
+Proof: Suppose that $\frac{r_1}{s_1}\frac{r_2}{s_2}=0$. Then, there exists $s\in S$ such that $r_1r_2s=0\Rightarrow r_1r_2=0$ because $s\neq0$. So $r_1=0$ or $r_2=0\Rightarrow r_1/s_1=0$ or $r_2/s_2=0$. 
 
 \begin{dang}
 \begin{definition}
@@ -826,7 +827,8 @@ We saw two functors related to the localization map. If $S_M\subset\text{Aut}(M)
         If $S_M\subset \text{Aut}(M)$, then $S^{-1}M\cong M$ as an $S^{-1}R-$modules (or equivalently, as $R-$modules by theorem~(\ref{functorial_property_of_localization})).
     \end{theorem}
 \end{dang}
-Proof: We claim that the localization map $f:M\rightarrow S^{-1}M:m\mapsto m/1$ is an isomorphism of $S^{-1}R-$modules. To show this, lets make an observation: For $m\in M$ and $s\in S$ we have $(s_M^{-1}(m))/1=m/s$. In fact $(s_M^{-1}(m),1)\sim(m,s)$. Therefore $(r/s)f(m)=(r/s)(m/1)=rm/s=(r_M\circ s_M^{-1}(m))/1=f((r/s)\cdot(m))$. Moreover, $f(s_M^{-1}(m))=m/s$ which implies that $f$ is surjective. To see injectivity, let $f(m)=0\Rightarrow (m,1)\sim(0,1)\iff$ exists $s\in S$ such that $0=sm=s_M(m)$. But $S_M\subset \text{Aut}(M)$, which implies that $m=0$.  
+Proof: We claim that the localization map $f:M\rightarrow S^{-1}M:m\mapsto m/1$ is an isomorphism of $S^{-1}R-$modules. To show this, lets make an observation: For $m\in M$ and $s\in S$ we have $(s_M^{-1}(m))/1=m/s$. In fact $(s_M^{-1}(m),1)\sim(m,s)$. Therefore $(r/s)f(m)=(r/s)(m/1)=rm/s=(r_M\circ s_M^{-1}(m))/1=f((r/s)\cdot(m))$. Moreover, $f(s_M^{-1}(m))=m/s$ which implies that $f$ is surjective. To see injectivity, let $f(m)=0\Rightarrow (m,1)\sim(0,1)\iff$ 
+there exists $s\in S$ such that $0=sm=s_M(m)$. But $S_M\subset \text{Aut}(M)$, which implies that $m=0$.  
 
 \section{Modules over discrete valuation rings}
 \subsection{Partitions of positive integers}
@@ -916,7 +918,7 @@ Next, an important property of discrete valuation rings.
         Let $R$ be a discrete valuation ring, and $p\in R$ a fixed generator of the unique maximal ideal. The, every $x\in R$ is of the form $x=up^m$ for some $m\geq0$ and unit $u\in R$. 
     \end{theorem}
 \end{dang}
-Proof: Since $R$ is noetherian, any non unit $a\in R$ is contained in $(p)$. Therefore, the set $R-(p)$ is precisely the set of units in $R$. We claim that for any $x\in R$ there exists a maximal $m\geq0$ such that $x\in (p^m)$. To show this, it's sufficient to prove that $\bigcap_{m\geq0}(p^m)=(0)$. By contradiction, suppose that exists a nonzero element $x\in \bigcap_{m\geq0}(p^m)$. Then there is a sequence $(u_1,u_2,\dots)$ such that  $x=u_mp^m\;\forall m\geq1\Rightarrow u_m=pu_{m+1}\;\forall m\geq 1$. Therefore, we have a strictly increasing chain of ideals
+Proof: Since $R$ is noetherian, any non unit $a\in R$ is contained in $(p)$. Therefore, the set $R-(p)$ is precisely the set of units in $R$. We claim that for any $x\in R$ there exists a maximal $m\geq0$ such that $x\in (p^m)$. To show this, it's sufficient to prove that $\bigcap_{m\geq0}(p^m)=(0)$. By contradiction, suppose that there exists a nonzero element $x\in \bigcap_{m\geq0}(p^m)$. Then there is a sequence $(u_1,u_2,\dots)$ such that  $x=u_mp^m\;\forall m\geq1\Rightarrow u_m=pu_{m+1}\;\forall m\geq 1$. Therefore, we have a strictly increasing chain of ideals
 \begin{equation}
     (u_1)\subset (u_2)\subset \cdots
 \end{equation}
@@ -950,7 +952,7 @@ In this case, the free part in the equation ~(\ref{decomposition_of_M_1}) must b
 Now, lets show that if $|R/(p)|=|\bb{F}|<\infty$, then these modules have a finite number of elements. 
 \begin{dang}
     \begin{lemma}\label{quotient_of_finite_modules}
-        Let $M$ be a module and suppose that exists a finite submodule $N\subset M$ such that $M/N$ is of finite cardinality, then $M$ is of finite cardinality.
+        Let $M$ be a module and suppose that there exists a finite submodule $N\subset M$ such that $M/N$ is of finite cardinality, then $M$ is of finite cardinality.
     \end{lemma}
 \end{dang}
 Proof: Let $N = \{n_1, \dots, n_l\}$, so that $[x] = \{x + n_1, \dots, x + n_l\}$. Now, if $M/N = \{[x_1], \dots, [x_k]\}$, then we have
@@ -1082,7 +1084,8 @@ Now we will show that finite $R-$modules over discrete valuation rings have fini
 \end{dang}
 \begin{dang}
     \begin{lemma}\label{existence_of_primeideals_that_annihilate_u}
-    Let $M\neq (0)$ be a module over a noetherian ring $R$. Then exists a prime ideal $P\subset R$ of the form $P=\text{Ann}_R(u)$ for some $u\in M$.
+    Let $M\neq (0)$ be a module over a noetherian ring $R$. 
+    Then there exists a prime ideal $P\subset R$ of the form $P=\text{Ann}_R(u)$ for some $u\in M$.
     \end{lemma}
 \end{dang}
 Proof: Let $\mathcal{P}=\{\text{Ann}_R(u)\;|\;u\in M-\{0\}\}$. Since $R$ is noetherian, $\mathcal{P}$ has a maximal element $P=\text{Ann}_R(u)$, i.e., does not exist $Q\in\mathcal{P}$ such that $Q\supset P,Q\neq P$. Note that $u\neq0\Rightarrow P\neq M$ (for example $1\notin P$). Now, $b\notin P\Rightarrow bu\neq0$ and $\text{Ann}_R(bu)\in\mathcal{P}$. But $\text{Ann}_R(u)\subset \text{Ann}_R(bu)\Rightarrow \text{Ann}_R(u)=\text{Ann}_R(bu)=P$ by maximality. So, if $ab\in P\Rightarrow abu=a(bu)=0$. Therefore $a\in \text{Ann}_R(bu)=P$. This shows that $P$ is prime. 
@@ -1113,7 +1116,7 @@ Now, if we add the condition that $R$ is a principal ideal domain, then each pri
         With the additional condition that $R$ is a principal ideal domain we have that $l(M)<\infty$.
     \end{corollary}
 \end{dang}
-Now, let $M$ be a finite $R-$module, where $R$ is a discrete valuation ring with finite residue field. Then, $R$ is noetherian because it's a principal ideal ring and $M$ is noetherian because it's of finite cardinality. Therefore
+Now, let $M$ be a finite $R-$module, where $R$ is a discrete valuation ring with finite residue field. Then, $R$ is noetherian because it's a principal ideal ring and $M$ is noetherian because it's of finite cardinality. 
 \begin{dang}
     \begin{corollary}\label{finite_o_modules_have_finite_composition_series}
         If $M$ is a finite module over a discrete valuation ring, then $l(M)<\infty$.
@@ -1199,7 +1202,15 @@ Now let's prove the main theorem of this section.
     \end{notation}
 \end{dang}
 
-To count the number of automorphisms of a finite $R-$module of type $\lambda$, we need to list the number of sequences $(x_1,x_2,\dots)$ such that each $x_i$ has height $\lambda_i$. So we proceed as follows: we choose $x_1\in M$ with height, $\lambda_1$ we need to count the cardinality of the set $M_r-M_{r-1}$. Choose $x_1$ in this set. Now we need to count the number of elements $x_2\in M$ of height $\lambda_2$ that don't belong to the submodule $Rx_1$. Repeating this procedure, we see that at each step we need to choose a $x_j$ such that $Rx_j\cap (Rx_{j-1}\oplus\dots\oplus Rx_1)=(0)$ where each $x_i$ has height $\lambda_i$. To count this, the only property of the submodule $N=Rx_{j-1}\oplus\dots\oplus Rx_1$ that we need, is that it is a submodule generated by elements of height greater than or equal to $\lambda_{j-1}$.
+To count the number of automorphisms of a finite $R-$module of type $\lambda$, we need to list the number of 
+sequences $(x_1,x_2,\dots)$ such that each $x_i$ has height $\lambda_i$. So we proceed as follows: to count the number of 
+elements $x_1\in M$ with height $\lambda_1$, we need to calculate the cardinality of the set $M_{\lambda_1}-M_{\lambda_1-1}$. 
+Now, choose $x_1$ in this set, then we need to count the number of elements $x_2\in M$ of height $\lambda_2$ that don't belong to the 
+submodule $Rx_1$. Repeating this procedure, we see that at each step we need to choose a $x_j$ such that 
+$Rx_j\cap (Rx_{j-1}\oplus\dots\oplus Rx_1)=(0)$ where each $x_i$ has height $\lambda_i$. To count this, 
+the only property of the submodule $N=Rx_{j-1}\oplus\dots\oplus Rx_1$ that we need, is that it is a submodule 
+generated by elements of height greater than or equal to $\lambda_{j-1}$.
+
 \begin{dang}
     \begin{lemma}\label{value_of_l(M_r)}\cite{macdonald1998symmetric}
         Let $M$ be a $R-$module of type $\lambda$. Then $l(M_r)=\lambda_1^\prime+\dots+\lambda_r^\prime$.
@@ -1331,7 +1342,8 @@ Lets compute explicitly a few values of $G_{\mu\nu}^\lambda$. It's convenient to
        \end{equation}
     \end{example}
 \end{dang}
-In fact, these modules are precisely the subspaces of dimension $s$ in $\bb{F}^{r+s}$. Let $d=r+s$, from lemma~(\ref{number_of_linearly_independent_vectors_inV}) we get that exists 
+In fact, these modules are precisely the subspaces of dimension $s$ in $\bb{F}^{r+s}$. Let $d=r+s$, from lemma~(\ref{number_of_linearly_independent_vectors_inV}) 
+we get that there exists 
        \begin{equation}
            (q^d-1)(q^d-q)\cdots(q^d-q^{s-1})
        \end{equation}
@@ -1560,7 +1572,12 @@ Therefore, the number of sequences $(L_i)_{i\geq0}$, satisfying conditions (1) a
 This completes the proof of the theorem.\par
 
 
-Now, we will use this theorem to compute structure constants of the form $G_{\beta (1^m)}^\lambda$. To do this, we need to make some observations about the previous theorem. First, the condition $\alpha\subset\beta$ is necessary, because of the lemma~(\ref{alpha subset beta subset lambda}). Also, if we take $N=S$, the socle of $M$, we get that $L\subset S$ if and only if $L$ is elementary. Then $L\subset S$ implies that $L$ is elementary and it is of type $(1^m)$ for some $m\geq1$. In this case, $L$ exists only if $|\lambda|=|\beta|+|(1^m)|\iff m=|\lambda|-|\beta|$. Also, since $S$ is the socle of $M$, we get that $\alpha=\Tilde{\lambda}=(\lambda_1-1,\lambda_2-1,\dots)$. But also 
+Now, we will use this theorem to compute structure constants of the form $G_{\beta (1^m)}^\lambda$. To do this, 
+we need to make some observations about the previous theorem. First, the condition $\alpha\subset\beta$ is necessary, 
+because of the lemma~(\ref{alpha subset beta subset lambda}). Also, if we take $N=S$, the socle of $M$, 
+we get that $L\subset S$ if and only if $L$ is elementary. Then $L\subset S$ implies that $L$ is elementary and 
+it is of type $(1^m)$ 
+for some $m\geq1$. In this case, $L$ exists only if $|\lambda|=|\beta|+|(1^m)|\iff m=|\lambda|-|\beta|$. Also, since $S$ is the socle of $M$, we get that $\alpha=\Tilde{\lambda}=(\lambda_1-1,\lambda_2-1,\dots)$. But also 
 \begin{equation}
     \begin{split}
         \Tilde{\lambda}_i^\prime &= \text{Max}\{k\;|\;\Tilde{\lambda}_k\geq i\}\\

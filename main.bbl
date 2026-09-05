@@ -1,0 +1,419 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{curtis1966representation}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=798f8d6bbc52f59f7e11ab4dc7eb2e05}{%
+           family={Curtis},
+           familyi={C\bibinitperiod},
+           given={Charles\bibnamedelima W},
+           giveni={C\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=8a911b5e60dc665ea90740bb162140ba}{%
+           family={Reiner},
+           familyi={R\bibinitperiod},
+           given={Irving},
+           giveni={I\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Mathematical Soc.}%
+      }
+      \strng{namehash}{b2f3dc7e10d5190a154c212b0e90d0c6}
+      \strng{fullhash}{b2f3dc7e10d5190a154c212b0e90d0c6}
+      \strng{fullhashraw}{b2f3dc7e10d5190a154c212b0e90d0c6}
+      \strng{bibnamehash}{b2f3dc7e10d5190a154c212b0e90d0c6}
+      \strng{authorbibnamehash}{b2f3dc7e10d5190a154c212b0e90d0c6}
+      \strng{authornamehash}{b2f3dc7e10d5190a154c212b0e90d0c6}
+      \strng{authorfullhash}{b2f3dc7e10d5190a154c212b0e90d0c6}
+      \strng{authorfullhashraw}{b2f3dc7e10d5190a154c212b0e90d0c6}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Representation theory of finite groups and associative algebras}
+      \field{volume}{356}
+      \field{year}{1966}
+    \endentry
+    \entry{de2006finite}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=781afb86c4adae9263115c09b692c72b}{%
+           family={De\bibnamedelima Sole},
+           familyi={D\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={Alberto},
+           giveni={A\bibinitperiod}}}%
+        {{hash=f8bf087719ef59cf8097dca78c413153}{%
+           family={Kac},
+           familyi={K\bibinitperiod},
+           given={Victor\bibnamedelima G},
+           giveni={V\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{0c9c0eb03fd1b30d63825e85196fa8fd}
+      \strng{fullhash}{0c9c0eb03fd1b30d63825e85196fa8fd}
+      \strng{fullhashraw}{0c9c0eb03fd1b30d63825e85196fa8fd}
+      \strng{bibnamehash}{0c9c0eb03fd1b30d63825e85196fa8fd}
+      \strng{authorbibnamehash}{0c9c0eb03fd1b30d63825e85196fa8fd}
+      \strng{authornamehash}{0c9c0eb03fd1b30d63825e85196fa8fd}
+      \strng{authorfullhash}{0c9c0eb03fd1b30d63825e85196fa8fd}
+      \strng{authorfullhashraw}{0c9c0eb03fd1b30d63825e85196fa8fd}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Japanese Journal of Mathematics}
+      \field{title}{Finite vs affine W-algebras}
+      \field{volume}{1}
+      \field{year}{2006}
+      \field{pages}{137\bibrangedash 261}
+      \range{pages}{125}
+    \endentry
+    \entry{erdmann2018algebras}{book}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{2}{}{%
+        {{hash=3308e460f6d335b8299748b2382dd1a5}{%
+           family={Erdmann},
+           familyi={E\bibinitperiod},
+           given={Karin},
+           giveni={K\bibinitperiod}}}%
+        {{hash=a88708a6a27f6a05d33d1980605255ed}{%
+           family={Holm},
+           familyi={H\bibinitperiod},
+           given={Thorsten},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{b41cf7c69cc7fe5fe4f98e2c16d19339}
+      \strng{fullhash}{b41cf7c69cc7fe5fe4f98e2c16d19339}
+      \strng{fullhashraw}{b41cf7c69cc7fe5fe4f98e2c16d19339}
+      \strng{bibnamehash}{b41cf7c69cc7fe5fe4f98e2c16d19339}
+      \strng{authorbibnamehash}{b41cf7c69cc7fe5fe4f98e2c16d19339}
+      \strng{authornamehash}{b41cf7c69cc7fe5fe4f98e2c16d19339}
+      \strng{authorfullhash}{b41cf7c69cc7fe5fe4f98e2c16d19339}
+      \strng{authorfullhashraw}{b41cf7c69cc7fe5fe4f98e2c16d19339}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Algebras and representation theory}
+      \field{year}{2018}
+    \endentry
+    \entry{hungerford2012algebra}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=64a267974697fa7cd3a948e5fd9e1da8}{%
+           family={Hungerford},
+           familyi={H\bibinitperiod},
+           given={Thomas\bibnamedelima W},
+           giveni={T\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science \& Business Media}%
+      }
+      \strng{namehash}{64a267974697fa7cd3a948e5fd9e1da8}
+      \strng{fullhash}{64a267974697fa7cd3a948e5fd9e1da8}
+      \strng{fullhashraw}{64a267974697fa7cd3a948e5fd9e1da8}
+      \strng{bibnamehash}{64a267974697fa7cd3a948e5fd9e1da8}
+      \strng{authorbibnamehash}{64a267974697fa7cd3a948e5fd9e1da8}
+      \strng{authornamehash}{64a267974697fa7cd3a948e5fd9e1da8}
+      \strng{authorfullhash}{64a267974697fa7cd3a948e5fd9e1da8}
+      \strng{authorfullhashraw}{64a267974697fa7cd3a948e5fd9e1da8}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Algebra}
+      \field{volume}{73}
+      \field{year}{2012}
+    \endentry
+    \entry{isaacs2009algebra}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=2c76fd427f2cefc1ae2b8e4fd16a0ce2}{%
+           family={Isaacs},
+           familyi={I\bibinitperiod},
+           given={I\bibnamedelima Martin},
+           giveni={I\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Mathematical Soc.}%
+      }
+      \strng{namehash}{2c76fd427f2cefc1ae2b8e4fd16a0ce2}
+      \strng{fullhash}{2c76fd427f2cefc1ae2b8e4fd16a0ce2}
+      \strng{fullhashraw}{2c76fd427f2cefc1ae2b8e4fd16a0ce2}
+      \strng{bibnamehash}{2c76fd427f2cefc1ae2b8e4fd16a0ce2}
+      \strng{authorbibnamehash}{2c76fd427f2cefc1ae2b8e4fd16a0ce2}
+      \strng{authornamehash}{2c76fd427f2cefc1ae2b8e4fd16a0ce2}
+      \strng{authorfullhash}{2c76fd427f2cefc1ae2b8e4fd16a0ce2}
+      \strng{authorfullhashraw}{2c76fd427f2cefc1ae2b8e4fd16a0ce2}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Algebra: a graduate course}
+      \field{volume}{100}
+      \field{year}{2009}
+    \endentry
+    \entry{jacobson2012basic}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=b0cb6bcf1a8e3658bf8037b530d0cd8c}{%
+           family={Jacobson},
+           familyi={J\bibinitperiod},
+           given={Nathan},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Courier Corporation}%
+      }
+      \strng{namehash}{b0cb6bcf1a8e3658bf8037b530d0cd8c}
+      \strng{fullhash}{b0cb6bcf1a8e3658bf8037b530d0cd8c}
+      \strng{fullhashraw}{b0cb6bcf1a8e3658bf8037b530d0cd8c}
+      \strng{bibnamehash}{b0cb6bcf1a8e3658bf8037b530d0cd8c}
+      \strng{authorbibnamehash}{b0cb6bcf1a8e3658bf8037b530d0cd8c}
+      \strng{authornamehash}{b0cb6bcf1a8e3658bf8037b530d0cd8c}
+      \strng{authorfullhash}{b0cb6bcf1a8e3658bf8037b530d0cd8c}
+      \strng{authorfullhashraw}{b0cb6bcf1a8e3658bf8037b530d0cd8c}
+      \field{extraname}{1}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Basic algebra I}
+      \field{year}{2012}
+    \endentry
+    \entry{jacobsonbasic}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=b0cb6bcf1a8e3658bf8037b530d0cd8c}{%
+           family={Jacobson},
+           familyi={J\bibinitperiod},
+           given={Nathan},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Freeman, New York}%
+      }
+      \strng{namehash}{b0cb6bcf1a8e3658bf8037b530d0cd8c}
+      \strng{fullhash}{b0cb6bcf1a8e3658bf8037b530d0cd8c}
+      \strng{fullhashraw}{b0cb6bcf1a8e3658bf8037b530d0cd8c}
+      \strng{bibnamehash}{b0cb6bcf1a8e3658bf8037b530d0cd8c}
+      \strng{authorbibnamehash}{b0cb6bcf1a8e3658bf8037b530d0cd8c}
+      \strng{authornamehash}{b0cb6bcf1a8e3658bf8037b530d0cd8c}
+      \strng{authorfullhash}{b0cb6bcf1a8e3658bf8037b530d0cd8c}
+      \strng{authorfullhashraw}{b0cb6bcf1a8e3658bf8037b530d0cd8c}
+      \field{extraname}{2}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Basic Algebra II, 1989}
+    \endentry
+    \entry{jing1991vertex}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=bb23b421f1b75c74a43881be867819e5}{%
+           family={Jing},
+           familyi={J\bibinitperiod},
+           given={Naihuan},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{bb23b421f1b75c74a43881be867819e5}
+      \strng{fullhash}{bb23b421f1b75c74a43881be867819e5}
+      \strng{fullhashraw}{bb23b421f1b75c74a43881be867819e5}
+      \strng{bibnamehash}{bb23b421f1b75c74a43881be867819e5}
+      \strng{authorbibnamehash}{bb23b421f1b75c74a43881be867819e5}
+      \strng{authornamehash}{bb23b421f1b75c74a43881be867819e5}
+      \strng{authorfullhash}{bb23b421f1b75c74a43881be867819e5}
+      \strng{authorfullhashraw}{bb23b421f1b75c74a43881be867819e5}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in Mathematics}
+      \field{number}{2}
+      \field{title}{Vertex operators and Hall-Littlewood symmetric functions}
+      \field{volume}{87}
+      \field{year}{1991}
+      \field{pages}{226\bibrangedash 248}
+      \range{pages}{23}
+    \endentry
+    \entry{jing2024characters}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=bb23b421f1b75c74a43881be867819e5}{%
+           family={Jing},
+           familyi={J\bibinitperiod},
+           given={Naihuan},
+           giveni={N\bibinitperiod}}}%
+        {{hash=497a9e1774032d32e4123020bfd16b7a}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Yu},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{7ffaa0f89df4248d7e239b066fbcbaaf}
+      \strng{fullhash}{7ffaa0f89df4248d7e239b066fbcbaaf}
+      \strng{fullhashraw}{7ffaa0f89df4248d7e239b066fbcbaaf}
+      \strng{bibnamehash}{7ffaa0f89df4248d7e239b066fbcbaaf}
+      \strng{authorbibnamehash}{7ffaa0f89df4248d7e239b066fbcbaaf}
+      \strng{authornamehash}{7ffaa0f89df4248d7e239b066fbcbaaf}
+      \strng{authorfullhash}{7ffaa0f89df4248d7e239b066fbcbaaf}
+      \strng{authorfullhashraw}{7ffaa0f89df4248d7e239b066fbcbaaf}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Algebra}
+      \field{title}{Characters of {$GL_n(\mathbf{F}_n)$} and vertex operators}
+      \field{volume}{653}
+      \field{year}{2024}
+      \field{pages}{109\bibrangedash 132}
+      \range{pages}{24}
+    \endentry
+    \entry{kac2013bombay}{book}{}{}
+      \name{author}{3}{}{%
+        {{hash=f8bf087719ef59cf8097dca78c413153}{%
+           family={Kac},
+           familyi={K\bibinitperiod},
+           given={Victor\bibnamedelima G},
+           giveni={V\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=1b3ac71e939afb41602c59bcc7405f3f}{%
+           family={Raina},
+           familyi={R\bibinitperiod},
+           given={Ashok\bibnamedelima K},
+           giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=1590fc530512fee52a06c8d37864207e}{%
+           family={Rozhkovskaya},
+           familyi={R\bibinitperiod},
+           given={Natasha},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {World scientific}%
+      }
+      \strng{namehash}{ced734745600dba452b4f5794f542ca4}
+      \strng{fullhash}{ced734745600dba452b4f5794f542ca4}
+      \strng{fullhashraw}{ced734745600dba452b4f5794f542ca4}
+      \strng{bibnamehash}{ced734745600dba452b4f5794f542ca4}
+      \strng{authorbibnamehash}{ced734745600dba452b4f5794f542ca4}
+      \strng{authornamehash}{ced734745600dba452b4f5794f542ca4}
+      \strng{authorfullhash}{ced734745600dba452b4f5794f542ca4}
+      \strng{authorfullhashraw}{ced734745600dba452b4f5794f542ca4}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Bombay lectures on highest weight representations of infinite dimensional Lie algebras}
+      \field{volume}{29}
+      \field{year}{2013}
+    \endentry
+    \entry{lidl1994introduction}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=e03a7c46e80c4176a35e401e9724d09c}{%
+           family={Lidl},
+           familyi={L\bibinitperiod},
+           given={Rudolf},
+           giveni={R\bibinitperiod}}}%
+        {{hash=e6a906e10e702599bf8ddd1d74d30a77}{%
+           family={Niederreiter},
+           familyi={N\bibinitperiod},
+           given={Harald},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge university press}%
+      }
+      \strng{namehash}{3f186aed01576394a898479ae2354977}
+      \strng{fullhash}{3f186aed01576394a898479ae2354977}
+      \strng{fullhashraw}{3f186aed01576394a898479ae2354977}
+      \strng{bibnamehash}{3f186aed01576394a898479ae2354977}
+      \strng{authorbibnamehash}{3f186aed01576394a898479ae2354977}
+      \strng{authornamehash}{3f186aed01576394a898479ae2354977}
+      \strng{authorfullhash}{3f186aed01576394a898479ae2354977}
+      \strng{authorfullhashraw}{3f186aed01576394a898479ae2354977}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Introduction to finite fields and their applications}
+      \field{year}{1994}
+    \endentry
+    \entry{macdonald1998symmetric}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=2bcd484028b297fb16bdaf7be4465c47}{%
+           family={Macdonald},
+           familyi={M\bibinitperiod},
+           given={Ian\bibnamedelima Grant},
+           giveni={I\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford university press}%
+      }
+      \strng{namehash}{2bcd484028b297fb16bdaf7be4465c47}
+      \strng{fullhash}{2bcd484028b297fb16bdaf7be4465c47}
+      \strng{fullhashraw}{2bcd484028b297fb16bdaf7be4465c47}
+      \strng{bibnamehash}{2bcd484028b297fb16bdaf7be4465c47}
+      \strng{authorbibnamehash}{2bcd484028b297fb16bdaf7be4465c47}
+      \strng{authornamehash}{2bcd484028b297fb16bdaf7be4465c47}
+      \strng{authorfullhash}{2bcd484028b297fb16bdaf7be4465c47}
+      \strng{authorfullhashraw}{2bcd484028b297fb16bdaf7be4465c47}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Symmetric functions and Hall polynomials}
+      \field{year}{1998}
+    \endentry
+    \entry{rowen2008graduate}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=a0bb94673c36c9472449437eb5271e77}{%
+           family={Rowen},
+           familyi={R\bibinitperiod},
+           given={Louis\bibnamedelima Halle},
+           giveni={L\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Mathematical Soc.}%
+      }
+      \strng{namehash}{a0bb94673c36c9472449437eb5271e77}
+      \strng{fullhash}{a0bb94673c36c9472449437eb5271e77}
+      \strng{fullhashraw}{a0bb94673c36c9472449437eb5271e77}
+      \strng{bibnamehash}{a0bb94673c36c9472449437eb5271e77}
+      \strng{authorbibnamehash}{a0bb94673c36c9472449437eb5271e77}
+      \strng{authornamehash}{a0bb94673c36c9472449437eb5271e77}
+      \strng{authorfullhash}{a0bb94673c36c9472449437eb5271e77}
+      \strng{authorfullhashraw}{a0bb94673c36c9472449437eb5271e77}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Graduate Algebra: Noncommutative View}
+      \field{volume}{2}
+      \field{year}{2008}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

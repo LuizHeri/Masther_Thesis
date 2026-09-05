@@ -27,7 +27,7 @@ So for homogeneous vectors $v\in V,w\in W$ we have $p(v\otimes w)=p(v)+p(w)$.
         where $p(x,y)=(-1)^{p(x)p(y)}$. We also impose the condition $p([x,y])=p(x)+p(y)$.
     \end{definition}
 \end{dang}
-As a consequence of the definition, we see that the restriction $[\;,\;]: \mathfrak{g}_{\Bar{1}}\times \mathfrak{g}_{\Bar{1}}\rightarrow \mathfrak{g}_{\Bar{0}}$ is symmetric while $[\;,\;]: \mathfrak{g}_{\Bar{0}}\times \mathfrak{g}_{\Bar{0}}\rightarrow \mathfrak{g}_{\Bar{0}}$ is skewsymmetric. Indeed $\frak{g}_0$ is a Lie algebra in the usual sense. For Lie superalgebras we have an analogous definition for the universal enveloping algebra
+As a consequence of the definition, we see that the restriction $[\;,\;]: \mathfrak{g}_{\Bar{1}}\times \mathfrak{g}_{\Bar{1}}\rightarrow \mathfrak{g}_{\Bar{0}}$ is symmetric while $[\;,\;]: \mathfrak{g}_{\Bar{0}}\times \mathfrak{g}_{\Bar{0}}\rightarrow \mathfrak{g}_{\Bar{0}}$ is skewsymmetric. Indeed $\mathfrak{g}_0$ is a Lie algebra in the usual sense. For Lie superalgebras we have an analogous definition for the universal enveloping algebra
 \begin{equation}
     \mathcal{U}(\mathfrak{g})=\frac{T(\mathfrak{g})}{\langle x\otimes y-p(x,y)y\otimes x-[x,y]\rangle}
 \end{equation}
@@ -750,7 +750,8 @@ Therefore $\omega$ can be extended to an anti-homomorphism of $\mathcal{U}(\math
         \end{equation}
     \end{theorem}
 \end{dang}
-Proof: For uniqueness, let $a_{-1}^{n_1}\cdots a_{-k}^{n_k}(v),\;a_{-1}^{m_1}\cdots a_{-k}^{m_k}(v)\;(n_i,m_i\geq0)$ be two monomials in $V$. If they aren't equal, we can assume that exists $i,\;(1\leq i\leq k)$ such that $n_i>m_i$ without lost of generality. In this case, denote $\Tilde{n}_j = n_j$ for $j\neq i$ and $\Tilde{n}_i =0$. Then, using (1), we get
+Proof: For uniqueness, let $a_{-1}^{n_1}\cdots a_{-k}^{n_k}(v),\;a_{-1}^{m_1}\cdots a_{-k}^{m_k}(v)\;(n_i,m_i\geq0)$ be two monomials in $V$. If they aren't equal, 
+we can assume that there exists an $i,\;(1\leq i\leq k)$ such that $n_i>m_i$ without lost of generality. In this case, denote $\Tilde{n}_j = n_j$ for $j\neq i$ and $\Tilde{n}_i =0$. Then, using (1), we get
 \begin{equation}
     \begin{split}
         \langle a_{-1}^{n_1}\cdots a_{-k}^{n_k}(v)|a_{-1}^{m_1}\cdots a_{-k}^{m_k}(v)\rangle &= \langle a_{-i}^{n_i} a_{-1}^{\Tilde{n}_1}\cdots a_{-k}^{\Tilde{n}_k}(v)|a_{-1}^{m_1}\cdots a_{-k}^{m_k}(v)\rangle\\
@@ -1117,9 +1118,13 @@ In conclusion, we have obtained the transposed action of the operators $X^\pm(u)
 This subsection is based on~(\cite{macdonald1998symmetric}, Chapter I). The main objective of this subsection is to record some definitions that will be needed to work with symmetric functions, which play a major role in the Boson-Fermion-correspondence.\par
 In the next subsection we will work with the ring of symmetric functions $\Lambda$.
 Let $\Lambda_n=\bb{Z}[x_1,\dots, x_n]^{S_n}$ be the sub-ring of $\bb{Z}[x_1,\dots,x_n]$ which is invariant under the action of the symmetric group $S_n$, i.e. the set of polynomials $f$ with integer coefficients satisfying $\sigma f(x_1,\dots,x_n)=f(x_{\sigma(1)},\dots, x_{\sigma(n)})=f(x_1,\dots,x_n)$ for all $\sigma\in S_n$. \par
-The ring $\Lambda_n$ is graded by degree of the polynomials. So $\Lambda_n=\bigoplus_{k\geq0}\Lambda_n^k$ where $\Lambda_n^k$ is the sub-group of $k$th degree symmetric polynomials. Let $\alpha=(\alpha_1,\dots,\alpha_n)\in\bb{N}^n$, we write $x^\alpha=x_1^{\alpha_1}\cdots x_n^{\alpha_n}$. If $\lambda$ is a partition with length $l(\lambda)\leq n$, we may complete its coordinates with zero to get an $n$-tuple. So we define
+The ring $\Lambda_n$ is graded by degree of the polynomials. So $\Lambda_n=\bigoplus_{k\geq0}\Lambda_n^k$ 
+where $\Lambda_n^k$ is the sub-group of $k$th degree symmetric polynomials. 
+Let $\alpha=(\alpha_1,\dots,\alpha_n)\in\bb{N}^n$, 
+we write $x^\alpha=x_1^{\alpha_1}\cdots x_n^{\alpha_n}$. If $\lambda$ is a partition with length $l(\lambda)\leq n$, 
+we may complete its coordinates with zero to get an $n$-tuple. So we define
 \begin{equation}
-    m_\lambda(x_1,\dots,x_n)=\sum_{\sigma\in S_n}\sigma(x^\lambda)
+    m_\lambda(x_1,\dots,x_n)=\frac{1}{\prod_{j\geq1} m_j(\lambda)!}\sum_{\sigma\in S_n}\sigma(x^\lambda)
 \end{equation}
 for $l(\lambda)\leq n$, where $\sigma(x^\lambda)=x_{\sigma(1)}^{\lambda_1}\cdots x_{\sigma(n)}^{\lambda_n}$. We claim that the set $\{m_\lambda(x_1,\dots,x_n)\;|\;l(\lambda)\leq n\}$ is a basis of $\Lambda_n$. In fact, let $f=\sum_{\alpha}a_{\alpha}x^{\alpha}\in\Lambda_n$. Then
 \begin{equation}
@@ -1129,7 +1134,8 @@ for $l(\lambda)\leq n$, where $\sigma(x^\lambda)=x_{\sigma(1)}^{\lambda_1}\cdots
 \end{split}
 \end{equation}
 However, the polynomial $\sum_{\sigma\in S_n}\sigma(x^\alpha)$ is $m_\lambda(x_1,\dots,x_n)$ where $\lambda$ is obtained from $\alpha=(\alpha_1,\dots,\alpha_n)$ by listing its elements in decreasing order. Moreover, it's clear by construction that $\text{Supp}(m_\lambda(x))\cap\text{Supp}(m_\mu(x))=\varnothing$ if $\lambda\neq\mu$. Therefore, the set $\{m_\lambda(x)\;|l(\lambda)\leq n\}$ is linearly independent, and we conclude the claim.\par
-From the preceding discussion, we see that $\{m_\lambda(x_1,\dots,x_n)|\;|\lambda|=k\}$ is a basis of $\Lambda_n^k$. For $m\geq n$, there exists a homomorphism of rings
+From the preceding discussion, we see that $\{m_\lambda(x_1,\dots,x_n)|\;|\lambda|=k\}$ is a basis of $\Lambda_n^k$. For $m\geq n$, 
+there exists a homomorphism of rings
 \begin{equation}
     \rho_{mn}:\Lambda_m\rightarrow \Lambda_n: f(x_1,\dots,x_m)\mapsto f(x_1,\dots,x_n,0,\dots,0).
 \end{equation}
@@ -1345,7 +1351,8 @@ which proves that $\frac{r(a)^{k+1}}{(k+1)!}\psi = \sum_{i_1+\cdots +i_r=k+1}\fr
 \end{equation}
 which proves the claim.\par
 
-Define $GL_\infty$ to be the set of infinite invertible matrices $(A_{ij})_{i,j\in\bb{Z}}$ with the property that $A_{ij}=\delta_{ij}$ whenever $|i|,|j|\geq N$ for some $N\geq1$. Multiplication is well defined in $GL_\infty$ because $(AB)_{ij}=\sum_{k=-\infty}^\infty A_{ik}B_{kj}$ is a finite sum. we also define a large group $\overline{GL}_\infty$ of infinite invertible matrices $A$ with the property that for $i\geq j$, there exists an integer $N\geq1$ such that $A_{ij}-\delta_{ij}=0$ whenever $|i|,|j|\geq N$. The operator $\exp y_k\Lambda_k,\; k>0$ acts on $\overline{V}$ with matrix representation in $\overline{GL}_\infty$. In fact, its matrix looks like
+Define $GL_\infty$ to be the set of infinite invertible matrices $(A_{ij})_{i,j\in\bb{Z}}$ with the property that $A_{ij}=\delta_{ij}$ whenever $|i|,|j|\geq N$ for some $N\geq1$. Multiplication is well defined in $GL_\infty$ because $(AB)_{ij}=\sum_{k=-\infty}^\infty A_{ik}B_{kj}$ is a finite sum. we also define a large group $\overline{GL}_\infty$ of infinite invertible matrices $A$ with the property that for $i\geq j$, 
+there exists an integer $N\geq1$ such that $A_{ij}-\delta_{ij}=0$ whenever $|i|,|j|\geq N$. The operator $\exp y_k\Lambda_k,\; k>0$ acts on $\overline{V}$ with matrix representation in $\overline{GL}_\infty$. In fact, its matrix looks like
 \begin{equation}\label{Equation: matrix representation of exp(yk_Lambdak)}
     A = \begin{pmatrix}
 \ddots & \vdots & \vdots & \vdots & \vdots &\vdots & \rotatebox{30}{$\cdots$}  \\

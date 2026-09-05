@@ -1,0 +1,44 @@
+\contentsline {chapter}{\numberline {1}Notions of commutative algebra}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Modules and rings}{3}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Basic definitions}{3}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Tensor product of modules}{6}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Structure theorem for finitely generated modules over a principal ideal domain}{13}{subsection.1.1.3}%
+\contentsline {section}{\numberline {1.2}Localization}{21}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Localization of rings and its properties}{21}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Functorial properties of localization}{23}{subsection.1.2.2}%
+\contentsline {section}{\numberline {1.3}Modules over discrete valuation rings}{25}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Partitions of positive integers}{25}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Discrete valuation rings}{27}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Finite modules over a discrete valuation ring}{28}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}Composition series}{29}{subsection.1.3.4}%
+\contentsline {subsection}{\numberline {1.3.5}Formula for the number of automorphisms}{33}{subsection.1.3.5}%
+\contentsline {section}{\numberline {1.4}Hall Algebras}{37}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Definition of the Hall algebra}{37}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Calculantion of the structure constants}{38}{subsection.1.4.2}%
+\contentsline {chapter}{\numberline {2}Conjugacy classes of $GL_n(\mathbb {F}_q)$ and its space of characters}{48}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Finite fields}{48}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Basic definitions and theorems}{48}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Orbits for the Frobenius map}{50}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Irreducible polynomials over $\mathbb {F}_{q}$}{56}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Structure of $GL_n(\mathbb {F}_q)$}{58}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Parametrization of conjugacy classes}{58}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Formula for the order of the centralizer}{61}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}The space of characters $\mathcal {R}(q)$}{62}{subsection.2.2.3}%
+\contentsline {chapter}{\numberline {3}Vertex algebras}{73}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Vector superspaces}{73}{section.3.1}%
+\contentsline {section}{\numberline {3.2}The first definition}{74}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Calculating in vertex algebra}{83}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Fermionic vertex algebras}{88}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}The oscillator algebra}{90}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Charged free fermions}{93}{subsection.3.4.2}%
+\contentsline {section}{\numberline {3.5}The Boson-Fermion correspondence}{96}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}The first part of the Boson-Fermion correspondence}{96}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}The ring of symmetric functions}{101}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}The second part of the Boson-Fermion correspondence}{105}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}Orthogonality}{114}{subsection.3.5.4}%
+\contentsline {chapter}{\numberline {4}Characters of $GL_n(\mathbb {F}_q)$}{117}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Construction of Heisenberg systems}{117}{section.4.1}%
+\contentsline {section}{\numberline {4.2}The characteristic map}{122}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Vertex operator for Hall-Littlewood symmetric polynomials}{122}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Hall-Littlewood polynomials}{129}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Formula for the character table of $GL_n(\mathbb {F}_q)$}{133}{section.4.3}%
