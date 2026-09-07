@@ -1441,7 +1441,8 @@ Using this equality, it's possible to define a vector space isomorphism $ \bigwe
 \end{dang}
 \begin{dang}
     \begin{lemma}
-        Through the isomorphism $\bigwedge^{\infty/2}V\rightarrow F$, the action of the shift operator $r(\Lambda_k),\; k\neq 0$ on $\bigwedge^{\infty/2}V$ is identified with the action of $\alpha_k$ o $F$.
+        Through the isomorphism $\bigwedge^{\infty/2}V\rightarrow F$, the action of the shift 
+        operator $r(\Lambda_k),\; k\neq 0$ on $\bigwedge^{\infty/2}V$ is identified with the action of $\alpha_k$ on $F$.
     \end{lemma}
 \end{dang}
 Proof: Using the wedge and contraction operators, it can be seen that
@@ -1549,7 +1550,7 @@ This vertex operator acts on the bosonic Fock space $B=\bb{C}[p_1,p_2,\dots]$. O
 \begin{dang}
     \begin{theorem}\cite{jing2024characters}
     Let $S(u)$ be as in the equation~(\ref{Equation: vertex realization of Shcur symmetric functions}), then
-        \begin{equation}
+        \begin{equation}\label{equation: Schur generating and homogeneous generatings}
             S(u_r)\cdots S(u_1)\cdot1=\prod_{1\leq i<j\leq r}\left(1-\frac{u_i}{u_j}\right)H(u_r)\cdots H(u_1).
         \end{equation}
     \end{theorem}
@@ -1587,6 +1588,20 @@ for all $j$. Furthermore, by the equation~(\ref{Equation: H(u)=exp(...)})
    \prod_{i=1}^r \exp\left(\sum_{k\geq 1}\frac{1}{k}p_ku_i^{k}\right)\cdot 1=H(u_r)\cdots H(u_1).
 \end{equation}
 So, moving all the differential operators to the right and doing the necessary commutations we get the result.
+
+\begin{dang}
+    \begin{corollary}   
+    By extracting coefficients $u^{\lambda},\;\lambda=(\lambda_1,\dots,\lambda_r)$ on both sides of 
+    equation~(\ref{equation: Schur generating and homogeneous generatings})
+    we get the identity
+    \begin{equation}
+        S_\lambda\cdot 1 = \prod_{i<j}(1-R_{ij})h_\lambda
+    \end{equation}
+    where $R_{ij}h_\lambda = h_{(\lambda_1,\dots,\lambda_i+1,\dots,\lambda_j-1,\dots,\lambda_r)}$. 
+    \end{corollary}
+\end{dang}
+
+
 \subsection{Orthogonality}
 There is an Hermitian form on $F$, relative to which the semi-infinite monomials are orthonormal. 
 \begin{dang}
