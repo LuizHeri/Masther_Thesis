@@ -364,7 +364,7 @@ Since $a(z)b\in V((z))$, we can cancel out $z^N$ in the last equation, to get $a
     \end{tikzcd}
 \end{center}
 which implies that $ \mathcal{F}^\prime=\Bar{\mathcal{F}}$ and that $s:\mathcal{F}^\prime\rightarrow V$ is bijective.\par
-Theorem~(\ref{Theorem: state field correspondence}) implies the existence of a linear map that associates to each $a\in V$ a quantum field $Y(a,z)\in\mathcal{F}^\prime$ such that $Y(a,z)|0\rangle\big|_{z=0}=a$. Although the definition of $Y(a,z)$ is not very constructive, we can develop techniques to do calculations with these quantum fields. For example, we have the \textit{Borcherds identity}:
+Theorem~(\ref{Theorem: state field correspondence}) implies the existence of a linear map that associates to each $a\in V$ a quantum field $Y(a,z)\in\mathcal{F}^\prime$ such that $Y(a,z)|0\rangle\big|_{z=0}=a$. Although the definition of $Y(a,z)$ is constructive, we can develop techniques to do calculations with these quantum fields. For example, we have the \textit{Borcherds identity}:
 \begin{equation}\label{equation: Borcherds identity}
 \begin{split}
      i_{z,w}(z-w)^nY(a,z)Y(b,w)-p(a,b)i_{w,z}(z-w)^nY(b,w)Y(a,z)\\=\sum_{j\geq0}Y(a_{(n+j)}b,w)\partial_z^j\delta(z,w)/j!
@@ -665,7 +665,7 @@ and it's well defined because $D$ is a derivation of $\hat{A}$, i.e. $D(x\otimes
         The \textit{oscillator algebra} is the infinite dimensional Lie algebra $\mathcal{A}$ with basis $\{a_{m}\}_{m\in\bb{Z}}\cup\{\mathds{1}\}$ and relations $[a_m,a_n]=m\delta_{m,-n}\mathds{1}$, and $\mathds{1}$ central.
     \end{definition}
 \end{dang}
-There is a very natural class of representations of the oscillator algebra, called the \textit{bosonic Fock space}.
+There is a natural class of representations of the oscillator algebra, called the \textit{bosonic Fock space}.
 \begin{dang}
     \begin{definition}\cite{kac2013bombay}
         let $m$ be a complex number and $\{\epsilon_j\;|\;j>0\}$ be a set of nonzero complex numbers. The Fock space is a representation of the oscillator algebra $\mathcal{A}$, consisting of a vector space $B^m=\bb{C}[x_1,x_2,\dots]$ of polynomials in infinitely many variables and action:
