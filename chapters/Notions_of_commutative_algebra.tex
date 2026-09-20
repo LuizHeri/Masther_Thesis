@@ -97,19 +97,25 @@ Proof: Define the surjective homomorphism $R^k\rightarrow M:(r_1,\dots,r_k)\maps
 
 \begin{dang}
     \begin{definition}
-    Let $(A, \leq)$ be a partially ordered set, $\{M_\alpha\}_{\alpha\in A}$ a family of $R-$modules and $\{f_{\alpha\beta}\}_{\alpha\leq\beta}$ a family of homomorphisms $f_{\alpha\beta}:M_\alpha\rightarrow M_\beta$ satisfying $f_{\alpha\alpha}=\mathds{1}_{M_\alpha}\;\forall\alpha\in A$ and $f_{\alpha\gamma}=f_{\beta\gamma}\circ f_{\alpha\beta}$ for $\alpha\leq\beta\leq\gamma$. Then we say that the pair $(\{M_{\alpha\beta}\},\{f_{\alpha\beta}\})$ is a \textit{directed system}. The direct limit of a directed system $\{(M_{\alpha\beta}\},\{f_{\alpha\beta}\})$ is defined to be the module
+    Let $(A, \leq)$ be a partially ordered set, $\{M_\alpha\}_{\alpha\in A}$ a family of $R-$modules 
+    and $\{f_{\alpha\beta}\}_{\alpha\leq\beta}$ a family of homomorphisms $f_{\alpha\beta}:M_\alpha\rightarrow M_\beta$ 
+    satisfying $f_{\alpha\alpha}=\mathds{1}_{M_\alpha}\;\forall\alpha\in A$ 
+    and $f_{\alpha\gamma}=f_{\beta\gamma}\circ f_{\alpha\beta}$ for $\alpha\leq\beta\leq\gamma$. 
+    Then we say that the pair $(\{M_{\alpha}\}_{\alpha\in A},\{f_{\alpha\beta}\})$ 
+    is a \textit{directed system}. The direct limit of a directed system 
+    $\{(M_{\alpha}\}_{\alpha\in A},\{f_{\alpha\beta}\})$ is defined to be the module
     \begin{equation}
         \varinjlim M_\alpha = \bigcup_{\alpha\in A}M_\alpha\bigg/\sim
     \end{equation}
     where $m_\alpha\in M_\alpha\sim m_\beta\in M_\beta$ if there exists $\gamma\geq \alpha,\beta$ such that $f_{\alpha\gamma}(m_\alpha)=f_{\beta\gamma}(m_\beta)$. 
     \end{definition}
 \end{dang}
-Now, suppose that for any $\alpha,\beta \in A$ there exists $\gamma\geq\alpha,\beta$. Then, we define the sum
+Let $\alpha,\beta \in A$ and take $\gamma\geq\alpha,\beta$. Then, we define the sum
 \begin{equation}
     [m_\alpha]+[m_\beta]=[f_{\alpha\gamma}(m_\alpha)+f_{\beta\gamma}(m_\beta)]
 \end{equation}
-for any $\gamma\geq\alpha,\beta$ (which is well defined). Moreover, the $R-$action on $\varinjlim M_\alpha$ is defined as $r[m_\alpha]=[rm_\alpha]$.
-
+Moreover, the $R-$action on $\varinjlim M_\alpha$ is defined as $r[m_\alpha]=[rm_\alpha]$. All these operations are 
+clearly well defined.
 
 \subsection{Tensor product of modules}
 The main purpose of this subsection is to construct the tensor product modules. 
