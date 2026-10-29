@@ -1094,7 +1094,13 @@ Now we will show that finite $R-$modules over discrete valuation rings have fini
     Then there exists a prime ideal $P\subset R$ of the form $P=\text{Ann}_R(u)$ for some $u\in M$.
     \end{lemma}
 \end{dang}
-Proof: Let $\mathcal{P}=\{\text{Ann}_R(u)\;|\;u\in M-\{0\}\}$. Since $R$ is noetherian, $\mathcal{P}$ has a maximal element $P=\text{Ann}_R(u)$, i.e., does not exist $Q\in\mathcal{P}$ such that $Q\supset P,Q\neq P$. Note that $u\neq0\Rightarrow P\neq M$ (for example $1\notin P$). Now, $b\notin P\Rightarrow bu\neq0$ and $\text{Ann}_R(bu)\in\mathcal{P}$. But $\text{Ann}_R(u)\subset \text{Ann}_R(bu)\Rightarrow \text{Ann}_R(u)=\text{Ann}_R(bu)=P$ by maximality. So, if $ab\in P\Rightarrow abu=a(bu)=0$. Therefore $a\in \text{Ann}_R(bu)=P$. This shows that $P$ is prime. 
+Proof: Let $\mathcal{P}=\{\text{Ann}_R(u)\;|\;u\in M-\{0\}\}$. Since $R$ is noetherian, 
+$\mathcal{P}$ has a maximal element $P=\text{Ann}_R(u)$, i.e., does not exist $Q\in\mathcal{P}$ 
+such that $Q\supset P,Q\neq P$. Note that $u\neq0\Rightarrow P\neq R$, because $1\notin P$. 
+Now, $b\notin P\Rightarrow bu\neq0$ and $\text{Ann}_R(bu)\in\mathcal{P}$. 
+But $\text{Ann}_R(u)\subset \text{Ann}_R(bu)\Rightarrow \text{Ann}_R(u)=\text{Ann}_R(bu)=P$ 
+by maximality. So, if $ab\in P\Rightarrow abu=a(bu)=0$. Therefore $a\in \text{Ann}_R(bu)=P$. 
+This shows that $P$ is prime. 
 \begin{dang}
     \begin{lemma}\label{existence_of_submodule_such_that_the_quotient_is_simple}
     Let $M\neq0$, then there exists $M_1\subset M$ such that $M_1\cong R/P_1$ for some prime ideal $P_1$.
